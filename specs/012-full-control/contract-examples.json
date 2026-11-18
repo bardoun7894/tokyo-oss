@@ -1,0 +1,673 @@
+{
+  "version": 1,
+  "note": "Spec 004 contract examples for P1..P6, G1..G4, S1, S2, the X16 kinds, error codes and push payloads. All values are fake. Base path /control/api/v1. Coverage total written by T0.6 (A0.1 verdict pending (Z0)).",
+  "coverage": {
+    "existing": 41,
+    "P": 6,
+    "G": 4,
+    "S": 2,
+    "L0": 1,
+    "K": 36,
+    "life": 99,
+    "total": 189,
+    "a01Verdict": "A0.1 verdict pending (Z0)"
+  },
+  "routes": [
+    {
+      "id": "P1",
+      "method": "PUT",
+      "path": "/devices/me/push",
+      "cap": "me",
+      "request": {
+        "endpoint": "https://ntfy.203-0-113-10.sslip.io/upAb12Cd34Ef56Gh",
+        "keys": {
+          "p256dh": "BFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFake1",
+          "auth": "FakeFakeFakeFake12345"
+        }
+      },
+      "response": {
+        "ok": true,
+        "baseUrl": "https://ntfy.203-0-113-10.sslip.io",
+        "topicHint": "56Gh"
+      },
+      "errors": [
+        "bad_request"
+      ]
+    },
+    {
+      "id": "P2",
+      "method": "DELETE",
+      "path": "/devices/me/push",
+      "cap": "me",
+      "request": {},
+      "response": {
+        "ok": true
+      },
+      "errors": []
+    },
+    {
+      "id": "P3",
+      "method": "GET",
+      "path": "/devices/me/notify",
+      "cap": "me",
+      "request": {},
+      "response": {
+        "approvals": true,
+        "runs": true,
+        "deploys": true,
+        "reminders": false,
+        "incidents": "critical"
+      },
+      "errors": []
+    },
+    {
+      "id": "P4",
+      "method": "PUT",
+      "path": "/devices/me/notify",
+      "cap": "me",
+      "request": {
+        "approvals": true,
+        "runs": false,
+        "deploys": true,
+        "reminders": true,
+        "incidents": "warning"
+      },
+      "response": {
+        "approvals": true,
+        "runs": false,
+        "deploys": true,
+        "reminders": true,
+        "incidents": "warning"
+      },
+      "errors": [
+        "bad_request"
+      ]
+    },
+    {
+      "id": "P5",
+      "method": "POST",
+      "path": "/devices/me/push/test",
+      "cap": "me",
+      "request": {},
+      "response": {
+        "ok": true,
+        "queuedAt": "2026-10-17T12:00:00.000Z"
+      },
+      "errors": [
+        "not_registered",
+        "rate_limited"
+      ]
+    },
+    {
+      "id": "P6",
+      "method": "GET",
+      "path": "/devices/me/push",
+      "cap": "me",
+      "request": {},
+      "response": {
+        "registered": true,
+        "baseUrl": "https://ntfy.203-0-113-10.sslip.io",
+        "lastSentAt": "2026-10-17T11:58:00.000Z",
+        "lastError": null,
+        "encrypted": false
+      },
+      "errors": []
+    },
+    {
+      "id": "X16",
+      "method": "POST",
+      "path": "/ops/actions/:actionId/confirm",
+      "cap": "kind",
+      "request": {},
+      "headers": {
+        "Idempotency-Key": "k-0001-restart-nginx"
+      },
+      "response": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "ok": true,
+        "state": "active",
+        "label": "Nginx"
+      },
+      "kinds": {
+        "restart": {
+          "cap": "ops:service",
+          "response": {
+            "fetchedAt": "2026-10-17T12:00:00.000Z",
+            "reachable": true,
+            "ok": true,
+            "state": "active",
+            "label": "Nginx"
+          }
+        },
+        "agent_run": {
+          "cap": "agents:start",
+          "response": {
+            "runId": "1a2b3c4d",
+            "state": "queued"
+          }
+        },
+        "agent_prompt": {
+          "cap": "agents:start",
+          "response": {
+            "ok": true
+          }
+        },
+        "terminal_kill": {
+          "cap": "ops:service",
+          "response": {
+            "ok": true
+          }
+        },
+        "gh_graph_run": {
+          "cap": "ops:run",
+          "response": {
+            "ok": true,
+            "runId": "5e6f7a8b"
+          }
+        },
+        "gh_trigger_fire": {
+          "cap": "ops:run",
+          "response": {
+            "ok": true
+          }
+        },
+        "gh_factory_run": {
+          "cap": "ops:run",
+          "response": {
+            "ok": true,
+            "runId": "9c0d1e2f"
+          }
+        }
+      },
+      "errors": [
+        "conflict",
+        "rate_limited",
+        "not_found",
+        "forbidden"
+      ]
+    },
+    {
+      "id": "G1",
+      "method": "GET",
+      "path": "/agents/targets",
+      "cap": "agents:start",
+      "request": {},
+      "response": {
+        "projects": [
+          {
+            "name": "demo-site",
+            "host": "server",
+            "variants": [
+              "kb-dev",
+              "tech-company"
+            ]
+          },
+          {
+            "name": "demo-app",
+            "host": "mac",
+            "macOnline": true,
+            "variants": [
+              "kb-dev",
+              "tech-company"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "G2",
+      "method": "POST",
+      "path": "/agents/runs",
+      "cap": "agents:start",
+      "request": {
+        "project": "demo-site",
+        "prompt": "Fix the footer link on the pricing page",
+        "variant": "kb-dev"
+      },
+      "response": {
+        "actionId": "act_0123456789ab",
+        "project": "demo-site",
+        "host": "server",
+        "queued": false,
+        "expiresAt": "2026-10-17T12:02:00.000Z"
+      },
+      "errors": [
+        "bad_request",
+        "not_found",
+        "conflict"
+      ]
+    },
+    {
+      "id": "G3",
+      "method": "GET",
+      "path": "/agents/live",
+      "cap": "agents:start",
+      "request": {},
+      "response": {
+        "agents": [
+          {
+            "id": "g_0123456789ab",
+            "label": "worker-1",
+            "project": "demo-site",
+            "status": "working",
+            "lastAt": "2026-10-17T11:59:00.000Z"
+          },
+          {
+            "id": "g_ba9876543210",
+            "label": "worker-2",
+            "status": "idle",
+            "lastAt": "2026-10-17T11:40:00.000Z"
+          }
+        ],
+        "reachable": true
+      },
+      "errors": []
+    },
+    {
+      "id": "G4",
+      "method": "POST",
+      "path": "/agents/live/:id/prompt",
+      "cap": "agents:start",
+      "request": {
+        "text": "Continue with the failing test"
+      },
+      "response": {
+        "actionId": "act_ba9876543210",
+        "label": "worker-1",
+        "expiresAt": "2026-10-17T12:02:00.000Z"
+      },
+      "errors": [
+        "bad_request",
+        "not_found",
+        "unavailable"
+      ]
+    },
+    {
+      "id": "S1",
+      "method": "GET",
+      "path": "/ops/services",
+      "cap": "ops:read",
+      "query": {
+        "kind": "systemd",
+        "state": "active"
+      },
+      "request": {},
+      "response": {
+        "services": [
+          {
+            "id": "nginx",
+            "kind": "systemd",
+            "label": "Nginx",
+            "state": "active",
+            "cooldownLeftS": 0,
+            "actions": [
+              "restart"
+            ]
+          },
+          {
+            "id": "ntfy",
+            "kind": "docker",
+            "label": "Push server",
+            "state": "inactive",
+            "cooldownLeftS": 45
+          }
+        ],
+        "fetchedAt": "2026-10-17T12:00:00.000Z"
+      },
+      "errors": [
+        "bad_request"
+      ]
+    },
+    {
+      "id": "S2",
+      "method": "POST",
+      "path": "/ops/services/:id/restart",
+      "cap": "ops:service",
+      "request": {},
+      "response": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "actionId": "act_0a1b2c3d4e5f",
+        "kind": "systemd",
+        "label": "Nginx",
+        "expiresAt": "2026-10-17T12:02:00.000Z"
+      },
+      "errors": [
+        "not_found",
+        "unavailable"
+      ]
+    },
+    {
+      "id": "L0",
+      "method": "GET",
+      "path": "/life/manifest",
+      "cap": "life:read",
+      "request": {},
+      "response": {
+        "sections": [
+          {
+            "id": "today",
+            "actions": []
+          },
+          {
+            "id": "tasks",
+            "actions": [
+              "L42",
+              "L43",
+              "L44",
+              "L45",
+              "L46",
+              "L47",
+              "L48",
+              "L49",
+              "L50"
+            ]
+          },
+          {
+            "id": "habits",
+            "actions": [
+              "L51",
+              "L52",
+              "L53"
+            ]
+          },
+          {
+            "id": "goals",
+            "actions": [
+              "L54",
+              "L55",
+              "L56"
+            ]
+          },
+          {
+            "id": "schedule",
+            "actions": []
+          },
+          {
+            "id": "journal",
+            "actions": [
+              "L68"
+            ]
+          },
+          {
+            "id": "deen",
+            "actions": [
+              "L66",
+              "L67"
+            ]
+          },
+          {
+            "id": "work",
+            "actions": [
+              "L57",
+              "L58",
+              "L59"
+            ]
+          },
+          {
+            "id": "money",
+            "actions": [
+              "L60",
+              "L61",
+              "L62",
+              "L63",
+              "L64",
+              "L65"
+            ]
+          },
+          {
+            "id": "finance",
+            "actions": []
+          },
+          {
+            "id": "trends",
+            "actions": []
+          },
+          {
+            "id": "shop",
+            "actions": []
+          },
+          {
+            "id": "products",
+            "actions": [
+              "L69",
+              "L70",
+              "L71",
+              "L72"
+            ]
+          },
+          {
+            "id": "content",
+            "actions": [
+              "L75",
+              "L76",
+              "L77",
+              "L78",
+              "L79",
+              "L81",
+              "L82",
+              "L83",
+              "L84",
+              "L85"
+            ]
+          },
+          {
+            "id": "instagram",
+            "actions": [
+              "L87",
+              "L88",
+              "L89",
+              "L90",
+              "L91",
+              "L92"
+            ]
+          },
+          {
+            "id": "repos",
+            "actions": [
+              "L73",
+              "L74"
+            ]
+          },
+          {
+            "id": "whatsapp",
+            "actions": [
+              "L93"
+            ]
+          },
+          {
+            "id": "chat",
+            "actions": []
+          },
+          {
+            "id": "analytics",
+            "actions": [
+              "L94"
+            ]
+          },
+          {
+            "id": "transcripts",
+            "actions": [
+              "L95"
+            ]
+          },
+          {
+            "id": "media",
+            "actions": [
+              "L86"
+            ]
+          },
+          {
+            "id": "server",
+            "actions": []
+          },
+          {
+            "id": "settings",
+            "actions": [
+              "L97",
+              "L98",
+              "L99"
+            ]
+          }
+        ],
+        "uploads": false
+      },
+      "errors": [
+        "forbidden"
+      ]
+    }
+  ],
+  "errors": {
+    "unauthorized": {
+      "status": 401,
+      "body": {
+        "error": {
+          "code": "unauthorized",
+          "message": "Unauthorized"
+        }
+      }
+    },
+    "bad_request": {
+      "status": 400,
+      "body": {
+        "error": {
+          "code": "bad_request",
+          "message": "prompt must be 1 to 4000 characters"
+        }
+      }
+    },
+    "not_found": {
+      "status": 404,
+      "body": {
+        "error": {
+          "code": "not_found",
+          "message": "No such project"
+        }
+      }
+    },
+    "conflict": {
+      "status": 409,
+      "body": {
+        "error": {
+          "code": "conflict",
+          "message": "This action was already used"
+        }
+      }
+    },
+    "report_only": {
+      "status": 403,
+      "body": {
+        "error": {
+          "code": "report_only",
+          "message": "This project is report only"
+        }
+      }
+    },
+    "rate_limited": {
+      "status": 429,
+      "headers": {
+        "Retry-After": "30"
+      },
+      "body": {
+        "error": {
+          "code": "rate_limited",
+          "message": "Too many requests; try again later"
+        }
+      }
+    },
+    "unavailable": {
+      "status": 503,
+      "body": {
+        "error": {
+          "code": "unavailable",
+          "message": "GodHome is not reachable"
+        }
+      }
+    },
+    "forbidden": {
+      "status": 403,
+      "body": {
+        "error": {
+          "code": "forbidden",
+          "message": "Device lacks agents:start"
+        }
+      }
+    },
+    "not_registered": {
+      "status": 409,
+      "body": {
+        "error": {
+          "code": "not_registered",
+          "message": "This device has no push registration"
+        }
+      }
+    }
+  },
+  "errorsExtra": {
+    "G2.duplicate": {
+      "status": 409,
+      "body": {
+        "error": {
+          "code": "conflict",
+          "message": "This run is already queued"
+        },
+        "runId": "1a2b3c4d"
+      }
+    }
+  },
+  "pushPayloads": {
+    "approval.new": {
+      "v": 1,
+      "t": "approval.new",
+      "id": "3fa9c1d2",
+      "p": "demo-site",
+      "title": "Approval needed: demo-site"
+    },
+    "deploy.result": {
+      "v": 1,
+      "t": "deploy.result",
+      "id": "3fa9c1d2",
+      "p": "demo-site",
+      "o": "succeeded",
+      "title": "Deploy succeeded: demo-site"
+    },
+    "run.finished": {
+      "v": 1,
+      "t": "run.finished",
+      "id": "1a2b3c4d",
+      "p": "demo-site",
+      "o": "succeeded",
+      "title": "Run finished: demo-site"
+    },
+    "run.failed": {
+      "v": 1,
+      "t": "run.failed",
+      "id": "5e6f7a8b",
+      "p": "demo-app",
+      "o": "failed",
+      "title": "Run failed: demo-app"
+    },
+    "incident.new": {
+      "v": 1,
+      "t": "incident.new",
+      "id": "i_a1b2c3d4e5f6",
+      "s": "critical",
+      "title": "Incident: disk almost full"
+    },
+    "reminder": {
+      "v": 1,
+      "t": "reminder",
+      "id": "r_f0e1d2c3b4a5",
+      "p": "deen",
+      "title": "Reminder: Fajr prayer"
+    },
+    "test": {
+      "v": 1,
+      "t": "test",
+      "id": "1",
+      "title": "Test notification"
+    }
+  }
+}

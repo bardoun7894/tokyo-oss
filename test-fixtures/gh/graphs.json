@@ -1,0 +1,37 @@
+{
+  "id": "graphs",
+  "k": "K18",
+  "method": "GET",
+  "path": "/graphs",
+  "status": 200,
+  "body": {
+    "scope": "global",
+    "root": "...fake-path",
+    "graphs": [
+      {
+        "name": "Sample n",
+        "description": "Sample description 16",
+        "nodes": 3,
+        "edges": 2,
+        "loops": 2,
+        "valid": true
+      },
+      {
+        "name": "Sample nam",
+        "description": "Sample description 59",
+        "nodes": 6,
+        "edges": 8,
+        "loops": 1,
+        "valid": true
+      },
+      {
+        "name": "Sample name",
+        "description": "Sample description 37",
+        "nodes": 4,
+        "edges": 10,
+        "loops": 3,
+        "valid": true
+      }
+    ]
+  }
+}

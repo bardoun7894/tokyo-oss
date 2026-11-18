@@ -1,0 +1,41 @@
+{
+  "id": "L37",
+  "method": "GET",
+  "path": "/transcripts/pending",
+  "query": null,
+  "status": 200,
+  "body": {
+    "items": [
+      {
+        "id": 90110,
+        "jid": "15550107276@lid",
+        "sender_name": "Sample sendername",
+        "from_me": 1,
+        "is_group": 0,
+        "timestamp": 1792239951,
+        "media_path": "whatsapp-media/sample-5975.ogg"
+      },
+      {
+        "id": 90109,
+        "jid": "15550107276@lid",
+        "sender_name": "Sample sendername",
+        "from_me": 1,
+        "is_group": 0,
+        "timestamp": 1792239927,
+        "media_path": "whatsapp-media/sample-8367.ogg"
+      },
+      {
+        "id": 90108,
+        "jid": "15550107276@lid",
+        "sender_name": "Sample sendername",
+        "from_me": 1,
+        "is_group": 0,
+        "timestamp": 1792239913,
+        "media_path": "whatsapp-media/sample-4871.ogg"
+      }
+    ],
+    "total": 2145,
+    "limit": 25,
+    "offset": 0
+  }
+}

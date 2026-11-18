@@ -1,0 +1,177 @@
+{
+  "id": "models",
+  "k": "K31",
+  "method": "GET",
+  "path": "/models",
+  "status": 200,
+  "body": {
+    "yours": [
+      {
+        "keyEnv": "Sample keyEnv 41",
+        "keyMissing": false,
+        "id": "Sample id 21",
+        "provider": "proxy",
+        "model": "claude-3-5-haiku-20241022",
+        "name": "Sample name 40",
+        "context": 321608,
+        "reasoning": true,
+        "sources": [
+          "Sample sour",
+          "Sample source"
+        ],
+        "enabled": true,
+        "free": false,
+        "providerKnown": true
+      },
+      {
+        "keyEnv": "Sample keyEnv 41",
+        "keyMissing": false,
+        "id": "Sample id 59",
+        "provider": "proxy",
+        "model": "claude-3-7-sonnet-20250219",
+        "name": "Sample name 70",
+        "context": 321608,
+        "reasoning": true,
+        "sources": [
+          "Sample sour",
+          "Sample source"
+        ],
+        "enabled": true,
+        "free": false,
+        "providerKnown": true
+      },
+      {
+        "keyEnv": "Sample keyEnv 41",
+        "keyMissing": false,
+        "id": "Sample id 8",
+        "provider": "proxy",
+        "model": "claude-fable-5",
+        "name": "Sample name 42",
+        "context": 321608,
+        "reasoning": true,
+        "sources": [
+          "Sample sour",
+          "Sample source"
+        ],
+        "enabled": true,
+        "free": false,
+        "providerKnown": true
+      }
+    ],
+    "free": [
+      {
+        "id": "Sample id 82",
+        "provider": "commandcode",
+        "model": "Sample model 44",
+        "sources": [
+          "Sample s"
+        ],
+        "enabled": false,
+        "free": true,
+        "providerKnown": true
+      },
+      {
+        "id": "Sample id 3",
+        "provider": "commandcode",
+        "model": "Sample model 87",
+        "name": "Sample name 27",
+        "context": 200307,
+        "reasoning": false,
+        "sources": [
+          "Sample sources 4"
+        ],
+        "enabled": false,
+        "free": true,
+        "providerKnown": true
+      },
+      {
+        "id": "Sample id 57",
+        "provider": "kimi-coding",
+        "model": "k3-256k",
+        "name": "Sample name ",
+        "context": 185475,
+        "reasoning": true,
+        "cost": {
+          "input": 0,
+          "output": 0
+        },
+        "sources": [
+          "Sample sources 4"
+        ],
+        "enabled": false,
+        "free": true,
+        "providerKnown": true
+      }
+    ],
+    "paid": [
+      {
+        "id": "Sample id 33",
+        "provider": "anthropic",
+        "model": "claude-fable-5",
+        "name": "Sample name 35",
+        "context": 2292211,
+        "reasoning": true,
+        "cost": {
+          "input": 94,
+          "output": 86
+        },
+        "sources": [
+          "Sample sources 4"
+        ],
+        "enabled": false,
+        "free": false,
+        "providerKnown": true
+      },
+      {
+        "id": "Sample id 89",
+        "provider": "anthropic",
+        "model": "claude-fable-5-1",
+        "name": "Sample name 97",
+        "context": 2292211,
+        "reasoning": true,
+        "cost": {
+          "input": 94,
+          "output": 86
+        },
+        "sources": [
+          "Sample sources 4"
+        ],
+        "enabled": false,
+        "free": false,
+        "providerKnown": true
+      },
+      {
+        "id": "Sample id 76",
+        "provider": "anthropic",
+        "model": "claude-haiku-4-5",
+        "name": "Sample name 64",
+        "context": 321608,
+        "reasoning": true,
+        "cost": {
+          "input": 1,
+          "output": 5
+        },
+        "sources": [
+          "Sample sources 4"
+        ],
+        "enabled": false,
+        "free": false,
+        "providerKnown": true
+      }
+    ],
+    "counts": {
+      "total": 873,
+      "yours": 99,
+      "free": 91,
+      "paid": 690
+    },
+    "sources": {
+      "enabledModels": 11,
+      "key534": 96,
+      "key204": 944,
+      "opencode": 313,
+      "gateway": 36
+    },
+    "at": "2026-10-17T13:06:29.836Z"
+  }
+}

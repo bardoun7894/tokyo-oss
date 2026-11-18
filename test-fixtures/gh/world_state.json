@@ -1,0 +1,832 @@
+{
+  "id": "world_state",
+  "k": "K9",
+  "method": "GET",
+  "path": "/world/state",
+  "status": 200,
+  "body": {
+    "generated": "2026-10-17T13:05:02.054Z",
+    "hosts": [
+      {
+        "id": "Sample id",
+        "name": "Sample na",
+        "up": true
+      },
+      {
+        "id": "Sam",
+        "name": "Sam",
+        "up": true
+      }
+    ],
+    "projects": [
+      {
+        "slug": "Sample",
+        "host": "Sam",
+        "kind": "repo",
+        "status": "up",
+        "url": "",
+        "last_event_ts": "2026-10-07T11:57:08.394Z",
+        "counts": {
+          "done": 0,
+          "pending": 0,
+          "failed": 2
+        },
+        "xp": 0,
+        "kinds": {
+          "worker": 2
+        },
+        "work_30d": 0,
+        "by_host": {
+          "mac": {
+            "last_event_ts": "2026-10-07T11:57:08.394Z",
+            "counts": {
+              "done": 0,
+              "pending": 0,
+              "failed": 2
+            },
+            "kinds": {
+              "worker": 2
+            },
+            "work_30d": 0
+          }
+        }
+      },
+      {
+        "slug": "Sample slu",
+        "host": "Sam",
+        "kind": "repo",
+        "status": "up",
+        "url": "",
+        "last_event_ts": "2026-10-09T19:30:18.730Z",
+        "counts": {
+          "done": 2,
+          "pending": 0,
+          "failed": 0
+        },
+        "xp": 2,
+        "kinds": {
+          "worker": 2
+        },
+        "work_30d": 2,
+        "by_host": {
+          "mac": {
+            "last_event_ts": "2026-10-09T19:30:18.730Z",
+            "counts": {
+              "done": 2,
+              "pending": 0,
+              "failed": 0
+            },
+            "kinds": {
+              "worker": 2
+            },
+            "work_30d": 2
+          }
+        }
+      },
+      {
+        "slug": "Sample sl",
+        "host": "Sam",
+        "kind": "repo",
+        "status": "up",
+        "url": "",
+        "last_event_ts": "2026-10-09T19:28:42.236Z",
+        "counts": {
+          "done": 1,
+          "pending": 0,
+          "failed": 0
+        },
+        "xp": 1,
+        "kinds": {
+          "worker": 1
+        },
+        "work_30d": 1,
+        "by_host": {
+          "mac": {
+            "last_event_ts": "2026-10-09T19:28:42.236Z",
+            "counts": {
+              "done": 1,
+              "pending": 0,
+              "failed": 0
+            },
+            "kinds": {
+              "worker": 1
+            },
+            "work_30d": 1
+          }
+        }
+      }
+    ],
+    "workers": [
+      {
+        "id": "Sampl",
+        "label": "Sampl",
+        "model": "",
+        "project": "Sample",
+        "status": "running",
+        "started": "2026-10-17T12:50:27.016Z"
+      },
+      {
+        "id": "Sample ",
+        "label": "Sample labe",
+        "model": "",
+        "project": "Sampl",
+        "status": "running",
+        "started": "2026-10-17T11:53:08.000Z",
+        "host": "Sam",
+        "source": "herdr"
+      },
+      {
+        "id": "Sample ",
+        "label": "Sample label 2",
+        "model": "",
+        "project": "Sampl",
+        "status": "running",
+        "started": "2026-10-17T11:53:08.000Z",
+        "host": "Sam",
+        "source": "herdr"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Sample",
+        "host": "Sample ho",
+        "last_seen": "2026-10-17T13:05:02.054Z",
+        "status": "up"
+      },
+      {
+        "name": "Sample name 67",
+        "host": "Sam",
+        "last_seen": "2026-10-17T12:59:28.000Z",
+        "status": "up"
+      },
+      {
+        "name": "Sample",
+        "host": "Sample ho",
+        "last_seen": "2026-10-17T13:05:02.054Z",
+        "status": "up"
+      }
+    ],
+    "needs_you": [
+      {
+        "title": "Sample title 43",
+        "project": "Sample",
+        "url": "",
+        "since": "2026-10-17T13:00:20.000Z"
+      }
+    ],
+    "life": {
+      "days": {
+        "2026-07-19": {
+          "whatsapp_in": 110,
+          "whatsapp_out": 112
+        },
+        "2026-07-20": {
+          "whatsapp_in": 759,
+          "whatsapp_out": 78,
+          "habits_done": 1
+        },
+        "2026-07-21": {
+          "whatsapp_in": 592,
+          "whatsapp_out": 11
+        },
+        "2026-07-22": {
+          "whatsapp_in": 758,
+          "whatsapp_out": 36
+        },
+        "2026-07-23": {
+          "whatsapp_in": 314,
+          "whatsapp_out": 114
+        },
+        "2026-07-24": {
+          "whatsapp_in": 289,
+          "whatsapp_out": 93
+        },
+        "2026-07-25": {
+          "whatsapp_in": 109,
+          "whatsapp_out": 900,
+          "promises_made": 1,
+          "income": 1
+        },
+        "2026-07-26": {
+          "whatsapp_in": 570,
+          "whatsapp_out": 18,
+          "promises_made": 1,
+          "income": 1
+        },
+        "2026-07-27": {
+          "whatsapp_in": 101,
+          "whatsapp_out": 683,
+          "promises_made": 9,
+          "income": 2
+        },
+        "2026-07-28": {
+          "whatsapp_in": 637,
+          "whatsapp_out": 83
+        },
+        "2026-07-29": {
+          "whatsapp_in": 316,
+          "whatsapp_out": 112
+        },
+        "2026-07-30": {
+          "whatsapp_in": 114,
+          "whatsapp_out": 73
+        },
+        "2026-07-31": {
+          "whatsapp_in": 39,
+          "whatsapp_out": 10
+        },
+        "2026-08-01": {
+          "whatsapp_in": 10,
+          "whatsapp_out": 83
+        },
+        "2026-08-02": {
+          "whatsapp_in": 70,
+          "whatsapp_out": 56
+        },
+        "2026-08-03": {
+          "whatsapp_in": 452,
+          "whatsapp_out": 114,
+          "promises_made": 5,
+          "income": 1
+        },
+        "2026-08-04": {
+          "whatsapp_in": 797,
+          "whatsapp_out": 13
+        },
+        "2026-08-05": {
+          "whatsapp_in": 995,
+          "whatsapp_out": 823,
+          "obligation_payments": 2
+        },
+        "2026-08-06": {
+          "whatsapp_in": 854,
+          "whatsapp_out": 22,
+          "obligation_payments": 2
+        },
+        "2026-08-07": {
+          "whatsapp_in": 98,
+          "whatsapp_out": 11
+        },
+        "2026-08-08": {
+          "whatsapp_in": 161,
+          "whatsapp_out": 78
+        },
+        "2026-08-09": {
+          "whatsapp_in": 742,
+          "whatsapp_out": 55,
+          "promises_made": 1
+        },
+        "2026-08-10": {
+          "whatsapp_in": 962,
+          "whatsapp_out": 480
+        },
+        "2026-08-11": {
+          "whatsapp_in": 83,
+          "whatsapp_out": 91
+        },
+        "2026-08-12": {
+          "whatsapp_in": 550,
+          "whatsapp_out": 67
+        },
+        "2026-08-13": {
+          "whatsapp_in": 11,
+          "whatsapp_out": 45
+        },
+        "2026-08-14": {
+          "whatsapp_in": 51,
+          "whatsapp_out": 73,
+          "promises_made": 4
+        },
+        "2026-08-15": {
+          "whatsapp_in": 818,
+          "whatsapp_out": 78,
+          "promises_made": 2
+        },
+        "2026-08-16": {
+          "whatsapp_in": 119,
+          "whatsapp_out": 32,
+          "promises_made": 1
+        },
+        "2026-08-17": {
+          "whatsapp_in": 674,
+          "whatsapp_out": 655,
+          "promises_made": 1
+        },
+        "2026-08-18": {
+          "whatsapp_in": 329,
+          "whatsapp_out": 11,
+          "promises_made": 2,
+          "income": 1,
+          "social_jobs": 1
+        },
+        "2026-08-19": {
+          "whatsapp_in": 245,
+          "whatsapp_out": 103,
+          "promises_made": 2,
+          "social_jobs": 2
+        },
+        "2026-08-20": {
+          "whatsapp_in": 6270,
+          "whatsapp_out": 552
+        },
+        "2026-08-21": {
+          "whatsapp_in": 130,
+          "whatsapp_out": 980
+        },
+        "2026-08-22": {
+          "whatsapp_in": 186,
+          "whatsapp_out": 967,
+          "promises_made": 2,
+          "shop_items": 80
+        },
+        "2026-08-23": {
+          "whatsapp_in": 131,
+          "whatsapp_out": 772,
+          "promises_made": 2,
+          "shop_items": 76
+        },
+        "2026-08-24": {
+          "whatsapp_in": 2909,
+          "whatsapp_out": 1361,
+          "shop_items": 76,
+          "obligation_payments": 1
+        },
+        "2026-08-25": {
+          "whatsapp_in": 212,
+          "whatsapp_out": 614,
+          "shop_items": 6,
+          "social_jobs": 1
+        },
+        "2026-08-26": {
+          "whatsapp_in": 111,
+          "whatsapp_out": 107
+        },
+        "2026-08-27": {
+          "whatsapp_in": 936,
+          "whatsapp_out": 105,
+          "promises_made": 2,
+          "shop_sales": 1,
+          "shop_total": 534,
+          "shop_items": 76,
+          "obligation_payments": 1
+        },
+        "2026-08-28": {
+          "whatsapp_in": 1131,
+          "whatsapp_out": 368,
+          "shop_sales": 1,
+          "shop_total": 69,
+          "shop_items": 9
+        },
+        "2026-08-29": {
+          "whatsapp_in": 774,
+          "whatsapp_out": 795,
+          "shop_sales": 1,
+          "shop_total": 24,
+          "shop_items": 12
+        },
+        "2026-08-30": {
+          "whatsapp_in": 983,
+          "whatsapp_out": 635,
+          "shop_sales": 1,
+          "shop_total": 42,
+          "shop_items": 8,
+          "news_posts": 1
+        },
+        "2026-08-31": {
+          "whatsapp_in": 5155,
+          "whatsapp_out": 147,
+          "promises_made": 1,
+          "shop_sales": 1,
+          "shop_total": 102,
+          "shop_items": 17,
+          "news_posts": 1
+        },
+        "2026-09-01": {
+          "whatsapp_in": 110,
+          "whatsapp_out": 712,
+          "shop_items": 7,
+          "news_posts": 1
+        },
+        "2026-09-02": {
+          "whatsapp_in": 534,
+          "whatsapp_out": 783,
+          "income": 1,
+          "news_posts": 1
+        },
+        "2026-09-03": {
+          "whatsapp_in": 306,
+          "whatsapp_out": 499,
+          "promises_made": 2,
+          "shop_items": 2,
+          "news_posts": 1
+        },
+        "2026-09-04": {
+          "news_posts": 1
+        },
+        "2026-09-05": {
+          "news_posts": 1
+        },
+        "2026-09-06": {
+          "whatsapp_in": 966,
+          "whatsapp_out": 575,
+          "promises_made": 1,
+          "income": 1,
+          "news_posts": 1
+        },
+        "2026-09-07": {
+          "whatsapp_in": 560,
+          "whatsapp_out": 235,
+          "obligation_payments": 1,
+          "news_posts": 1
+        },
+        "2026-09-08": {
+          "whatsapp_in": 1045,
+          "whatsapp_out": 8066,
+          "promises_made": 1
+        },
+        "2026-09-09": {
+          "whatsapp_in": 518,
+          "whatsapp_out": 857,
+          "promises_made": 2,
+          "shop_sales": 1,
+          "shop_total": 56,
+          "shop_items": 7
+        },
+        "2026-09-10": {
+          "whatsapp_in": 774,
+          "whatsapp_out": 273,
+          "promises_made": 3,
+          "shop_sales": 1,
+          "shop_total": 38,
+          "shop_items": 4
+        },
+        "2026-09-11": {
+          "whatsapp_in": 181,
+          "whatsapp_out": 953,
+          "promises_made": 1,
+          "shop_items": 6
+        },
+        "2026-09-12": {
+          "whatsapp_in": 761,
+          "whatsapp_out": 948
+        },
+        "2026-09-13": {
+          "whatsapp_in": 195,
+          "whatsapp_out": 648,
+          "shop_sales": 1,
+          "shop_total": 76,
+          "shop_items": 8
+        },
+        "2026-09-14": {
+          "whatsapp_in": 832,
+          "whatsapp_out": 521,
+          "shop_sales": 1,
+          "shop_total": 39,
+          "shop_items": 5
+        },
+        "2026-09-15": {
+          "whatsapp_in": 737,
+          "whatsapp_out": 682,
+          "coaching": 6,
+          "promises_made": 38,
+          "income": 2,
+          "shop_sales": 1,
+          "shop_total": 86,
+          "shop_items": 2
+        },
+        "2026-09-16": {
+          "whatsapp_in": 498,
+          "whatsapp_out": 812,
+          "promises_made": 3,
+          "shop_sales": 1,
+          "shop_total": 25,
+          "shop_items": 9
+        },
+        "2026-09-17": {
+          "whatsapp_in": 458,
+          "whatsapp_out": 418,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 22,
+          "shop_items": 3
+        },
+        "2026-09-18": {
+          "whatsapp_in": 888,
+          "whatsapp_out": 356,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 24,
+          "shop_items": 6,
+          "obligation_payments": 2
+        },
+        "2026-09-19": {
+          "whatsapp_in": 813,
+          "whatsapp_out": 490,
+          "coaching": 4,
+          "habits_done": 1,
+          "shop_sales": 1,
+          "shop_total": 30,
+          "shop_items": 4
+        },
+        "2026-09-20": {
+          "whatsapp_in": 537,
+          "whatsapp_out": 582,
+          "coaching": 5,
+          "promises_made": 7,
+          "income": 1,
+          "shop_items": 4,
+          "news_posts": 1,
+          "agent_sessions": 2
+        },
+        "2026-09-21": {
+          "whatsapp_in": 287,
+          "whatsapp_out": 957,
+          "coaching": 5,
+          "obligation_payments": 4,
+          "news_posts": 1
+        },
+        "2026-09-22": {
+          "whatsapp_in": 679,
+          "whatsapp_out": 957,
+          "coaching": 6,
+          "shop_sales": 1,
+          "shop_total": 54,
+          "shop_items": 5,
+          "news_posts": 1
+        },
+        "2026-09-23": {
+          "whatsapp_in": 673,
+          "whatsapp_out": 749,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 77,
+          "shop_items": 5
+        },
+        "2026-09-24": {
+          "whatsapp_in": 783,
+          "whatsapp_out": 78,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 53,
+          "shop_items": 7,
+          "news_posts": 1
+        },
+        "2026-09-25": {
+          "whatsapp_in": 924,
+          "whatsapp_out": 10,
+          "coaching": 5,
+          "promises_made": 1,
+          "shop_sales": 1,
+          "shop_total": 24,
+          "shop_items": 5
+        },
+        "2026-09-26": {
+          "whatsapp_in": 103,
+          "whatsapp_out": 658,
+          "coaching": 5,
+          "shop_items": 9
+        },
+        "2026-09-27": {
+          "whatsapp_in": 102,
+          "whatsapp_out": 34,
+          "coaching": 5
+        },
+        "2026-09-28": {
+          "whatsapp_in": 15,
+          "whatsapp_out": 36,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 11,
+          "shop_items": 6
+        },
+        "2026-09-29": {
+          "whatsapp_in": 105,
+          "whatsapp_out": 140,
+          "coaching": 6,
+          "shop_sales": 1,
+          "shop_total": 20,
+          "shop_items": 5
+        },
+        "2026-09-30": {
+          "whatsapp_in": 778,
+          "whatsapp_out": 99,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 49,
+          "shop_items": 5,
+          "news_posts": 1
+        },
+        "2026-10-01": {
+          "whatsapp_in": 759,
+          "whatsapp_out": 36,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 38,
+          "shop_items": 4
+        },
+        "2026-10-02": {
+          "whatsapp_in": 113,
+          "whatsapp_out": 67,
+          "coaching": 5,
+          "shop_sales": 1,
+          "shop_total": 10,
+          "shop_items": 4
+        },
+        "2026-10-03": {
+          "whatsapp_in": 194,
+          "whatsapp_out": 749,
+          "coaching": 5,
+          "promises_made": 21,
+          "shop_sales": 1,
+          "shop_total": 84,
+          "shop_items": 5,
+          "news_posts": 1
+        },
+        "2026-10-04": {
+          "whatsapp_in": 369,
+          "whatsapp_out": 92,
+          "coaching": 5,
+          "promises_made": 1,
+          "shop_items": 2,
+          "news_posts": 1
+        },
+        "2026-10-05": {
+          "whatsapp_in": 356,
+          "whatsapp_out": 231,
+          "conversations": 2,
+          "coaching": 5,
+          "promises_made": 3,
+          "news_posts": 1
+        },
+        "2026-10-06": {
+          "whatsapp_in": 653,
+          "whatsapp_out": 13,
+          "coaching": 6,
+          "promises_made": 2,
+          "shop_sales": 1,
+          "shop_total": 87,
+          "shop_items": 4
+        },
+        "2026-10-07": {
+          "whatsapp_in": 402,
+          "whatsapp_out": 172,
+          "coaching": 4,
+          "shop_sales": 1,
+          "shop_total": 97,
+          "shop_items": 4,
+          "news_posts": 1
+        },
+        "2026-10-08": {
+          "whatsapp_in": 854,
+          "whatsapp_out": 476,
+          "conversations": 6,
+          "coaching": 4,
+          "shop_sales": 1,
+          "shop_total": 11,
+          "shop_items": 4,
+          "news_posts": 1
+        },
+        "2026-10-09": {
+          "whatsapp_in": 194,
+          "whatsapp_out": 58,
+          "coaching": 4,
+          "shop_sales": 1,
+          "shop_total": 66,
+          "shop_items": 2,
+          "news_posts": 1
+        },
+        "2026-10-10": {
+          "whatsapp_in": 19,
+          "whatsapp_out": 13,
+          "coaching": 4,
+          "promises_made": 89,
+          "shop_sales": 1,
+          "shop_total": 14,
+          "shop_items": 6,
+          "news_posts": 1
+        },
+        "2026-10-11": {
+          "whatsapp_in": 894,
+          "whatsapp_out": 43,
+          "coaching": 4,
+          "promises_made": 2,
+          "shop_sales": 1,
+          "shop_total": 43,
+          "shop_items": 80
+        },
+        "2026-10-12": {
+          "whatsapp_in": 654,
+          "whatsapp_out": 93,
+          "coaching": 4,
+          "shop_items": 9,
+          "news_posts": 1
+        },
+        "2026-10-13": {
+          "whatsapp_in": 4063,
+          "whatsapp_out": 172,
+          "coaching": 4,
+          "news_posts": 1
+        },
+        "2026-10-14": {
+          "whatsapp_in": 983,
+          "whatsapp_out": 445,
+          "coaching": 4,
+          "promises_made": 4,
+          "shop_sales": 1,
+          "shop_total": 59,
+          "shop_items": 5
+        },
+        "2026-10-15": {
+          "whatsapp_in": 788,
+          "whatsapp_out": 460,
+          "coaching": 4,
+          "promises_made": 1,
+          "shop_sales": 1,
+          "shop_total": 36,
+          "shop_items": 5
+        },
+        "2026-10-16": {
+          "whatsapp_in": 677,
+          "whatsapp_out": 57,
+          "conversations": 76,
+          "coaching": 4,
+          "shop_sales": 1,
+          "shop_total": 36,
+          "shop_items": 7
+        },
+        "2026-10-17": {
+          "whatsapp_in": 32,
+          "whatsapp_out": 24,
+          "coaching": 4,
+          "shop_items": 1
+        }
+      },
+      "habits": [
+        0,
+        0,
+        0
+      ],
+      "income": {
+        "key168": {
+          "DH": 0
+        },
+        "key280": {
+          "DH": 0
+        },
+        "key482": {
+          "DH": 0
+        },
+        "key171": {
+          "DH": 0
+        },
+        "key385": {
+          "DH": 0,
+          "USD": 3225
+        }
+      },
+      "months": {
+        "key168": {
+          "income": {
+            "DH": 0
+          }
+        },
+        "key280": {
+          "income": {
+            "DH": 0
+          }
+        },
+        "key482": {
+          "income": {
+            "DH": 0
+          }
+        },
+        "key171": {
+          "income": {
+            "DH": 0
+          }
+        },
+        "key385": {
+          "income": {
+            "DH": 0,
+            "USD": 3225
+          }
+        }
+      },
+      "sessions": {
+        "total": 4011,
+        "last30": 9081,
+        "days": {
+          "2026-10-02": 3156,
+          "2026-10-04": 522,
+          "2026-10-07": 470,
+          "2026-10-08": 846,
+          "2026-10-03": 330,
+          "2026-09-30": 22,
+          "2026-10-05": 482,
+          "2026-10-06": 900,
+          "2026-10-09": 188
+        }
+      }
+    }
+  }
+}

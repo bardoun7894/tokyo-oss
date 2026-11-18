@@ -1,0 +1,59 @@
+{
+  "id": "world_events",
+  "k": "K9",
+  "method": "GET",
+  "path": "/world/events",
+  "status": 200,
+  "body": {
+    "events": [
+      {
+        "id": "0000889937529660882567688983055976673994",
+        "ts": "2026-10-17T11:25:59.000Z",
+        "host": "Sam",
+        "project": "Sample proj",
+        "kind": "source",
+        "status": "up",
+        "title": "Sample t",
+        "ref": "",
+        "url": "",
+        "actor": "Sampl",
+        "model": "",
+        "cost": null,
+        "dur_s": null,
+        "source": "market-swot"
+      },
+      {
+        "id": "0000694936656793660627143350560257334789",
+        "ts": "2026-10-17T11:25:59.000Z",
+        "host": "Sam",
+        "project": "Sa",
+        "kind": "source",
+        "status": "up",
+        "title": "Sample ti",
+        "ref": "",
+        "url": "",
+        "actor": "Sampl",
+        "model": "",
+        "cost": null,
+        "dur_s": null,
+        "source": "kb"
+      },
+      {
+        "id": "0000989146928722047826902287956862366148",
+        "ts": "2026-10-17T11:25:59.000Z",
+        "host": "Sam",
+        "project": "Sampl",
+        "kind": "source",
+        "status": "up",
+        "title": "Sample ti",
+        "ref": "",
+        "url": "",
+        "actor": "Sampl",
+        "model": "",
+        "cost": null,
+        "dur_s": null,
+        "source": "herdr"
+      }
+    ]
+  }
+}

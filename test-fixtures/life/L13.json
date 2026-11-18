@@ -1,0 +1,21 @@
+{
+  "id": "L13",
+  "method": "GET",
+  "path": "/quran/history",
+  "query": null,
+  "status": 200,
+  "body": [
+    {
+      "date": "2026-09-18",
+      "pages": 0
+    },
+    {
+      "date": "2026-09-19",
+      "pages": 0
+    },
+    {
+      "date": "2026-09-20",
+      "pages": 0
+    }
+  ]
+}

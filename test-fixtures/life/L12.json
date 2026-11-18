@@ -1,0 +1,27 @@
+{
+  "id": "L12",
+  "method": "GET",
+  "path": "/adhkar/history",
+  "query": null,
+  "status": 200,
+  "body": [
+    {
+      "date": "2026-09-18",
+      "morning": false,
+      "evening": false,
+      "post_prayer": false
+    },
+    {
+      "date": "2026-09-19",
+      "morning": false,
+      "evening": false,
+      "post_prayer": false
+    },
+    {
+      "date": "2026-09-20",
+      "morning": false,
+      "evening": false,
+      "post_prayer": false
+    }
+  ]
+}

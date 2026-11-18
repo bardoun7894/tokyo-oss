@@ -1,0 +1,73 @@
+{
+  "id": "L11",
+  "method": "GET",
+  "path": "/weekly-trends",
+  "query": null,
+  "status": 200,
+  "body": [
+    {
+      "weekStart": "2026-09-14",
+      "weekEnd": "2026-09-20",
+      "tasksCompleted": 5531,
+      "tasksByCategory": {
+        "personal": 66,
+        "shop": 67,
+        "client": 984,
+        "learning": 1,
+        "admin": 163,
+        "high": 1,
+        "medium": 1
+      },
+      "totalWorkMinutes": 0,
+      "workByType": {
+        "dev": 4.101013783369876
+      },
+      "habitsCompleted": 1,
+      "habitsTotal": 68,
+      "quranPages": 0,
+      "adhkarDays": {
+        "morning": 0,
+        "evening": 0
+      },
+      "devIncome": 2657,
+      "shopRevenue": 1113,
+      "totalIncome": 4964
+    },
+    {
+      "weekStart": "2026-09-21",
+      "weekEnd": "2026-09-27",
+      "tasksCompleted": 0,
+      "tasksByCategory": {},
+      "totalWorkMinutes": 0,
+      "workByType": {},
+      "habitsCompleted": 0,
+      "habitsTotal": 68,
+      "quranPages": 0,
+      "adhkarDays": {
+        "morning": 0,
+        "evening": 0
+      },
+      "devIncome": 0,
+      "shopRevenue": 1932,
+      "totalIncome": 1128
+    },
+    {
+      "weekStart": "2026-09-28",
+      "weekEnd": "2026-10-04",
+      "tasksCompleted": 0,
+      "tasksByCategory": {},
+      "totalWorkMinutes": 0,
+      "workByType": {},
+      "habitsCompleted": 0,
+      "habitsTotal": 68,
+      "quranPages": 0,
+      "adhkarDays": {
+        "morning": 0,
+        "evening": 0
+      },
+      "devIncome": 0,
+      "shopRevenue": 2249,
+      "totalIncome": 8664
+    }
+  ]
+}

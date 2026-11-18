@@ -1,0 +1,11 @@
+{
+  "id": "L30",
+  "method": "GET",
+  "path": "/whatsapp/status",
+  "query": null,
+  "status": 200,
+  "body": {
+    "status": "disconnected",
+    "user": null
+  }
+}

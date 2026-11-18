@@ -1,0 +1,12 @@
+{
+  "id": "L25",
+  "method": "GET",
+  "path": "/content/calendar",
+  "query": null,
+  "status": 200,
+  "body": {
+    "from": 7815927604765,
+    "to": 1027676418212,
+    "events": []
+  }
+}

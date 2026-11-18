@@ -1,0 +1,499 @@
+{
+  "window": {
+    "id": "24h",
+    "from": "2026-10-15T19:24:40.296Z",
+    "to": "2026-10-16T19:24:40.296Z"
+  },
+  "freshness": {
+    "generatedAt": "2026-10-16T19:24:40.296Z",
+    "stale": false
+  },
+  "health": {
+    "score": 100,
+    "checks": [
+      {
+        "id": "backup",
+        "label": "backup",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "chkrootkit",
+        "label": "chkrootkit",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "cronlog",
+        "label": "cronlog",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "disk",
+        "label": "disk",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "docker",
+        "label": "docker",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "pm2",
+        "label": "pm2",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "site",
+        "label": "site",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "unit",
+        "label": "unit",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "source:agents",
+        "label": "agents",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:claude-sessions",
+        "label": "claude-sessions",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:docker",
+        "label": "docker",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:gh-prs",
+        "label": "gh-prs",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:git",
+        "label": "git",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:git",
+        "label": "git",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:herdr",
+        "label": "herdr",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:jdelegate",
+        "label": "jdelegate",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:kb",
+        "label": "kb",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:market-swot",
+        "label": "market-swot",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:pm2",
+        "label": "pm2",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:pr-review",
+        "label": "pr-review",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:server-health",
+        "label": "server-health",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:session-tasks",
+        "label": "session-tasks",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:sites",
+        "label": "sites",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:skill-use",
+        "label": "skill-use",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:skills",
+        "label": "skills",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:spec-kit",
+        "label": "spec-kit",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:tokyo",
+        "label": "tokyo",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:tokyo-runs",
+        "label": "tokyo-runs",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "host:host-1",
+        "label": "host-1",
+        "kind": "host",
+        "ok": true
+      },
+      {
+        "id": "host:mac",
+        "label": "Mac",
+        "kind": "host",
+        "ok": true
+      },
+      {
+        "id": "collector",
+        "label": "collector",
+        "kind": "collector",
+        "ok": true
+      }
+    ]
+  },
+  "kpi": {
+    "active": 11,
+    "stale": 1015,
+    "done": 77,
+    "failed": 0,
+    "successRate": 1,
+    "projects": 33,
+    "avgDurS": 239
+  },
+  "series": {
+    "success": [
+      1,
+      null,
+      null,
+      null,
+      null,
+      1,
+      null,
+      1,
+      null,
+      null,
+      null,
+      1,
+      null,
+      null,
+      null,
+      1,
+      null,
+      null,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "failed": [
+      0,
+      null,
+      null,
+      null,
+      null,
+      0,
+      null,
+      0,
+      null,
+      null,
+      null,
+      0,
+      null,
+      null,
+      null,
+      0,
+      null,
+      null,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "started": [
+      6,
+      1,
+      null,
+      null,
+      null,
+      20,
+      21,
+      9,
+      10,
+      6,
+      4,
+      7,
+      6,
+      4,
+      10,
+      10,
+      null,
+      null,
+      4,
+      36,
+      15,
+      31,
+      14,
+      21
+    ],
+    "durS": [
+      333.87125539779663,
+      null,
+      null,
+      null,
+      null,
+      952.5415322780609,
+      null,
+      170,
+      null,
+      null,
+      null,
+      19,
+      null,
+      null,
+      null,
+      203,
+      null,
+      null,
+      433.57106351852417,
+      4408.4627475738525,
+      872.7456021308899,
+      4324.00603723526,
+      2937.389762401581,
+      3770.231264591217
+    ]
+  },
+  "previous": {
+    "finished": 186,
+    "successRate": 0.9139784946236559,
+    "failed": 16,
+    "started": 280,
+    "covered": true
+  },
+  "incidents": {
+    "counts": {
+      "open": 18,
+      "critical": 0,
+      "warning": 17,
+      "notice": 1,
+      "resolved": 14,
+      "acked": 0,
+      "muted": 0
+    },
+    "mttrMs": 158273751.07142857
+  },
+  "needsYou": [],
+  "recent": [
+    {
+      "at": "2026-10-16T19:12:50.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-image-polish · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T19:12:29.623Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "tokyo",
+      "title": "worker tokyo-jpeg",
+      "source": "agents"
+    },
+    {
+      "at": "2026-10-16T19:11:24.130Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-image-polish",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T19:07:24.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-actions · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T19:03:47.907Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-actions",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T19:00:46.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-sales-skills · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T19:00:20.000Z",
+      "kind": "recovery",
+      "status": "up",
+      "project": "server",
+      "title": "site: site-2.example.test 000",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:57:21.541Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "tokyo",
+      "title": "worker tokyo-media",
+      "source": "agents"
+    },
+    {
+      "at": "2026-10-16T18:54:09.349Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-sales-skills",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:45:17.000Z",
+      "kind": "alert",
+      "status": "down",
+      "project": "server",
+      "title": "site: site-2.example.test 000",
+      "source": "server-health"
+    },
+    {
+      "at": "2026-10-16T18:45:17.000Z",
+      "kind": "alert",
+      "status": "down",
+      "project": "server",
+      "title": "site: site-2.example.test 000",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:45:01.994Z",
+      "kind": "recovery",
+      "status": "up",
+      "project": "sslip",
+      "title": "site site-4.example.test is back up",
+      "source": "world-recovery"
+    },
+    {
+      "at": "2026-10-16T18:44:34.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-insights-agents · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:43:56.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-profile-name · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:36:01.766Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-profile-name",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:35:48.487Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-insights-agents",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:33:42.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-lid-phone · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:32:23.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-ai-automation-persona · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:31:31.366Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-lid-phone",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:31:23.968Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-ai-automation-persona",
+      "source": "jdelegate"
+    }
+  ]
+}

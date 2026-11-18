@@ -1,0 +1,9 @@
+{
+  "id": "L8",
+  "method": "GET",
+  "path": "/media/:filename",
+  "status": 200,
+  "bytes": true,
+  "contentType": "image/jpeg",
+  "note": "byte route, body not stored"
+}

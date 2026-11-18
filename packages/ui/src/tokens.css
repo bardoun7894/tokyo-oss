@@ -1,0 +1,93 @@
+/*
+ * The palette. Vercel/Geist: greys, hairline borders, the foreground as the
+ * primary action colour, one blue focus ring.
+ *
+ * Dark is the default. An app sets data-theme="light" | "dark" on <html>
+ * (see theme.ts, and set it before first paint to avoid a flash). With no
+ * data-theme, the OS preference decides.
+ *
+ * --on-color is text on any filled colour: accent, green, amber, red buttons
+ * and badges. It flips with the theme, so a filled button is always legible.
+ *
+ * Light values are set so every text colour clears WCAG 4.5:1 on the grey
+ * panel (--surface2 #f2f2f2), not just on white — text3, red and blue are a
+ * shade darker than Vercel's for that reason.
+ */
+
+:root, :root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #000000; --bg1: #0a0a0a; --bg2: #0a0a0a;
+  --surface: #0a0a0a; --surface1: #111111; --surface2: #1f1f1f; --border: #2e2e2e;
+  --text: #ededed; --text1: #d4d4d4; --text2: #a1a1a1; --text3: #8f8f8f;
+  --accent: #ededed; --on-color: #0a0a0a; --ring: #3291ff;
+  --accent2: #a78bfa; --green: #62c073; --amber: #f5a623; --red: #ff6166; --orange: #fb923c; --blue: #52a8ff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg: #ffffff; --bg1: #fafafa; --bg2: #ffffff;
+    --surface: #ffffff; --surface1: #fafafa; --surface2: #f2f2f2; --border: #eaeaea;
+    --text: #171717; --text1: #333333; --text2: #666666; --text3: #6e6e6e;
+    --accent: #171717; --on-color: #ffffff; --ring: #0068e1;
+    --accent2: #7c3aed; --green: #1a7f37; --amber: #a35200; --red: #d3272d; --orange: #c2410c; --blue: #0068e1;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff; --bg1: #fafafa; --bg2: #ffffff;
+  --surface: #ffffff; --surface1: #fafafa; --surface2: #f2f2f2; --border: #eaeaea;
+  --text: #171717; --text1: #333333; --text2: #666666; --text3: #6e6e6e;
+  --accent: #171717; --on-color: #ffffff; --ring: #0068e1;
+  --accent2: #7c3aed; --green: #1a7f37; --amber: #a35200; --red: #d3272d; --orange: #c2410c; --blue: #0068e1;
+}
+
+:root {
+  /* Geist has no Arabic glyphs; IBM Plex Sans Arabic carries Arabic text. */
+  --font-ui: 'Geist Variable', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius: 6px;      /* buttons, inputs, badges */
+  --radius-lg: 8px;   /* cards, panels, dialogs */
+}
+
+/* Utilities read the variables, so a theme change needs no rebuild. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg1: var(--bg1);
+  --color-bg2: var(--bg2);
+  --color-surface: var(--surface);
+  --color-surface1: var(--surface1);
+  --color-surface2: var(--surface2);
+  --color-line: var(--border);
+  --color-fg: var(--text);
+  --color-fg1: var(--text1);
+  --color-fg2: var(--text2);
+  --color-fg3: var(--text3);
+  --color-accent: var(--accent);
+  --color-accent2: var(--accent2);
+  --color-on-color: var(--on-color);
+  --color-ring: var(--ring);
+  --color-green: var(--green);
+  --color-amber: var(--amber);
+  --color-red: var(--red);
+  --color-orange: var(--orange);
+  --color-blue: var(--blue);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.5;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 600; }
+  code, kbd, pre, samp { font-family: var(--font-mono); }
+  table { font-variant-numeric: tabular-nums; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+}

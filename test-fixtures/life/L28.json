@@ -1,0 +1,98 @@
+{
+  "id": "L28",
+  "method": "GET",
+  "path": "/instagram",
+  "query": null,
+  "status": 200,
+  "body": {
+    "enabled": false,
+    "transport": "graph",
+    "strategy": "ai",
+    "running": null,
+    "configured": false,
+    "missing": "Sample missing 75",
+    "persona": "",
+    "threadDailyCap": 5,
+    "commentDmFollowup": false,
+    "surfaces": [
+      {
+        "key": "Sa",
+        "label": "Sampl",
+        "enabled": true,
+        "supported": true
+      },
+      {
+        "key": "Sample ",
+        "label": "Sample labe",
+        "enabled": true,
+        "supported": true
+      },
+      {
+        "key": "Sample key ",
+        "label": "Sample label 76",
+        "enabled": true,
+        "supported": true
+      }
+    ],
+    "transports": [
+      {
+        "key": "Sampl",
+        "label": "Sample label 81",
+        "configured": false,
+        "missing": "Sample missing 75",
+        "doctor": [
+          "Sample doctor 66",
+          "Sample doctor 83",
+          "Sample doctor 79"
+        ]
+      },
+      {
+        "key": "Sample key",
+        "label": "Sample label 64",
+        "configured": false,
+        "missing": "Sample missing 71",
+        "doctor": [
+          "Sample doctor 9",
+          "Sample doctor 3",
+          "Sample doctor 11"
+        ]
+      },
+      {
+        "key": "Sample ",
+        "label": "Sample label ",
+        "configured": false,
+        "missing": "Sample missing 40",
+        "doctor": [
+          "Sample doctor 36",
+          "Sample doctor 64",
+          "Sample doctor 49"
+        ]
+      }
+    ],
+    "strategies": [
+      {
+        "key": "Sampl",
+        "label": "Sample lab",
+        "description": "Sample des"
+      },
+      {
+        "key": "Sa",
+        "label": "Sample ",
+        "description": "Sample "
+      },
+      {
+        "key": "Sample",
+        "label": "Sample label 89",
+        "description": "Sample descriptio"
+      }
+    ],
+    "stats": {
+      "events": 0,
+      "sent": 0,
+      "escalated": 0,
+      "failed": 0
+    },
+    "recent": [],
+    "threads": []
+  }
+}

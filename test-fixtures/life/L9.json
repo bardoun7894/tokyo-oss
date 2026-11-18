@@ -1,0 +1,60 @@
+{
+  "id": "L9",
+  "method": "GET",
+  "path": "/projects",
+  "query": null,
+  "status": 200,
+  "body": {
+    "projects": [
+      {
+        "id": 1,
+        "client_id": 1,
+        "name": "Sample name 41",
+        "description": "Sample description 9",
+        "category": "product",
+        "status": "active",
+        "budget": null,
+        "currency": "MAD",
+        "deadline": null,
+        "estimated_hours": 200,
+        "actual_hours": 130,
+        "created_at": "2026-03-22 13:55:44",
+        "completed_at": null,
+        "client_name": "Sample "
+      },
+      {
+        "id": 2,
+        "client_id": 2,
+        "name": "Sample name 38",
+        "description": "Sample description 6",
+        "category": "client",
+        "status": "active",
+        "budget": null,
+        "currency": "MAD",
+        "deadline": null,
+        "estimated_hours": 250,
+        "actual_hours": 165,
+        "created_at": "2026-03-22 13:55:44",
+        "completed_at": null,
+        "client_name": "Sampl"
+      },
+      {
+        "id": 3,
+        "client_id": 3,
+        "name": "Sample name",
+        "description": "Sample description 37",
+        "category": "client",
+        "status": "active",
+        "budget": null,
+        "currency": "MAD",
+        "deadline": null,
+        "estimated_hours": 120,
+        "actual_hours": 105,
+        "created_at": "2026-03-22 13:55:44",
+        "completed_at": null,
+        "client_name": "Sampl"
+      }
+    ],
+    "upcomingDeadlines": []
+  }
+}

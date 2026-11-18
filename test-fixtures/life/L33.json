@@ -1,0 +1,21 @@
+{
+  "id": "L33",
+  "method": "GET",
+  "path": "/conversations",
+  "query": "limit=5",
+  "status": 200,
+  "body": [
+    {
+      "role": "assistant",
+      "content": "Sample content 56"
+    },
+    {
+      "role": "user",
+      "content": "Sample content 41"
+    },
+    {
+      "role": "assistant",
+      "content": "Sample content 71"
+    }
+  ]
+}

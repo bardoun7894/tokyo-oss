@@ -1,0 +1,35 @@
+{
+  "id": "L18",
+  "method": "GET",
+  "path": "/products/batches",
+  "query": null,
+  "status": 200,
+  "body": {
+    "batches": [
+      {
+        "batchId": "Sample batchId ",
+        "date": "2026-10-16",
+        "imageCount": 151,
+        "priceCount": 1,
+        "unpriced": 113,
+        "confidence": "Sam"
+      },
+      {
+        "batchId": "Sample batchId ",
+        "date": "2026-10-15",
+        "imageCount": 142,
+        "priceCount": 1,
+        "unpriced": 756,
+        "confidence": "Sam"
+      },
+      {
+        "batchId": "Sample batchId ",
+        "date": "2026-10-13",
+        "imageCount": 140,
+        "priceCount": 1,
+        "unpriced": 111,
+        "confidence": "Sam"
+      }
+    ]
+  }
+}

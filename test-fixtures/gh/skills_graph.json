@@ -1,0 +1,37 @@
+{
+  "id": "skills_graph",
+  "k": "K34",
+  "method": "GET",
+  "path": "/skills/graph",
+  "status": 200,
+  "body": {
+    "nodes": [
+      {
+        "name": "Sample ",
+        "description": "Sample description 93",
+        "tier": "local",
+        "out": 0,
+        "in": 0
+      },
+      {
+        "name": "Sample name ",
+        "description": "Sa",
+        "tier": "local",
+        "out": 0,
+        "in": 0
+      },
+      {
+        "name": "Sample name 52",
+        "description": "Sa",
+        "tier": "local",
+        "out": 0,
+        "in": 0
+      }
+    ],
+    "edges": [],
+    "tiers": [
+      "Sample",
+      "Sampl"
+    ]
+  }
+}

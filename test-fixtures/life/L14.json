@@ -1,0 +1,36 @@
+{
+  "id": "L14",
+  "method": "GET",
+  "path": "/journal",
+  "query": null,
+  "status": 200,
+  "body": [
+    {
+      "id": 5,
+      "entry": "Sample entry",
+      "mood": null,
+      "energy_level": null,
+      "category": "general",
+      "logged_at": "2026-05-20 16:30:59",
+      "area": null
+    },
+    {
+      "id": 4,
+      "entry": "Sample entry 29",
+      "mood": null,
+      "energy_level": null,
+      "category": "general",
+      "logged_at": "2026-04-20 12:40:26",
+      "area": null
+    },
+    {
+      "id": 3,
+      "entry": "Sample entry 11",
+      "mood": "Sam",
+      "energy_level": 2,
+      "category": "general",
+      "logged_at": "2026-03-31 13:06:19",
+      "area": "personal"
+    }
+  ]
+}

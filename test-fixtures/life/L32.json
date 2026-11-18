@@ -1,0 +1,8 @@
+{
+  "id": "L32",
+  "method": "GET",
+  "path": "/whatsapp/messages/:jid",
+  "query": null,
+  "status": 200,
+  "body": []
+}

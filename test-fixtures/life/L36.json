@@ -1,0 +1,45 @@
+{
+  "id": "L36",
+  "method": "GET",
+  "path": "/transcripts",
+  "query": null,
+  "status": 200,
+  "body": {
+    "items": [
+      {
+        "id": 86651,
+        "jid": "15550102574@lid",
+        "sender_name": "Sample sender",
+        "from_me": 0,
+        "is_group": 0,
+        "timestamp": 1791825404,
+        "transcription": "Sample transcription 89",
+        "duration_seconds": null
+      },
+      {
+        "id": 86488,
+        "jid": "15550102574@lid",
+        "sender_name": "Sample sender",
+        "from_me": 0,
+        "is_group": 0,
+        "timestamp": 1791819056,
+        "transcription": "Sample transcription 49",
+        "duration_seconds": null
+      },
+      {
+        "id": 86420,
+        "jid": "15550106645@lid",
+        "sender_name": "Sample send",
+        "from_me": 0,
+        "is_group": 0,
+        "timestamp": 1791756040,
+        "transcription": "Sample transcription 85",
+        "duration_seconds": null
+      }
+    ],
+    "total": 6271,
+    "pending": 9422,
+    "limit": 50,
+    "offset": 0
+  }
+}

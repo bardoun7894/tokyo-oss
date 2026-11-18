@@ -1,0 +1,52 @@
+{
+  "id": "L6",
+  "method": "GET",
+  "path": "/calendar",
+  "query": null,
+  "status": 200,
+  "body": {
+    "start": "2026-09-30",
+    "end": "2026-10-17",
+    "days": [
+      {
+        "date": "2026-09-30",
+        "tasksCompleted": 0,
+        "tasksCreated": 10,
+        "workMinutes": 0,
+        "habitsCompleted": 0,
+        "habitsTotal": 99,
+        "quranPages": 0,
+        "journalCount": 0,
+        "income": 68.1,
+        "waMessages": 114,
+        "conversations": 0
+      },
+      {
+        "date": "2026-10-01",
+        "tasksCompleted": 0,
+        "tasksCreated": 28,
+        "workMinutes": 0,
+        "habitsCompleted": 0,
+        "habitsTotal": 99,
+        "quranPages": 0,
+        "journalCount": 0,
+        "income": 13.3,
+        "waMessages": 815,
+        "conversations": 0
+      },
+      {
+        "date": "2026-10-02",
+        "tasksCompleted": 0,
+        "tasksCreated": 9,
+        "workMinutes": 0,
+        "habitsCompleted": 0,
+        "habitsTotal": 99,
+        "quranPages": 0,
+        "journalCount": 0,
+        "income": 68.7,
+        "waMessages": 935,
+        "conversations": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "id": "L3",
+  "method": "GET",
+  "path": "/obligations",
+  "query": null,
+  "status": 200,
+  "body": {
+    "today": "2026-10-17",
+    "items": [
+      {
+        "id": 1,
+        "name": "Samp",
+        "kind": "bill",
+        "counterparty": "Samp",
+        "amount": 2497,
+        "currency": "DH",
+        "due_day": 26,
+        "principal": null,
+        "notes": null,
+        "active": 1,
+        "created_at": "2026-09-20 06:01:06",
+        "payments": [],
+        "status": {
+          "period": "2026-10",
+          "dueDate": "2026-10-26",
+          "paid": false,
+          "paidAmount": 0,
+          "daysUntilDue": 9,
+          "overdue": false
+        },
+        "loan": null
+      },
+      {
+        "id": 8,
+        "name": "Sample name 25",
+        "kind": "loan",
+        "counterparty": "Sample counterpart",
+        "amount": 0,
+        "currency": "DH",
+        "due_day": null,
+        "principal": null,
+        "notes": "Sample notes 91",
+        "active": 1,
+        "created_at": "2026-09-20 06:11:50",
+        "payments": [
+          {
+            "id": 11,
+            "obligation_id": 8,
+            "amount": 204,
+            "paid_at": "2026-09-18",
+            "period": null,
+            "proof_path": "whatsapp-media/sample-7598.jpg",
+            "note": "Sample note 11",
+            "created_at": "2026-09-20 06:11:50"
+          },
+          {
+            "id": 10,
+            "obligation_id": 8,
+            "amount": 112,
+            "paid_at": "2026-09-18",
+            "period": null,
+            "proof_path": "whatsapp-media/sample-7598.jpg",
+            "note": "Sample note 89",
+            "created_at": "2026-09-20 06:11:50"
+          }
+        ],
+        "status": null,
+        "loan": {
+          "principal": 0,
+          "paid": 1300,
+          "remaining": 0,
+          "progress": 0,
+          "lastPaidAt": "2026-09-18"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sample name 69",
+        "kind": "loan",
+        "counterparty": "Sample counterpart",
+        "amount": 0,
+        "currency": "DH",
+        "due_day": null,
+        "principal": null,
+        "notes": "Sample notes 91",
+        "active": 1,
+        "created_at": "2026-09-20 06:11:50",
+        "payments": [
+          {
+            "id": 6,
+            "obligation_id": 5,
+            "amount": 4105,
+            "paid_at": "2026-09-21",
+            "period": null,
+            "proof_path": "whatsapp-media/sample-6105.jpg",
+            "note": "Sample note 52",
+            "created_at": "2026-09-20 06:11:50"
+          },
+          {
+            "id": 15,
+            "obligation_id": 5,
+            "amount": 44465,
+            "paid_at": "2026-08-27",
+            "period": null,
+            "proof_path": "whatsapp-media/sample-3954.jpg",
+            "note": "Sample note 10",
+            "created_at": "2026-09-20 06:34:16"
+          },
+          {
+            "id": 5,
+            "obligation_id": 5,
+            "amount": 2166,
+            "paid_at": "2026-08-06",
+            "period": null,
+            "proof_path": "whatsapp-media/sample-6869.jpg",
+            "note": "Sample note 40",
+            "created_at": "2026-09-20 06:11:50"
+          }
+        ],
+        "status": null,
+        "loan": {
+          "principal": 0,
+          "paid": 47700,
+          "remaining": 0,
+          "progress": 0,
+          "lastPaidAt": "2026-09-21"
+        }
+      }
+    ]
+  }
+}

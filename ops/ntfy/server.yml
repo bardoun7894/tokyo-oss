@@ -1,0 +1,11 @@
+# Copied to /srv/ntfy/etc/server.yml in Z0. Deny-all: every client needs a user and an ACL.
+base-url: "https://ntfy.203-0-113-10.sslip.io"
+listen-http: ":80"
+behind-proxy: true
+auth-file: "/var/lib/ntfy/user.db"
+auth-default-access: deny-all
+enable-signup: false
+enable-login: true
+web-root: disable
+cache-file: "/var/cache/ntfy/cache.db"
+cache-duration: "12h"

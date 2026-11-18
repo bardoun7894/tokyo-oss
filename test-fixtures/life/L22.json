@@ -1,0 +1,98 @@
+{
+  "id": "L22",
+  "method": "GET",
+  "path": "/content/platforms",
+  "query": null,
+  "status": 200,
+  "body": {
+    "stages": [
+      "Samp",
+      "Sample s",
+      "Sample s"
+    ],
+    "fields": {
+      "youtube": [
+        "Sampl",
+        "Sample yout",
+        "Sample y"
+      ],
+      "tiktok": [
+        "Sample ",
+        "Sample t"
+      ],
+      "instagram": [
+        "Sample ",
+        "Sample i"
+      ],
+      "facebook": [
+        "Sampl",
+        "Sample face",
+        "Sample f"
+      ],
+      "linkedin": [
+        "https://example.invalid/sample-854",
+        "https://example.invalid/sample-660",
+        "https://example.invalid/sample-708"
+      ]
+    },
+    "limits": {
+      "youtube": {
+        "title": 159,
+        "description": 7309
+      },
+      "tiktok": {
+        "caption": 9276
+      },
+      "instagram": {
+        "caption": 9276
+      },
+      "facebook": {
+        "title": 340,
+        "description": 7309
+      },
+      "linkedin": {
+        "title": 770,
+        "caption": 4797
+      }
+    },
+    "publicHosting": false,
+    "platforms": [
+      {
+        "platform": "youtube",
+        "label": "Sample ",
+        "connected": true,
+        "accountLabel": "Sample accountL",
+        "expiresAt": "2026-10-03T23:38:26.337Z",
+        "configured": false,
+        "missing": "Sample missing 96",
+        "requiresPublicUrl": false,
+        "supportsShort": true,
+        "supportsLong": true
+      },
+      {
+        "platform": "tiktok",
+        "label": "Sample",
+        "connected": false,
+        "accountLabel": null,
+        "expiresAt": null,
+        "configured": false,
+        "missing": "Sample missing 65",
+        "requiresPublicUrl": false,
+        "supportsShort": true,
+        "supportsLong": true
+      },
+      {
+        "platform": "instagram",
+        "label": "Sample la",
+        "connected": false,
+        "accountLabel": null,
+        "expiresAt": null,
+        "configured": false,
+        "missing": "Sample missing 16",
+        "requiresPublicUrl": true,
+        "supportsShort": true,
+        "supportsLong": true
+      }
+    ]
+  }
+}

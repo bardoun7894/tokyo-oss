@@ -1,0 +1,44 @@
+{
+  "id": "factory_runs",
+  "k": "K25",
+  "method": "GET",
+  "path": "/factory/runs",
+  "status": 200,
+  "body": {
+    "runs": [
+      {
+        "id": "Sample id 31",
+        "at": 1786928192400.2283,
+        "running": false,
+        "stages": [],
+        "ok": true,
+        "verdictPass": true,
+        "gate": "Samp",
+        "ticket": "Sampl"
+      },
+      {
+        "id": "Sample id ",
+        "at": 1786928192397.2283,
+        "running": false,
+        "stages": [],
+        "ok": true,
+        "verdictPass": null,
+        "ticket": "Sample ticket"
+      },
+      {
+        "id": "Sample id 18",
+        "at": 1786928192341.2288,
+        "running": false,
+        "stages": [
+          "Samp",
+          "Sampl",
+          "Samp"
+        ],
+        "ok": true,
+        "verdictPass": false,
+        "gate": "Sample gate 56",
+        "ticket": "Sample ticket 18"
+      }
+    ]
+  }
+}

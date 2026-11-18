@@ -1,0 +1,14 @@
+{
+  "id": "L26",
+  "method": "GET",
+  "path": "/whatsapp/media/chats",
+  "query": null,
+  "status": 200,
+  "body": [
+    {
+      "jid": "15550109322@g.us",
+      "name": "Sample name ",
+      "count": 3
+    }
+  ]
+}

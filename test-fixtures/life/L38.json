@@ -1,0 +1,10 @@
+{
+  "id": "L38",
+  "method": "GET",
+  "path": "/server",
+  "query": null,
+  "status": 200,
+  "body": {
+    "status": "Sample status 24"
+  }
+}

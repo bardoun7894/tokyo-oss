@@ -1,0 +1,11 @@
+{
+  "id": "inbox",
+  "k": "K12",
+  "method": "GET",
+  "path": "/inbox",
+  "status": 200,
+  "body": {
+    "items": [],
+    "at": "2026-10-17T13:06:26.566Z"
+  }
+}

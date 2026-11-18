@@ -1,0 +1,42 @@
+{
+  "id": "L2",
+  "method": "GET",
+  "path": "/goals",
+  "query": null,
+  "status": 200,
+  "body": [
+    {
+      "id": 6,
+      "title": "Sample title 1",
+      "metric": "Sample",
+      "target_value": 67788,
+      "current_value": 0,
+      "period": "monthly",
+      "created_at": "2026-03-22 15:33:54",
+      "currentValue": 7408,
+      "progress": 83.30865065927196
+    },
+    {
+      "id": 2,
+      "title": "Sample title 46",
+      "metric": "Sampl",
+      "target_value": 10,
+      "current_value": 0,
+      "period": "monthly",
+      "created_at": "2026-03-22 13:55:44",
+      "currentValue": 0,
+      "progress": 0
+    },
+    {
+      "id": 3,
+      "title": "Sample title 85",
+      "metric": "Sample metr",
+      "target_value": 92,
+      "current_value": 0,
+      "period": "monthly",
+      "created_at": "2026-03-22 13:55:44",
+      "currentValue": 0,
+      "progress": 0
+    }
+  ]
+}

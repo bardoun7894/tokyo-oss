@@ -1,0 +1,41 @@
+{
+  "id": "hygiene_findings",
+  "k": "K14",
+  "method": "GET",
+  "path": "/hygiene/findings",
+  "status": 200,
+  "body": {
+    "findings": [
+      {
+        "check": "Sample check 46",
+        "severity": "P0",
+        "scope": "mostqlAi",
+        "title": "Sample title 7",
+        "detail": "Sample detail 45",
+        "fix": "Sample fix ",
+        "cheap": true
+      },
+      {
+        "check": "Sample check 79",
+        "severity": "P0",
+        "scope": "VideoSaaS",
+        "title": "Sample title 79",
+        "detail": "Sample detai",
+        "fix": "Sample fix 63",
+        "cheap": false
+      },
+      {
+        "check": "Sample check 79",
+        "severity": "P0",
+        "scope": "board",
+        "title": "Sample title 51",
+        "detail": "Sample detail 70",
+        "fix": "Sample fix 63",
+        "cheap": false
+      }
+    ],
+    "at": 1792242125.04604,
+    "duration": 54.8187264229413,
+    "errors": 0
+  }
+}

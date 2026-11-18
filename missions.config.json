@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "name": "tokyo",
+      "repo": "/srv/tokyo",
+      "setup": [["ln", "-s", "/srv/tokyo/node_modules", "{clone}/node_modules"]],
+      "test": [["npm", "test"]],
+      "deploy": [["pm2", "restart", "tokyo", "--update-env"]],
+      "health": { "url": "http://127.0.0.1:3030/login", "expectStatus": 200 },
+      "confirmed": true,
+      "notes": "Example: Tokyo itself. Tests run in a fresh clone, deploy restarts the pm2 app."
+    },
+    {
+      "name": "lab",
+      "repo": "/srv/lab-chemical",
+      "workdir": "app",
+      "test": [],
+      "deploy": [["docker", "compose", "-f", "/srv/lab-chemical/app/docker-compose.yml", "up", "-d", "--build"]],
+      "confirmed": false,
+      "notes": "Example: no test command yet, so missions end unverified until the operator confirms."
+    },
+    {
+      "name": "fashiondemo",
+      "repo": "/srv/fashiondemo",
+      "test": [["docker", "compose", "-f", "/srv/fashiondemo/infra/docker-compose.dev.yml", "run", "--rm", "--no-deps", "-v", "{clone}/backend:/var/www/html", "backend", "./vendor/bin/pest", "--parallel"]],
+      "deploy": [["docker", "compose", "-f", "/srv/fashiondemo/infra/docker-compose.dev.yml", "up", "-d", "--build", "backend", "frontend"]],
+      "confirmed": false,
+      "notes": "Example: dockerised Laravel backend; operator confirms the deploy target first."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+/* Tailwind v4 without preflight: the older pages rely on browser defaults for
+   headings, buttons and lists, and preflight would restyle all of them at once.
+   The palette, fonts and base rules come from the shared kit (@bardouni/ui),
+   the same one GodHome uses. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "@bardouni/ui/fonts.css";
+@import "@bardouni/ui/tokens.css";
+/* The app's own stylesheets, below the utilities (see the note in globals.css). */
+@import "./globals.css" layer(components);
+@import "./tasks.css" layer(components);
+@import "./projects.css" layer(components);
+@import "./content.css" layer(components);
+
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Tailwind only generates classes it can see, and the kit lives outside this app. */
+@source "../../packages/ui/src";

@@ -1,0 +1,11 @@
+{
+  "id": "factory_roster",
+  "k": "K30",
+  "method": "GET",
+  "path": "/factory/roster?repo={REPO}",
+  "status": 200,
+  "body": {
+    "repo": "...fake-path",
+    "agents": []
+  }
+}

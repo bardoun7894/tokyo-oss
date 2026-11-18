@@ -1,0 +1,12 @@
+{
+  "id": "L41",
+  "method": "GET",
+  "path": "/settings/model",
+  "query": null,
+  "status": 200,
+  "body": {
+    "model": "pi",
+    "label": "Sample label 6",
+    "hasKieKey": false
+  }
+}

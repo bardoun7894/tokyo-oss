@@ -1,0 +1,30 @@
+{
+  "id": "fleet_schedules",
+  "k": "K2",
+  "method": "GET",
+  "path": "/fleet/schedules",
+  "status": 200,
+  "body": {
+    "schedules": [
+      {
+        "name": "Sample name 25",
+        "source": "timer",
+        "next": "2026-10-17T13:07:41.628Z",
+        "last": "2026-10-17T12:14:12.818Z"
+      },
+      {
+        "name": "Sample name 16",
+        "source": "timer",
+        "next": "2026-10-17T13:09:00.000Z",
+        "last": "2026-10-17T12:39:00.236Z"
+      },
+      {
+        "name": "Sample name 93",
+        "source": "timer",
+        "next": "2026-10-17T13:10:00.000Z",
+        "last": "2026-10-17T13:00:01.657Z"
+      }
+    ],
+    "at": "2026-10-17T13:06:24.296Z"
+  }
+}

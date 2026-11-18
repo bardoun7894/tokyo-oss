@@ -1,0 +1,8 @@
+{
+  "id": "L31",
+  "method": "GET",
+  "path": "/whatsapp/chats",
+  "query": null,
+  "status": 200,
+  "body": []
+}

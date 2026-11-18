@@ -1,0 +1,15 @@
+# ntfy for the Control app push (spec 012). Not applied until Z0 (owner yes).
+# Host data: /srv/ntfy/{etc,cache,lib}. Bound to loopback only; nginx publishes it on TLS.
+services:
+  ntfy:
+    image: binwiederhier/ntfy:v2.28.0
+    container_name: ntfy
+    command: ["serve"]
+    restart: unless-stopped
+    mem_limit: 128m
+    ports:
+      - "127.0.0.1:2586:80"
+    volumes:
+      - /srv/ntfy/etc:/etc/ntfy
+      - /srv/ntfy/cache:/var/cache/ntfy
+      - /srv/ntfy/lib:/var/lib/ntfy

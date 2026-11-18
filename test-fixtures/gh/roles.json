@@ -1,0 +1,106 @@
+{
+  "id": "roles",
+  "k": "K33",
+  "method": "GET",
+  "path": "/roles",
+  "status": 200,
+  "body": {
+    "roles": [
+      {
+        "id": "Sample ",
+        "label": "Sample ",
+        "specialty": "Sample specialty 96",
+        "system": "Sample system 31",
+        "prompt": "Sample prompt 64",
+        "tools": [
+          "Sample too",
+          "Sample to"
+        ],
+        "gate": false,
+        "statuses": [],
+        "model": "",
+        "thinking": "",
+        "builtin": true,
+        "node": {
+          "id": "Sample ",
+          "kind": "agent",
+          "prompt": "Sample prompt 64",
+          "system": "Sample system 31",
+          "tools": [
+            "Sample too",
+            "Sample to"
+          ],
+          "output": {
+            "type": "text",
+            "description": "Sample description 96"
+          },
+          "ref": "Sample ref 6"
+        }
+      },
+      {
+        "id": "Sample id 30",
+        "label": "Sample label 57",
+        "specialty": "Sample specialty 98",
+        "system": "Sample system 62",
+        "prompt": "Sample prompt 7",
+        "tools": [
+          "Samp",
+          "Sample too"
+        ],
+        "gate": false,
+        "statuses": [],
+        "model": "",
+        "thinking": "",
+        "builtin": true,
+        "node": {
+          "id": "Sample id 30",
+          "kind": "agent",
+          "prompt": "Sample prompt 7",
+          "system": "Sample system 62",
+          "tools": [
+            "Samp",
+            "Sample too"
+          ],
+          "output": {
+            "type": "text",
+            "description": "Sample description 98"
+          },
+          "ref": "Sample ref 98"
+        }
+      },
+      {
+        "id": "Sample id 17",
+        "label": "Sample label 40",
+        "specialty": "Sample specialty 81",
+        "system": "Sample system 5",
+        "prompt": "Sample prompt 29",
+        "tools": [
+          "Samp",
+          "Samp",
+          "Samp"
+        ],
+        "gate": false,
+        "statuses": [],
+        "model": "",
+        "thinking": "",
+        "builtin": true,
+        "node": {
+          "id": "Sample id 17",
+          "kind": "agent",
+          "prompt": "Sample prompt 29",
+          "system": "Sample system 5",
+          "tools": [
+            "Samp",
+            "Samp",
+            "Samp"
+          ],
+          "output": {
+            "type": "text",
+            "description": "Sample description 81"
+          },
+          "ref": "Sample ref 90"
+        }
+      }
+    ]
+  }
+}

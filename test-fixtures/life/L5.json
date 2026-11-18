@@ -1,0 +1,21 @@
+{
+  "id": "L5",
+  "method": "GET",
+  "path": "/habits/history",
+  "query": "days=7",
+  "status": 200,
+  "body": [
+    {
+      "date": "2026-10-11",
+      "habits": {}
+    },
+    {
+      "date": "2026-10-12",
+      "habits": {}
+    },
+    {
+      "date": "2026-10-13",
+      "habits": {}
+    }
+  ]
+}

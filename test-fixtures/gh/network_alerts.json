@@ -1,0 +1,55 @@
+{
+  "id": "network_alerts",
+  "k": "K4",
+  "method": "GET",
+  "path": "/network/alerts",
+  "status": 200,
+  "body": {
+    "mode": "dry",
+    "initialized": true,
+    "alerted": [
+      {
+        "key": "Sample key 67",
+        "label": "Sample label 79"
+      },
+      {
+        "key": "Sample ke",
+        "label": "Sample label 29"
+      },
+      {
+        "key": "Sample ke",
+        "label": "Sample label 16"
+      }
+    ],
+    "deliveries": [
+      {
+        "at": "2026-10-17T11:53:37.983Z",
+        "ok": true,
+        "dry": true,
+        "chars": 11,
+        "events": [
+          "Sample events 82"
+        ]
+      },
+      {
+        "at": "2026-10-17T11:50:45.795Z",
+        "ok": true,
+        "dry": true,
+        "chars": 56,
+        "events": [
+          "Sample events 85"
+        ]
+      },
+      {
+        "at": "2026-10-17T11:48:47.221Z",
+        "ok": true,
+        "dry": true,
+        "chars": 893,
+        "events": [
+          "Sample events",
+          "Sample events 31"
+        ]
+      }
+    ]
+  }
+}

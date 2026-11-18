@@ -1,0 +1,75 @@
+{
+  "id": "tmux_sessions",
+  "k": "K35",
+  "method": "GET",
+  "path": "/tmux/sessions",
+  "status": 200,
+  "body": {
+    "sessions": [
+      {
+        "name": "Sample n",
+        "windows": 1,
+        "attached": false,
+        "panes": [
+          {
+            "id": "Sample",
+            "session": "Sample s",
+            "windowIndex": 1,
+            "windowName": "Sample",
+            "paneIndex": 1,
+            "command": "Sample",
+            "cwd": "...fake-path",
+            "pid": 3261862,
+            "active": false,
+            "width": 38,
+            "height": 68
+          }
+        ],
+        "backend": "Sampl"
+      },
+      {
+        "name": "Sample name 97",
+        "windows": 1,
+        "attached": true,
+        "panes": [
+          {
+            "id": "Sample",
+            "session": "Sample session 9",
+            "windowIndex": 1,
+            "windowName": "Sample",
+            "paneIndex": 1,
+            "command": "Samp",
+            "cwd": "...fake-path",
+            "pid": 2789476,
+            "active": true,
+            "width": 38,
+            "height": 68
+          }
+        ],
+        "backend": "Sampl"
+      },
+      {
+        "name": "Sample name 72",
+        "windows": 1,
+        "attached": false,
+        "panes": [
+          {
+            "id": "Sample",
+            "session": "Sample session 7",
+            "windowIndex": 1,
+            "windowName": "Sample",
+            "paneIndex": 1,
+            "command": "Samp",
+            "cwd": "...fake-path",
+            "pid": 2792533,
+            "active": false,
+            "width": 38,
+            "height": 68
+          }
+        ],
+        "backend": "Sampl"
+      }
+    ],
+    "at": "2026-10-17T13:06:32.473Z"
+  }
+}

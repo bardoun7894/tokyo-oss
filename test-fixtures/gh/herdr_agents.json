@@ -1,0 +1,26 @@
+{
+  "id": "herdr_agents",
+  "k": "G3",
+  "method": "GET",
+  "path": "/herdr/agents",
+  "status": 200,
+  "body": {
+    "agents": [
+      {
+        "name": "Sample",
+        "kind": "claude",
+        "status": "working",
+        "ready": false,
+        "workspaceId": "Sam",
+        "workspaceLabel": "Sample w",
+        "tabId": "Sample",
+        "paneId": "Sample",
+        "cwd": "...fake-path",
+        "title": "Sample title 68"
+      }
+    ],
+    "workspaces": 3,
+    "fetchedAt": "2026-10-17T13:06:32.498Z",
+    "stale": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "L20",
+  "method": "GET",
+  "path": "/products/forward-targets",
+  "query": null,
+  "status": 200,
+  "body": {
+    "targets": [
+      {
+        "jid": "15550107279@lid",
+        "name": "Sample n",
+        "isGroup": false,
+        "lastActive": 3639610519
+      },
+      {
+        "jid": "15550107015@lid",
+        "name": "S",
+        "isGroup": false,
+        "lastActive": 8779578993
+      },
+      {
+        "jid": "15550107721@lid",
+        "name": "S",
+        "isGroup": false,
+        "lastActive": 8150462222
+      }
+    ]
+  }
+}

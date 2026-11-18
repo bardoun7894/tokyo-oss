@@ -1,0 +1,8 @@
+{
+  "id": "L29",
+  "method": "GET",
+  "path": "/instagram/rules",
+  "query": null,
+  "status": 200,
+  "body": []
+}

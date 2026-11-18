@@ -1,0 +1,26 @@
+{
+  "id": "skills",
+  "k": "K34",
+  "method": "GET",
+  "path": "/skills",
+  "status": 200,
+  "body": {
+    "skills": [
+      {
+        "name": "Sample ",
+        "description": "Sample description 93",
+        "prompt": "Sample prompt 59"
+      },
+      {
+        "name": "Sample name ",
+        "description": "Sa",
+        "prompt": "Sample prompt 71"
+      },
+      {
+        "name": "Sample name 52",
+        "description": "Sa",
+        "prompt": "Sample prompt 99"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "models_health",
+  "k": "K31",
+  "method": "GET",
+  "path": "/models/health",
+  "status": 200,
+  "body": {
+    "models": {
+      "key351": {
+        "model": "Sample model 51",
+        "status": "error",
+        "ok": false,
+        "ms": 4580,
+        "error": "Sample error 22"
+      }
+    },
+    "resolution": null,
+    "at": 1786991938.675138
+  }
+}

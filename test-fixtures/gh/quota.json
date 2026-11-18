@@ -1,0 +1,67 @@
+{
+  "id": "quota",
+  "k": "K31",
+  "method": "GET",
+  "path": "/quota",
+  "status": 200,
+  "body": {
+    "providers": [
+      {
+        "id": "Sample id ",
+        "label": "Sample lab",
+        "state": "empty",
+        "headline": "Sample head",
+        "source": "api",
+        "keyFound": true,
+        "detail": "Sample detail 94",
+        "used": 1,
+        "note": "Sample note 8"
+      },
+      {
+        "id": "Sample i",
+        "label": "Sample l",
+        "state": "empty",
+        "headline": "Sample",
+        "source": "api",
+        "keyFound": true,
+        "detail": "Sample detail 52",
+        "used": 1
+      },
+      {
+        "id": "Sample id",
+        "label": "Sample label 1",
+        "state": "ok",
+        "headline": "Sample ",
+        "source": "api",
+        "keyFound": true,
+        "detail": "Sample detail 32"
+      }
+    ],
+    "jev": {
+      "route": "Sample r",
+      "model": "jev-latest",
+      "url": "https://example.invalid/sample-737",
+      "models": [
+        {
+          "id": "Sample id ",
+          "via": "Sample via 70",
+          "active": true,
+          "note": "Sample note 92"
+        },
+        {
+          "id": "Sample id 57",
+          "via": "Sample via",
+          "active": false,
+          "note": "Sample note 54"
+        },
+        {
+          "id": "Sample i",
+          "via": "Sample via 1",
+          "active": false,
+          "note": "Sample note 4"
+        }
+      ]
+    },
+    "at": "2026-10-17T13:06:30.598Z"
+  }
+}

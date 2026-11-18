@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "tables": {
+    "jobs": ["id", "project", "owner", "brief_sha", "status", "grade", "created_at", "ended_at", "updated_at"],
+    "job_phases": ["job_id", "phase", "seq", "status", "run_id", "exit_code", "reason", "started_at", "ended_at"],
+    "runs": ["id", "job_id", "parent_run", "source", "project", "host", "pid", "pane", "name", "label", "status", "exit_code", "reason", "started_at", "ended_at", "model", "branch", "role", "harness", "fallback_from", "advisor"],
+    "approvals": ["id", "kind", "project", "job_id", "run_id", "repo_path", "branch", "head_sha", "title", "detail", "status", "answered_by", "answered_at", "created_at", "landed_run"],
+    "problems": ["id", "kind", "project", "dedupe_key", "detail", "created_at", "alerted_at", "resolved_at"],
+    "scorecards": ["id", "job_id", "run_id", "project", "branch", "head_sha", "merged_sha", "grade", "checks_json", "evidence_dir", "created_at", "merged_at"],
+    "reviews": ["id", "project", "branch", "head_sha", "reviewer_model", "family", "verdict", "p0_count", "p1_count", "round", "evidence_file", "created_at"],
+    "review_picks": ["id", "project", "branch", "head_sha", "reviewer_model", "family", "created_at"]
+  }
+}

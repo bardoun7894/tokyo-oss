@@ -1,0 +1,8 @@
+{
+  "id": "L10",
+  "method": "GET",
+  "path": "/work/log",
+  "query": null,
+  "status": 200,
+  "body": []
+}

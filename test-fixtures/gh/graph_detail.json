@@ -1,0 +1,83 @@
+{
+  "id": "graph_detail",
+  "k": "K19",
+  "method": "GET",
+  "path": "/graphs/{GRAPH}",
+  "status": 200,
+  "body": {
+    "graph": {
+      "name": "Sample n",
+      "description": "Sample description 16",
+      "maxTransitions": 93,
+      "nodes": [
+        {
+          "id": "Sample ",
+          "kind": "agent",
+          "prompt": "Sample prompt 19",
+          "model": "Sample model 61",
+          "tools": [
+            "Samp",
+            "Sampl",
+            "Samp"
+          ],
+          "output": {
+            "type": "text",
+            "description": "Sample description 60"
+          },
+          "x": 810,
+          "y": 0
+        },
+        {
+          "id": "Sampl",
+          "kind": "agent",
+          "prompt": "Sample prompt 14",
+          "system": "Sample system 87",
+          "model": "Sample model 59",
+          "thinking": "Samp",
+          "tools": [
+            "Samp",
+            "Samp",
+            "Samp"
+          ],
+          "output": {
+            "type": "text",
+            "description": "Sample description 54"
+          },
+          "ref": "Sample ref",
+          "x": 236,
+          "y": 0
+        },
+        {
+          "id": "Sample id 30",
+          "kind": "agent",
+          "prompt": "Sample prompt 7",
+          "system": "Sample system 62",
+          "model": "Sample model 42",
+          "thinking": "Samp",
+          "tools": [
+            "Samp",
+            "Sample too"
+          ],
+          "output": {
+            "type": "text",
+            "description": "Sample description 98"
+          },
+          "ref": "Sample ref 98",
+          "x": 962,
+          "y": 0
+        }
+      ],
+      "edges": [
+        {
+          "from": "Sampl",
+          "to": "Sample "
+        },
+        {
+          "from": "Sample from 30",
+          "to": "Sampl"
+        }
+      ]
+    },
+    "warnings": []
+  }
+}

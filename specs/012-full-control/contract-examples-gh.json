@@ -1,0 +1,1248 @@
+{
+  "version": 1,
+  "note": "Mapped (allowlisted) examples for K1..K36 and G3. Values are fake. Opaque ids are g_ + 12 hex. Source fixtures: test-fixtures/gh/*.json.",
+  "count": 37,
+  "routes": [
+    {
+      "id": "K1",
+      "method": "GET",
+      "path": "/ops/gh/fleet",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "units": [
+          {
+            "id": "g_71a07e7a72a3",
+            "name": "Sample name ",
+            "kind": "systemd",
+            "status": "running",
+            "active": true,
+            "enabled": true,
+            "restartId": "nginx"
+          },
+          {
+            "id": "g_0c0f837bcb5f",
+            "name": "Sampl",
+            "kind": "systemd",
+            "status": "running",
+            "active": true,
+            "enabled": true,
+            "restartId": null
+          }
+        ]
+      },
+      "note": ""
+    },
+    {
+      "id": "K2",
+      "method": "GET",
+      "path": "/ops/gh/schedules",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "schedules": [
+          {
+            "id": "g_8e572424c716",
+            "name": "Sample name 25",
+            "next": "2026-10-17T13:07:41.628Z",
+            "last": "2026-10-17T12:14:12.818Z",
+            "source": "timer"
+          },
+          {
+            "id": "g_51a8c8f64314",
+            "name": "Sample name 16",
+            "next": "2026-10-17T13:09:00.000Z",
+            "last": "2026-10-17T12:39:00.236Z",
+            "source": "timer"
+          }
+        ]
+      },
+      "note": ""
+    },
+    {
+      "id": "K3",
+      "method": "GET",
+      "path": "/ops/gh/monitor",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "containers": {
+          "running": 11,
+          "exited": 10,
+          "total": 32,
+          "list": [
+            {
+              "name": "Sample name 75",
+              "state": "running",
+              "status": "Sample status 9"
+            },
+            {
+              "name": "Sample name 11",
+              "state": "running",
+              "status": "Up 18 hours"
+            }
+          ]
+        },
+        "links": {
+          "up": 72,
+          "down": 3,
+          "list": [
+            {
+              "name": "Sample ",
+              "ms": 22,
+              "note": "Sample n",
+              "up": true
+            },
+            {
+              "name": "Sample name 49",
+              "ms": 5,
+              "note": "Sample n",
+              "up": true
+            }
+          ]
+        },
+        "hosts": {
+          "server": {
+            "cpu": 10,
+            "disk": 24,
+            "ram": 63,
+            "uptime": "Sample uptime 85"
+          },
+          "mac": {
+            "cpu": 68,
+            "disk": 75,
+            "ram": 38,
+            "uptime": "14:17"
+          }
+        },
+        "services": [
+          {
+            "id": "Sampl",
+            "kind": "pm2",
+            "status": "online",
+            "where": "Sample",
+            "label": "Sample label 22"
+          },
+          {
+            "id": "Sample id 16",
+            "kind": "pm2",
+            "status": "online",
+            "where": "Sample",
+            "label": "Sample label 4"
+          }
+        ],
+        "tools": {
+          "claude": "Sample ",
+          "opencode": "Sample opencode 30",
+          "pi": "Sample pi 11"
+        },
+        "tokens": {
+          "total": 9483338
+        }
+      },
+      "note": ""
+    },
+    {
+      "id": "K4",
+      "method": "GET",
+      "path": "/ops/gh/network",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "chains": [
+          {
+            "id": "Sample i",
+            "label": "Sample l",
+            "state": "ok"
+          },
+          {
+            "id": "Sample id ",
+            "label": "Sample label 3",
+            "state": "ok"
+          }
+        ],
+        "links": [
+          {
+            "id": "Sample id 7",
+            "kind": "tailnet",
+            "state": "ok",
+            "ms": 834,
+            "label": "Sample label 46"
+          },
+          {
+            "id": "Sample id",
+            "kind": "socks",
+            "state": "ok",
+            "ms": 353,
+            "label": "Sample label 25"
+          }
+        ],
+        "nodes": [
+          {
+            "name": "Sample na",
+            "online": true,
+            "state": "ok",
+            "lastSeen": "2026-10-17T12:43:57.000Z"
+          },
+          {
+            "name": "Sample name 45",
+            "online": true,
+            "state": "ok",
+            "lastSeen": "2026-10-17T12:51:13.000Z"
+          }
+        ],
+        "exposure": {
+          "state": "ok",
+          "total": 3,
+          "unexpected": 3
+        },
+        "alerts": {
+          "mode": "dry",
+          "alerted": 3,
+          "lastDeliveryOk": true
+        }
+      },
+      "note": ""
+    },
+    {
+      "id": "K5",
+      "method": "POST",
+      "path": "/ops/gh/network/refresh",
+      "cap": "ops:write",
+      "confirm": "none",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K6",
+      "method": "GET",
+      "path": "/ops/gh/endpoints",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "services": [
+          {
+            "id": "g_1043a984fa4b",
+            "name": "...fake-path",
+            "kind": "static",
+            "status": "up",
+            "project": "Sample project 48",
+            "infra": false,
+            "http": 103
+          },
+          {
+            "id": "g_555079139207",
+            "name": "...fake-path",
+            "kind": "static",
+            "status": "up",
+            "project": "Sample project 48",
+            "infra": false,
+            "http": 640
+          }
+        ]
+      },
+      "note": ""
+    },
+    {
+      "id": "K7",
+      "method": "POST",
+      "path": "/ops/gh/endpoints/refresh",
+      "cap": "ops:write",
+      "confirm": "none",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K8",
+      "method": "GET",
+      "path": "/ops/gh/host-projects",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "projects": [
+          {
+            "name": "Sample ",
+            "dirty": 96,
+            "hasKb": false,
+            "workflows": 0,
+            "lastCommit": null
+          },
+          {
+            "name": "Sample na",
+            "branch": "Samp",
+            "dirty": 0,
+            "hasKb": false,
+            "workflows": 0,
+            "lastCommitAgo": "Sample las",
+            "lastCommit": "Sample lastCommit 91"
+          }
+        ]
+      },
+      "note": "GodHome /projects has no ahead/behind; the plan's K8 trims to branch, dirty, last commit"
+    },
+    {
+      "id": "K9",
+      "method": "GET",
+      "path": "/ops/gh/world",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "hosts": [
+          {
+            "id": "Sample id",
+            "name": "Sample na",
+            "up": true
+          },
+          {
+            "id": "Sam",
+            "name": "Sam",
+            "up": true
+          }
+        ],
+        "projects": [
+          {
+            "slug": "Sample",
+            "status": "up",
+            "kind": "repo",
+            "host": "Sam",
+            "work_30d": 0,
+            "xp": 0,
+            "counts": {
+              "done": 0,
+              "pending": 0,
+              "failed": 2
+            },
+            "lastEventAt": "2026-10-07T11:57:08.394Z"
+          },
+          {
+            "slug": "Sample slu",
+            "status": "up",
+            "kind": "repo",
+            "host": "Sam",
+            "work_30d": 2,
+            "xp": 2,
+            "counts": {
+              "done": 2,
+              "pending": 0,
+              "failed": 0
+            },
+            "lastEventAt": "2026-10-09T19:30:18.730Z"
+          }
+        ],
+        "needsYou": [
+          {
+            "project": "Sample",
+            "title": "Sample title 43",
+            "since": "2026-10-17T13:00:20.000Z"
+          }
+        ],
+        "workers": [
+          {
+            "id": "g_757cb511f576",
+            "label": "Sampl",
+            "model": "",
+            "project": "Sample",
+            "started": "2026-10-17T12:50:27.016Z",
+            "status": "running"
+          },
+          {
+            "id": "g_3433662e3dd9",
+            "label": "Sample labe",
+            "model": "",
+            "project": "Sampl",
+            "source": "herdr",
+            "started": "2026-10-17T11:53:08.000Z",
+            "status": "running",
+            "host": "Sam"
+          }
+        ],
+        "events": [
+          {
+            "id": "g_f5122ec8781b",
+            "ts": "2026-10-17T11:25:59.000Z",
+            "kind": "source",
+            "host": "Sam",
+            "project": "Sample proj",
+            "status": "up",
+            "actor": "Sampl",
+            "model": "",
+            "source": "market-swot",
+            "title": "Sample t"
+          },
+          {
+            "id": "g_c9ae39bbc877",
+            "ts": "2026-10-17T11:25:59.000Z",
+            "kind": "source",
+            "host": "Sam",
+            "project": "Sa",
+            "status": "up",
+            "actor": "Sampl",
+            "model": "",
+            "source": "kb",
+            "title": "Sample ti"
+          }
+        ]
+      },
+      "note": "the life block of /world/state (income, shop, WhatsApp counts) is dropped; urls and refs are dropped"
+    },
+    {
+      "id": "K10",
+      "method": "GET",
+      "path": "/ops/gh/control",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "sites": [
+          {
+            "name": "Sampl",
+            "deploy": "Sample deploy 27",
+            "health": {
+              "state": "ok",
+              "ms": 504
+            },
+            "git": {
+              "branch": "Sample branch 32",
+              "commit": "Sample ",
+              "dirty": 52,
+              "ago": "Sample ago 0"
+            }
+          },
+          {
+            "name": "Sample ",
+            "deploy": "Sample deploy ",
+            "health": {
+              "state": "ok",
+              "ms": 459
+            },
+            "git": {
+              "branch": "Sample branc",
+              "commit": "Sample ",
+              "ahead": 11,
+              "behind": 0,
+              "dirty": 8,
+              "ago": "Sample ago 73"
+            }
+          }
+        ],
+        "missions": [
+          {
+            "missionId": "Sample_i",
+            "project": "Sample proje",
+            "state": "failed"
+          },
+          {
+            "missionId": "Sample_i",
+            "project": "Sam",
+            "state": "failed"
+          }
+        ],
+        "needsYou": [
+          {
+            "kind": "secret-exposed",
+            "severity": "critical",
+            "title": "Sample title 5"
+          },
+          {
+            "kind": "site-down",
+            "severity": "critical",
+            "title": "Sample title 28"
+          }
+        ]
+      },
+      "note": "missions are {missionId, project, state}; the app links to the Approvals card whose offer id is the missionId (GET /offers); there is no mission write here"
+    },
+    {
+      "id": "K11",
+      "method": "POST",
+      "path": "/ops/gh/control/sites/refresh",
+      "cap": "ops:write",
+      "confirm": "none",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K12",
+      "method": "GET",
+      "path": "/ops/gh/inbox",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "items": [
+          {
+            "id": "g_9f7680ec87d4",
+            "kind": "failed-run",
+            "title": "nightly-check",
+            "at": "2026-10-17T12:00:00.000Z",
+            "runId": "run-0123"
+          }
+        ]
+      },
+      "note": "live inbox was empty at capture; item fields from fleet.ts InboxItem, detail dropped"
+    },
+    {
+      "id": "K13",
+      "method": "POST",
+      "path": "/ops/gh/inbox/:id/dismiss",
+      "cap": "ops:write",
+      "confirm": "none",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": "Tokyo resolves the id back to {kind,title,at} for GodHome"
+    },
+    {
+      "id": "K14",
+      "method": "GET",
+      "path": "/ops/gh/hygiene",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "errors": 0,
+        "findings": [
+          {
+            "id": "g_5b415b899a8d",
+            "check": "Sample check 46",
+            "severity": "P0",
+            "scope": "mostqlAi",
+            "fix": "Sample fix ",
+            "cheap": true,
+            "title": "Sample title 7"
+          },
+          {
+            "id": "g_f83c49bae30f",
+            "check": "Sample check 79",
+            "severity": "P0",
+            "scope": "VideoSaaS",
+            "fix": "Sample fix 63",
+            "cheap": false,
+            "title": "Sample title 79"
+          }
+        ],
+        "fixes": [
+          {
+            "id": "gitignore_transcripts",
+            "label": "Sample label 90",
+            "safety": "Samp",
+            "needsTarget": true
+          },
+          {
+            "id": "untrack_transcripts",
+            "label": "Sample label 3",
+            "safety": "Sample ",
+            "needsTarget": true
+          },
+          {
+            "id": "untrack_env",
+            "label": "Sample label",
+            "safety": "Sample ",
+            "needsTarget": true
+          }
+        ]
+      },
+      "note": "no fix action in 004; detail (paths) dropped"
+    },
+    {
+      "id": "K15",
+      "method": "GET",
+      "path": "/ops/gh/playbook",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "pending": [
+          {
+            "id": "g_ece599313c0e",
+            "graph": "build",
+            "drafted": "2026-10-17T12:00:00.000Z",
+            "flagged": null,
+            "text": "Run the gate before the review phase."
+          }
+        ],
+        "approved": []
+      },
+      "note": "live lists were empty at capture; item fields from playbook.ts Lesson, text clamped to 600 and scrubbed"
+    },
+    {
+      "id": "K16",
+      "method": "POST",
+      "path": "/ops/gh/playbook/:id/approve",
+      "cap": "ops:write",
+      "confirm": "CS",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K17",
+      "method": "POST",
+      "path": "/ops/gh/playbook/:id/reject",
+      "cap": "ops:write",
+      "confirm": "CS",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K18",
+      "method": "GET",
+      "path": "/ops/gh/graphs",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "graphs": [
+          {
+            "name": "Sample n",
+            "description": "Sample description 16",
+            "nodes": 3,
+            "edges": 2,
+            "loops": 2,
+            "valid": true
+          },
+          {
+            "name": "Sample nam",
+            "description": "Sample description 59",
+            "nodes": 6,
+            "edges": 8,
+            "loops": 1,
+            "valid": true
+          }
+        ]
+      },
+      "note": ""
+    },
+    {
+      "id": "K19",
+      "method": "GET",
+      "path": "/ops/gh/graphs/:name",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "graph": {
+          "name": "Sample n",
+          "description": "Sample description 16",
+          "maxTransitions": 93,
+          "nodes": [
+            {
+              "id": "Sample ",
+              "kind": "agent",
+              "model": "Sample model 61",
+              "tools": [
+                "Samp",
+                "Sampl",
+                "Samp"
+              ],
+              "x": 810,
+              "y": 0,
+              "outputType": "text"
+            },
+            {
+              "id": "Sampl",
+              "kind": "agent",
+              "model": "Sample model 59",
+              "ref": "Sample ref",
+              "thinking": "Samp",
+              "tools": [
+                "Samp",
+                "Samp",
+                "Samp"
+              ],
+              "x": 236,
+              "y": 0,
+              "outputType": "text"
+            },
+            {
+              "id": "Sample id 30",
+              "kind": "agent",
+              "model": "Sample model 42",
+              "ref": "Sample ref 98",
+              "thinking": "Samp",
+              "tools": [
+                "Samp",
+                "Sample too"
+              ],
+              "x": 962,
+              "y": 0,
+              "outputType": "text"
+            }
+          ],
+          "edges": [
+            {
+              "from": "Sampl",
+              "to": "Sample "
+            },
+            {
+              "from": "Sample from 30",
+              "to": "Sampl"
+            }
+          ]
+        }
+      },
+      "note": "prompt, system and output descriptions are dropped; node.outputType (was output) is the output type only; the key is renamed so no reply carries an \"output\" key (A4 pattern)"
+    },
+    {
+      "id": "K20",
+      "method": "POST",
+      "path": "/ops/gh/graphs/:name/run",
+      "cap": "ops:run",
+      "confirm": "FP",
+      "request": {},
+      "example": {
+        "actionId": "act_a1b2c3d4e5f6",
+        "kind": "gh_graph_run",
+        "label": "build",
+        "expiresAt": "2026-10-17T12:00:00.000Z"
+      },
+      "note": ""
+    },
+    {
+      "id": "K21",
+      "method": "GET",
+      "path": "/ops/gh/loops",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "loops": [
+          {
+            "id": "g_d1643b1b061b",
+            "graph": "nightly-check",
+            "kind": "cron",
+            "enabled": true,
+            "schedule": "0 3 * * *",
+            "maxRuns": 10,
+            "maxCalls": 100,
+            "runs": 4,
+            "calls": 12,
+            "lastFiredAt": "2026-10-17T12:00:00.000Z"
+          }
+        ]
+      },
+      "note": "live list was empty at capture; item fields from triggers.ts Trigger; input, watchPath, lastError, lastRunId dropped"
+    },
+    {
+      "id": "K22",
+      "method": "POST",
+      "path": "/ops/gh/loops/:id/fire",
+      "cap": "ops:run",
+      "confirm": "FP",
+      "request": {},
+      "example": {
+        "actionId": "act_b2c3d4e5f6a1",
+        "kind": "gh_trigger_fire",
+        "label": "nightly-check",
+        "expiresAt": "2026-10-17T12:00:00.000Z"
+      },
+      "note": ""
+    },
+    {
+      "id": "K23",
+      "method": "POST",
+      "path": "/ops/gh/loops/:id/reset",
+      "cap": "ops:write",
+      "confirm": "CS",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K24",
+      "method": "DELETE",
+      "path": "/ops/gh/loops/:id",
+      "cap": "ops:write",
+      "confirm": "CS",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K25",
+      "method": "GET",
+      "path": "/ops/gh/factory",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "repos": [
+          {
+            "name": "Sample "
+          },
+          {
+            "name": "Sample na"
+          }
+        ],
+        "adws": [
+          "Samp",
+          "Samp",
+          "Sample adws 31"
+        ],
+        "stages": [
+          "Samp",
+          "Samp",
+          "Sampl"
+        ],
+        "runs": [
+          {
+            "id": "Sample id 31",
+            "ok": true,
+            "running": false,
+            "verdictPass": true,
+            "stages": [],
+            "at": 1786928192400.2283,
+            "ticket": "Sampl"
+          },
+          {
+            "id": "Sample id ",
+            "ok": true,
+            "running": false,
+            "verdictPass": null,
+            "stages": [],
+            "at": 1786928192397.2283,
+            "ticket": "Sample ticket"
+          }
+        ],
+        "launches": [
+          {
+            "id": "g_75a81cd557ae",
+            "runId": "Sample runId 87",
+            "started": 5304037659149,
+            "exited": 0,
+            "adopted": true
+          },
+          {
+            "id": "g_c6f67a66491b",
+            "runId": "Sample runId 58",
+            "started": 2410119926726,
+            "exited": 1,
+            "adopted": true
+          }
+        ],
+        "cards": [
+          {
+            "id": "g_cd1b716fbe56",
+            "column": "g_4fa3a3646cc1",
+            "title": "Sample title 92"
+          },
+          {
+            "id": "g_3fa4004643b3",
+            "column": "g_4fa3a3646cc1",
+            "title": "Sample title 90"
+          }
+        ],
+        "columns": [
+          {
+            "id": "g_4fa3a3646cc1",
+            "count": 2
+          }
+        ]
+      },
+      "note": "column and file names are replaced by opaque ids; gate, output and paths are dropped; columns lists the opaque column ids (board order) so a card can be moved: names are never sent"
+    },
+    {
+      "id": "K26",
+      "method": "GET",
+      "path": "/ops/gh/factory/runs/:id",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "id": "Sample id 31",
+        "running": false,
+        "verdictPass": true,
+        "ticket": "Sampl",
+        "stageStates": [
+          {
+            "stage": "Samp",
+            "kind": "agent",
+            "state": "done",
+            "ok": true,
+            "ms": 1,
+            "summary": null
+          },
+          {
+            "stage": "Sample stag",
+            "kind": "agent",
+            "state": "done",
+            "ok": true,
+            "summary": null
+          },
+          {
+            "stage": "Sample ",
+            "kind": "agent",
+            "state": "done",
+            "ok": true,
+            "ms": 1,
+            "summary": null
+          }
+        ],
+        "roster": [
+          {
+            "name": "Sample na",
+            "model": "Sample model 75"
+          },
+          {
+            "name": "Sample ",
+            "model": "Sample model 96"
+          },
+          {
+            "name": "Sample n",
+            "model": "Sample model 96"
+          }
+        ],
+        "timeline": [
+          {
+            "phase": "Samp",
+            "status": "success",
+            "summary": "Sample"
+          },
+          {
+            "phase": "Sample",
+            "status": "success",
+            "approved": true,
+            "summary": "Sample summar"
+          },
+          {
+            "phase": "Sampl",
+            "status": "success",
+            "summary": "Sample summar"
+          }
+        ]
+      },
+      "note": "no output, plan, review, diffStat, baseline, findings, file names or write globs"
+    },
+    {
+      "id": "K27",
+      "method": "POST",
+      "path": "/ops/gh/factory/launches/:id/stop",
+      "cap": "ops:write",
+      "confirm": "CS",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K28",
+      "method": "POST",
+      "path": "/ops/gh/factory/cards/:id/move",
+      "cap": "ops:write",
+      "confirm": "CS",
+      "request": {
+        "to": "g_ce777ee26d80"
+      },
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K29",
+      "method": "DELETE",
+      "path": "/ops/gh/factory/cards/:id",
+      "cap": "ops:write",
+      "confirm": "CS",
+      "request": {},
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K30",
+      "method": "POST",
+      "path": "/ops/gh/factory/run",
+      "cap": "ops:run",
+      "confirm": "FP",
+      "request": {
+        "ticket": "Add a health check to the sample service",
+        "repo": "demo-site",
+        "stages": "plan,build,gate",
+        "adw": "auto"
+      },
+      "example": {
+        "actionId": "act_c3d4e5f6a1b2",
+        "kind": "gh_factory_run",
+        "label": "demo-site",
+        "expiresAt": "2026-10-17T12:00:00.000Z"
+      },
+      "note": "GodHome gets {ticket, repo, stages, adw, merge:false}; any other key in the request is ignored"
+    },
+    {
+      "id": "K31",
+      "method": "GET",
+      "path": "/ops/gh/models",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "counts": {
+          "total": 873,
+          "yours": 99,
+          "free": 91,
+          "paid": 690
+        },
+        "models": [
+          {
+            "id": "Sample id 82",
+            "provider": "commandcode",
+            "enabled": false,
+            "free": true,
+            "providerKnown": true,
+            "cost": {}
+          },
+          {
+            "id": "Sample id 33",
+            "name": "Sample name 35",
+            "provider": "anthropic",
+            "enabled": false,
+            "free": false,
+            "reasoning": true,
+            "context": 2292211,
+            "providerKnown": true,
+            "cost": {
+              "inPrice": 94,
+              "outPrice": 86
+            }
+          },
+          {
+            "id": "Sample id 21",
+            "name": "Sample name 40",
+            "provider": "proxy",
+            "enabled": true,
+            "free": false,
+            "reasoning": true,
+            "context": 321608,
+            "providerKnown": true,
+            "cost": {}
+          }
+        ],
+        "health": {
+          "key351": {
+            "ok": false,
+            "ms": 4580,
+            "status": "error"
+          }
+        },
+        "quota": [
+          {
+            "id": "Sample id ",
+            "label": "Sample lab",
+            "state": "empty",
+            "used": 1,
+            "headline": "Sample head"
+          },
+          {
+            "id": "Sample i",
+            "label": "Sample l",
+            "state": "empty",
+            "used": 1,
+            "headline": "Sample"
+          }
+        ],
+        "costs": {
+          "jev": {
+            "today": 0,
+            "d7": 2.245852,
+            "d30": 2.398394
+          },
+          "openrouter": {
+            "daily": 0,
+            "weekly": 8.92192066,
+            "monthly": 17.588129308
+          }
+        }
+      },
+      "note": "quota is the cached call, never fresh=1; keyEnv, sources, piEquivalent, repo names and pr rows are dropped; model.cost keys are inPrice and outPrice (were input and output) so no reply carries an \"input\" or \"output\" key (A4 pattern)"
+    },
+    {
+      "id": "K32",
+      "method": "POST",
+      "path": "/ops/gh/models/:id/enabled",
+      "cap": "ops:write",
+      "confirm": "none",
+      "request": {
+        "enabled": false
+      },
+      "example": {
+        "ok": true
+      },
+      "note": ""
+    },
+    {
+      "id": "K33",
+      "method": "GET",
+      "path": "/ops/gh/roles",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "roles": [
+          {
+            "id": "Sample ",
+            "label": "Sample ",
+            "model": "",
+            "specialty": "Sample specialty 96",
+            "thinking": "",
+            "builtin": true,
+            "gate": false,
+            "tools": [
+              "Sample too",
+              "Sample to"
+            ],
+            "statuses": []
+          },
+          {
+            "id": "Sample id 30",
+            "label": "Sample label 57",
+            "model": "",
+            "specialty": "Sample specialty 98",
+            "thinking": "",
+            "builtin": true,
+            "gate": false,
+            "tools": [
+              "Samp",
+              "Sample too"
+            ],
+            "statuses": []
+          }
+        ]
+      },
+      "note": "no prompt or system text"
+    },
+    {
+      "id": "K34",
+      "method": "GET",
+      "path": "/ops/gh/skills",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "skills": [
+          {
+            "name": "Sample "
+          },
+          {
+            "name": "Sample name "
+          }
+        ],
+        "graph": {
+          "tiers": [
+            "Sample",
+            "Sampl"
+          ],
+          "nodes": [
+            {
+              "name": "Sample ",
+              "tier": "local",
+              "in": 0,
+              "out": 0
+            },
+            {
+              "name": "Sample name ",
+              "tier": "local",
+              "in": 0,
+              "out": 0
+            }
+          ]
+        }
+      },
+      "note": "descriptions and prompts are dropped"
+    },
+    {
+      "id": "K35",
+      "method": "GET",
+      "path": "/ops/gh/terminals",
+      "cap": "ops:read",
+      "example": {
+        "fetchedAt": "2026-10-17T12:00:00.000Z",
+        "reachable": true,
+        "sessions": [
+          {
+            "id": "g_e9e93f511598",
+            "name": "Sample n",
+            "kind": "Sampl",
+            "attached": false,
+            "windows": 1,
+            "panes": 1,
+            "ageS": 3600
+          },
+          {
+            "id": "g_cc8d2a4578fb",
+            "name": "Sample name 97",
+            "kind": "Sampl",
+            "attached": true,
+            "windows": 1,
+            "panes": 1
+          }
+        ]
+      },
+      "note": "no panes, commands, cwd or output; ageS (seconds since the session was created) is present when GodHome gives a creation time"
+    },
+    {
+      "id": "K36",
+      "method": "POST",
+      "path": "/ops/gh/terminals/:id/kill",
+      "cap": "ops:service",
+      "confirm": "FP",
+      "request": {},
+      "example": {
+        "actionId": "act_d4e5f6a1b2c3",
+        "kind": "terminal_kill",
+        "label": "session",
+        "expiresAt": "2026-10-17T12:00:00.000Z"
+      },
+      "note": ""
+    },
+    {
+      "id": "G3",
+      "method": "GET",
+      "path": "/agents/live",
+      "cap": "agents:start",
+      "example": {
+        "agents": [
+          {
+            "id": "g_e291570d2792",
+            "label": "Sample",
+            "project": "Sample w",
+            "status": "working",
+            "kind": "claude",
+            "ready": false,
+            "lastAt": "2026-10-17T13:06:32.498Z"
+          }
+        ],
+        "reachable": true
+      },
+      "note": "lastAt is the poll time (herdr gives no per-agent time); cwd, title, paneId, tabId, workspaceId are dropped"
+    }
+  ]
+}

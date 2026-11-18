@@ -1,0 +1,14 @@
+{
+  "id": "playbook",
+  "k": "K15",
+  "method": "GET",
+  "path": "/playbook",
+  "status": 200,
+  "body": {
+    "scope": "global",
+    "pending": [],
+    "approved": [],
+    "pendingPath": "...fake-path",
+    "approvedPath": "...fake-path"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "costs",
+  "k": "K31",
+  "method": "GET",
+  "path": "/costs",
+  "status": 200,
+  "body": {
+    "jev": {
+      "today": 0,
+      "d7": 2.245852,
+      "d30": 2.398394,
+      "calls": {
+        "today": 0,
+        "d7": 11168,
+        "d30": 55810
+      },
+      "byTag": [
+        {
+          "tag": "Sample tag 26",
+          "calls": 58593,
+          "usd": 8.114112
+        },
+        {
+          "tag": "Sample tag 7",
+          "calls": 11397,
+          "usd": 1.102763
+        },
+        {
+          "tag": "Samp",
+          "calls": 1108,
+          "usd": 1.109911
+        }
+      ]
+    },
+    "prReview": {
+      "haiku": {
+        "today": 0.08144842000000001,
+        "d7": 9.745638445,
+        "d30": 2.412715447300103
+      },
+      "reviewer": {
+        "today": 0,
+        "d7": 0,
+        "d30": 0
+      },
+      "byModel": [],
+      "rows": [
+        {
+          "at": 1792241251,
+          "repo": "Sample repo 12",
+          "pr": 4,
+          "action": "Sample action",
+          "models": [
+            "Sampl",
+            "Sample models 62"
+          ],
+          "haikuUsd": 5.117500731920001,
+          "reviewerUsd": 0
+        },
+        {
+          "at": 1792239398,
+          "repo": "Sample repo 12",
+          "pr": 4,
+          "action": "Sample action",
+          "models": [
+            "Sampl",
+            "Sample models 45"
+          ],
+          "haikuUsd": 0,
+          "reviewerUsd": 0
+        },
+        {
+          "at": 1792239368,
+          "repo": "Sample repo 12",
+          "pr": 6,
+          "action": "Sample action",
+          "models": [
+            "Sampl",
+            "S"
+          ],
+          "haikuUsd": 0,
+          "reviewerUsd": 0
+        }
+      ]
+    },
+    "openrouter": {
+      "daily": 0,
+      "weekly": 8.92192066,
+      "monthly": 17.588129308
+    },
+    "unitPrice": 1.63385
+  }
+}

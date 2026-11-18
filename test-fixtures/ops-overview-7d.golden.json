@@ -1,0 +1,515 @@
+{
+  "window": {
+    "id": "7d",
+    "from": "2026-10-09T19:24:40.296Z",
+    "to": "2026-10-16T19:24:40.296Z"
+  },
+  "freshness": {
+    "generatedAt": "2026-10-16T19:24:40.296Z",
+    "stale": false
+  },
+  "health": {
+    "score": 100,
+    "checks": [
+      {
+        "id": "backup",
+        "label": "backup",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "chkrootkit",
+        "label": "chkrootkit",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "cronlog",
+        "label": "cronlog",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "disk",
+        "label": "disk",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "docker",
+        "label": "docker",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "pm2",
+        "label": "pm2",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "site",
+        "label": "site",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "unit",
+        "label": "unit",
+        "kind": "check",
+        "ok": true
+      },
+      {
+        "id": "source:agents",
+        "label": "agents",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:claude-sessions",
+        "label": "claude-sessions",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:docker",
+        "label": "docker",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:gh-prs",
+        "label": "gh-prs",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:git",
+        "label": "git",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:git",
+        "label": "git",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:herdr",
+        "label": "herdr",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:jdelegate",
+        "label": "jdelegate",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:kb",
+        "label": "kb",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:market-swot",
+        "label": "market-swot",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:pm2",
+        "label": "pm2",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:pr-review",
+        "label": "pr-review",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:server-health",
+        "label": "server-health",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:session-tasks",
+        "label": "session-tasks",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:sites",
+        "label": "sites",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:skill-use",
+        "label": "skill-use",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:skills",
+        "label": "skills",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:spec-kit",
+        "label": "spec-kit",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:tokyo",
+        "label": "tokyo",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "source:tokyo-runs",
+        "label": "tokyo-runs",
+        "kind": "source",
+        "ok": true
+      },
+      {
+        "id": "host:host-1",
+        "label": "host-1",
+        "kind": "host",
+        "ok": true
+      },
+      {
+        "id": "host:mac",
+        "label": "Mac",
+        "kind": "host",
+        "ok": true
+      },
+      {
+        "id": "collector",
+        "label": "collector",
+        "kind": "collector",
+        "ok": true
+      }
+    ]
+  },
+  "kpi": {
+    "active": 11,
+    "stale": 1015,
+    "done": 384,
+    "failed": 62,
+    "successRate": 0.8609865470852018,
+    "projects": 129,
+    "avgDurS": 198
+  },
+  "series": {
+    "success": [
+      0.71875,
+      1,
+      null,
+      1,
+      0.8888888888888888,
+      0.46938775510204084,
+      0.2,
+      1,
+      0.75,
+      null,
+      null,
+      0.8666666666666667,
+      1,
+      1,
+      1,
+      1,
+      1,
+      null,
+      null,
+      0.6666666666666666,
+      0.42857142857142855,
+      null,
+      0.8952380952380953,
+      0.9864864864864865,
+      1,
+      1,
+      1,
+      1
+    ],
+    "failed": [
+      9,
+      0,
+      null,
+      0,
+      1,
+      26,
+      4,
+      0,
+      1,
+      null,
+      null,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      null,
+      null,
+      1,
+      4,
+      null,
+      11,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "started": [
+      130,
+      82,
+      null,
+      100,
+      42,
+      95,
+      7,
+      18,
+      19,
+      null,
+      6,
+      99,
+      88,
+      45,
+      50,
+      55,
+      21,
+      1,
+      3,
+      16,
+      12,
+      12,
+      150,
+      106,
+      27,
+      57,
+      30,
+      121
+    ],
+    "durS": [
+      6952.062230587006,
+      1374.1322877407074,
+      null,
+      1643.3951408863068,
+      5855.860570430756,
+      3389.0482170581818,
+      613.4812045097351,
+      1923.1921389102936,
+      10360,
+      null,
+      null,
+      2266.4956209659576,
+      437.1211440563202,
+      312,
+      172,
+      373,
+      818.83873462677,
+      null,
+      null,
+      3146,
+      1032.9626445770264,
+      null,
+      17628.044251441956,
+      11363.641033887863,
+      1286.4127876758575,
+      189,
+      203,
+      16746.406477451324
+    ]
+  },
+  "previous": {
+    "finished": 719,
+    "successRate": 0.8344923504867872,
+    "failed": 119,
+    "started": 799,
+    "covered": true
+  },
+  "incidents": {
+    "counts": {
+      "open": 23,
+      "critical": 1,
+      "warning": 21,
+      "notice": 1,
+      "resolved": 96,
+      "acked": 0,
+      "muted": 0
+    },
+    "mttrMs": 34817018.84375
+  },
+  "needsYou": [],
+  "recent": [
+    {
+      "at": "2026-10-16T19:12:50.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-image-polish · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T19:12:29.623Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "tokyo",
+      "title": "worker tokyo-jpeg",
+      "source": "agents"
+    },
+    {
+      "at": "2026-10-16T19:11:24.130Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-image-polish",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T19:07:24.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-actions · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T19:03:47.907Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-actions",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T19:00:46.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-sales-skills · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T19:00:20.000Z",
+      "kind": "recovery",
+      "status": "up",
+      "project": "server",
+      "title": "site: site-2.example.test 000",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:57:21.541Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "tokyo",
+      "title": "worker tokyo-media",
+      "source": "agents"
+    },
+    {
+      "at": "2026-10-16T18:54:09.349Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-sales-skills",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:45:17.000Z",
+      "kind": "alert",
+      "status": "down",
+      "project": "server",
+      "title": "site: site-2.example.test 000",
+      "source": "server-health"
+    },
+    {
+      "at": "2026-10-16T18:45:17.000Z",
+      "kind": "alert",
+      "status": "down",
+      "project": "server",
+      "title": "site: site-2.example.test 000",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:45:01.994Z",
+      "kind": "recovery",
+      "status": "up",
+      "project": "sslip",
+      "title": "site site-4.example.test is back up",
+      "source": "world-recovery"
+    },
+    {
+      "at": "2026-10-16T18:44:34.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-insights-agents · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:43:56.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-profile-name · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:36:01.766Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-profile-name",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:35:48.487Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-insights-agents",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:33:42.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-lid-phone · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:32:23.000Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-ai-automation-persona · claude-sonnet-5-5",
+      "source": "live"
+    },
+    {
+      "at": "2026-10-16T18:31:31.366Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "projects",
+      "title": "biz-lid-phone",
+      "source": "jdelegate"
+    },
+    {
+      "at": "2026-10-16T18:31:23.968Z",
+      "kind": "worker",
+      "status": "done",
+      "project": "crmdemo",
+      "title": "crm-ai-automation-persona",
+      "source": "jdelegate"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "triggers",
+  "k": "K21",
+  "method": "GET",
+  "path": "/triggers",
+  "status": 200,
+  "body": {
+    "triggers": []
+  }
+}

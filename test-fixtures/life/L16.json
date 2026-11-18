@@ -1,0 +1,63 @@
+{
+  "id": "L16",
+  "method": "GET",
+  "path": "/products",
+  "query": null,
+  "status": 200,
+  "body": {
+    "items": [
+      {
+        "id": 39865436,
+        "messageId": 89924,
+        "file": "whatsapp-media/sample-0742.jpg",
+        "thumb": "...fake-path",
+        "full": "...fake-path",
+        "title": "Sample title 68",
+        "brand": "Sample bran",
+        "price": null,
+        "currency": "DH",
+        "priceSource": "Samp",
+        "confidence": "Sam",
+        "batchId": "Sample batchId ",
+        "status": "new",
+        "timestamp": 1792174985,
+        "caption": "Sample caption 96"
+      },
+      {
+        "id": 39865435,
+        "messageId": 89923,
+        "file": "whatsapp-media/sample-0326.jpg",
+        "thumb": "...fake-path",
+        "full": "...fake-path",
+        "title": "Sample title 91",
+        "brand": "Sample brand 12",
+        "price": null,
+        "currency": "DH",
+        "priceSource": "Samp",
+        "confidence": "Sam",
+        "batchId": "Sample batchId ",
+        "status": "new",
+        "timestamp": 1792174985,
+        "caption": "Sample caption 93"
+      },
+      {
+        "id": 39865434,
+        "messageId": 89922,
+        "file": "whatsapp-media/sample-7710.jpg",
+        "thumb": "...fake-path",
+        "full": "...fake-path",
+        "title": "Sample title 3",
+        "brand": "Sample bran",
+        "price": null,
+        "currency": "DH",
+        "priceSource": "Samp",
+        "confidence": "Sam",
+        "batchId": "Sample batchId ",
+        "status": "new",
+        "timestamp": 1792174985,
+        "caption": "Sample caption 74"
+      }
+    ],
+    "total": 82480
+  }
+}

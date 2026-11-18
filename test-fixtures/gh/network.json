@@ -1,0 +1,198 @@
+{
+  "id": "network",
+  "k": "K4",
+  "method": "GET",
+  "path": "/network",
+  "status": 200,
+  "body": {
+    "at": "2026-10-17T13:05:54.724Z",
+    "durationMs": 6719,
+    "nodes": {
+      "data": [
+        {
+          "name": "Sample na",
+          "ip": "Sample ip ",
+          "online": true,
+          "lastSeen": "2026-10-17T12:43:57.000Z",
+          "state": "ok"
+        },
+        {
+          "name": "Sample name 45",
+          "ip": "Sample ip ",
+          "online": true,
+          "lastSeen": "2026-10-17T12:51:13.000Z",
+          "state": "ok"
+        },
+        {
+          "name": "Sample n",
+          "ip": "Sample ip ",
+          "online": false,
+          "lastSeen": "2026-10-13T03:05:52.000Z",
+          "state": "down"
+        }
+      ]
+    },
+    "links": {
+      "data": [
+        {
+          "id": "Sample id 7",
+          "label": "Sample label 46",
+          "from": "Sample fr",
+          "to": "Sample to 45",
+          "kind": "tailnet",
+          "state": "ok",
+          "detail": "Sample",
+          "ms": 834
+        },
+        {
+          "id": "Sample id",
+          "label": "Sample label 25",
+          "from": "Sample from 45",
+          "to": "Sample to",
+          "kind": "socks",
+          "state": "ok",
+          "ms": 353
+        },
+        {
+          "id": "Sample id 5",
+          "label": "Sample label 81",
+          "from": "Sample from 45",
+          "to": "Sample to",
+          "kind": "reverse-ssh",
+          "state": "ok",
+          "ms": 511
+        }
+      ]
+    },
+    "chains": {
+      "data": [
+        {
+          "id": "Sample i",
+          "label": "Sample l",
+          "state": "ok",
+          "steps": [
+            {
+              "id": "Sampl",
+              "label": "Sample label ",
+              "state": "ok",
+              "detail": "Sample",
+              "ms": 387
+            },
+            {
+              "id": "Sample id 69",
+              "label": "Sample label 71",
+              "state": "ok",
+              "ms": 100
+            },
+            {
+              "id": "Sample id 31",
+              "label": "Sample label ",
+              "state": "ok",
+              "detail": "Sa",
+              "path": "Sample ",
+              "ms": 8030
+            }
+          ],
+          "at": "2026-10-17T13:05:54.724Z"
+        },
+        {
+          "id": "Sample id ",
+          "label": "Sample label 3",
+          "state": "ok",
+          "steps": [
+            {
+              "id": "Sampl",
+              "label": "Sample label ",
+              "state": "ok",
+              "detail": "Sample",
+              "ms": 818
+            },
+            {
+              "id": "Sample i",
+              "label": "Sample label 0",
+              "state": "ok",
+              "detail": "Sample",
+              "ms": 11
+            },
+            {
+              "id": "Sample id 35",
+              "label": "Sample label 65",
+              "state": "ok",
+              "detail": "Sample det",
+              "ms": 578
+            }
+          ],
+          "at": "2026-10-17T13:05:51.149Z"
+        },
+        {
+          "id": "Sample id 98",
+          "label": "Sample label 79",
+          "state": "down",
+          "failedStep": "Sample",
+          "reason": "Sample reason 14",
+          "steps": [
+            {
+              "id": "Sample i",
+              "label": "Sample label 98",
+              "state": "ok",
+              "detail": "Sample",
+              "ms": 16
+            },
+            {
+              "id": "Sample ",
+              "label": "Sample label 79",
+              "state": "ok",
+              "ms": 112
+            },
+            {
+              "id": "Sample",
+              "label": "Sample label 7",
+              "state": "down",
+              "detail": "Sample detail",
+              "path": "Sample ",
+              "ms": 4765
+            }
+          ],
+          "at": "2026-10-17T13:05:52.548Z"
+        }
+      ]
+    },
+    "exposure": {
+      "data": {
+        "state": "ok",
+        "entries": [
+          {
+            "port": 9961,
+            "bind": "Sample ",
+            "process": "Sample proce",
+            "pid": 14643,
+            "expected": false,
+            "cmdline": "...fake-path",
+            "cwd": "...fake-path",
+            "since": "2026-10-12T13:38:57.139Z"
+          },
+          {
+            "port": 4324,
+            "bind": "S",
+            "process": "Sample process ",
+            "pid": 873643,
+            "expected": false,
+            "cmdline": "Sample cmdline 43",
+            "cwd": "...fake-path",
+            "since": "2026-10-14T19:20:16.139Z"
+          },
+          {
+            "port": 8657,
+            "bind": "Sample ",
+            "process": "Sample proce",
+            "pid": 2876363,
+            "expected": false,
+            "cmdline": "...fake-path",
+            "cwd": "...fake-path",
+            "since": "2026-10-12T19:42:43.139Z"
+          }
+        ]
+      }
+    }
+  }
+}

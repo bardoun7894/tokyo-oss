@@ -1,0 +1,46 @@
+{
+  "id": "L40",
+  "method": "GET",
+  "path": "/settings/auto-transcribe",
+  "query": null,
+  "status": 200,
+  "body": {
+    "contacts": [
+      {
+        "jid": "15550102473@lid",
+        "name": "Sample",
+        "category": "family",
+        "setting": "Sam",
+        "work": false,
+        "effective": false,
+        "voiceNotes": 430,
+        "lastAt": 1940551200
+      },
+      {
+        "jid": "15550106478@lid",
+        "name": "Samp",
+        "category": "family",
+        "setting": "Sam",
+        "work": false,
+        "effective": false,
+        "voiceNotes": 332,
+        "lastAt": 5067730376
+      },
+      {
+        "jid": "15550106645@lid",
+        "name": "Sample name",
+        "category": "client",
+        "setting": "Sa",
+        "work": true,
+        "effective": true,
+        "voiceNotes": 892,
+        "lastAt": 7776868584
+      }
+    ],
+    "categories": [
+      "Sample",
+      "Samp",
+      "Sample"
+    ]
+  }
+}

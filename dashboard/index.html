@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tokyo Dashboard</title>
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      // Theme before first paint (same logic as src/lib/theme.ts).
+      (function () {
+        var c = "system";
+        try { c = localStorage.getItem("ui_theme") || "system"; } catch (e) {}
+        if (c === "light" || c === "dark") document.documentElement.dataset.theme = c;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>window.__TOKEN__ = "__TOKEN__";</script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "id": "services",
+  "k": "K6",
+  "method": "GET",
+  "path": "/services",
+  "status": 200,
+  "body": {
+    "at": "2026-10-17T13:05:56.227Z",
+    "services": [
+      {
+        "id": "Sample id 14",
+        "name": "...fake-path",
+        "kind": "static",
+        "project": "Sample project 48",
+        "status": "up",
+        "http": 103,
+        "binds": [],
+        "links": [
+          {
+            "url": "https://example.invalid/sample-880",
+            "kind": "public"
+          }
+        ],
+        "dir": "...fake-path",
+        "infra": false
+      },
+      {
+        "id": "Sample id 5",
+        "name": "...fake-path",
+        "kind": "static",
+        "project": "Sample project 48",
+        "status": "up",
+        "http": 640,
+        "binds": [],
+        "links": [
+          {
+            "url": "https://example.invalid/sample-534",
+            "kind": "public"
+          }
+        ],
+        "dir": "...fake-path",
+        "infra": false
+      },
+      {
+        "id": "Sample id 63",
+        "name": "...fake-path",
+        "kind": "static",
+        "project": "Sample project 48",
+        "status": "up",
+        "http": 643,
+        "binds": [],
+        "links": [
+          {
+            "url": "https://example.invalid/sample-698",
+            "kind": "public"
+          }
+        ],
+        "dir": "...fake-path",
+        "infra": false
+      }
+    ],
+    "errors": []
+  }
+}

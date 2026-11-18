@@ -1,0 +1,11 @@
+{
+  "id": "L34",
+  "method": "GET",
+  "path": "/chat-analyzer/sentiment",
+  "query": "period=week",
+  "status": 200,
+  "body": {
+    "overall": [],
+    "byContact": []
+  }
+}

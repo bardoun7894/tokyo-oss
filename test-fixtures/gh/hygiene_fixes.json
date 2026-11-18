@@ -1,0 +1,93 @@
+{
+  "id": "hygiene_fixes",
+  "k": "K14",
+  "method": "GET",
+  "path": "/hygiene/fixes",
+  "status": 200,
+  "body": {
+    "gitignore_transcripts": {
+      "label": "Sample label 90",
+      "desc": "Sample desc 93",
+      "safety": "Samp",
+      "needs_target": true,
+      "inverse": "Sample inverse 72"
+    },
+    "untrack_transcripts": {
+      "label": "Sample label 3",
+      "desc": "Sample desc 31",
+      "safety": "Sample ",
+      "needs_target": true,
+      "confirm": "Sample confirm 20",
+      "inverse": "Sample inverse 26"
+    },
+    "untrack_env": {
+      "label": "Sample label",
+      "desc": "Sample desc 78",
+      "safety": "Sample ",
+      "needs_target": true,
+      "confirm": "Sample confirm 78",
+      "inverse": "Sample inverse"
+    },
+    "gitignore_env": {
+      "label": "Sample label 7",
+      "desc": "Sample desc 61",
+      "safety": "Samp",
+      "needs_target": true,
+      "inverse": "Sample inverse 72"
+    },
+    "run_kb_lint": {
+      "label": "Sample labe",
+      "desc": "Sample desc 31",
+      "safety": "Samp",
+      "needs_target": true,
+      "inverse": "Sample inverse 60"
+    },
+    "create_spec_branches": {
+      "label": "Sample label 38",
+      "desc": "Sample desc 81",
+      "safety": "Sample ",
+      "needs_target": true,
+      "confirm": "Sample confirm 66",
+      "inverse": "Sample inverse 28"
+    },
+    "set_hookspath": {
+      "label": "Sample label 65",
+      "desc": "Sample desc 8",
+      "safety": "Samp",
+      "needs_target": false,
+      "inverse": "Sample inverse 96"
+    },
+    "clear_overrides": {
+      "label": "Sample label 92",
+      "desc": "Sample desc 6",
+      "safety": "Sample ",
+      "needs_target": false,
+      "confirm": "Sample confirm 9",
+      "inverse": "Sample inverse 87"
+    },
+    "enable_firewall": {
+      "label": "Sample label 83",
+      "desc": "Sample desc 9",
+      "safety": "Sample ",
+      "needs_target": false,
+      "confirm": "Sample confirm 42",
+      "inverse": "Sample inverse 78"
+    },
+    "keep_firewall": {
+      "label": "Sample label 27",
+      "desc": "Sample desc 10",
+      "safety": "Sample ",
+      "needs_target": false,
+      "confirm": "Sample confirm 55",
+      "inverse": "Sample inverse 78"
+    },
+    "purge_history": {
+      "label": "Sample label 3",
+      "desc": "Sample desc 50",
+      "safety": "Sample ",
+      "needs_target": true,
+      "confirm": "Sample confirm 91",
+      "inverse": "Sample inverse 73"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "L39",
+  "method": "GET",
+  "path": "/settings",
+  "query": null,
+  "status": 200,
+  "body": {
+    "settings": [
+      {
+        "key": "Sample key 9",
+        "section": "profile",
+        "label": "Sample la",
+        "type": "text",
+        "default": "Sample ",
+        "help": "Sample help 2",
+        "value": "Sample ",
+        "source": "default"
+      },
+      {
+        "key": "Sample key ",
+        "section": "profile",
+        "label": "Sample labe",
+        "type": "text",
+        "default": "Sample",
+        "value": "Sample",
+        "source": "default"
+      },
+      {
+        "key": "Sample key 1",
+        "section": "profile",
+        "label": "Sample label 7",
+        "type": "text",
+        "default": "Sample defau",
+        "value": "Sample value",
+        "source": "default"
+      }
+    ]
+  }
+}

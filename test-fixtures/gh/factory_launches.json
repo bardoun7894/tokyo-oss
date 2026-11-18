@@ -1,0 +1,38 @@
+{
+  "id": "factory_launches",
+  "k": "K25",
+  "method": "GET",
+  "path": "/factory/launches",
+  "status": 200,
+  "body": {
+    "launches": [
+      {
+        "pid": 1922278,
+        "started": 5304037659149,
+        "output": "Sample output 92",
+        "runId": "Sample runId 87",
+        "exited": 0,
+        "adopted": true,
+        "key": "Sample key 18"
+      },
+      {
+        "pid": 1921412,
+        "started": 2410119926726,
+        "output": "Sample output 95",
+        "runId": "Sample runId 58",
+        "exited": 1,
+        "adopted": true,
+        "key": "Sample key 31"
+      },
+      {
+        "pid": 1905583,
+        "started": 7944623617877,
+        "output": "Sample output 17",
+        "runId": "Sample runId 15",
+        "exited": 1,
+        "adopted": true,
+        "key": "Sample key 46"
+      }
+    ]
+  }
+}

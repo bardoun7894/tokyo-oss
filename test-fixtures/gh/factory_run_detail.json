@@ -1,0 +1,95 @@
+{
+  "id": "factory_run_detail",
+  "k": "K26",
+  "method": "GET",
+  "path": "/factory/runs/{RUN}",
+  "status": 200,
+  "body": {
+    "id": "Sample id 31",
+    "at": 1786928192400.2283,
+    "running": false,
+    "stages": [],
+    "ok": true,
+    "verdictPass": true,
+    "gate": "Samp",
+    "stageStates": [
+      {
+        "stage": "Samp",
+        "kind": "agent",
+        "state": "done",
+        "ok": true,
+        "ms": 1
+      },
+      {
+        "stage": "Sample stag",
+        "kind": "agent",
+        "state": "done",
+        "ok": true
+      },
+      {
+        "stage": "Sample ",
+        "kind": "agent",
+        "state": "done",
+        "ok": true,
+        "ms": 1
+      }
+    ],
+    "diffStat": "Sample diffStat 41",
+    "plan": "Sample",
+    "review": "Sample review 15",
+    "ticket": "Sampl",
+    "baseline": "0000812517911872982354147087094660111723",
+    "envelopeTimeline": [
+      {
+        "phase": "Samp",
+        "file": "whatsapp-media/sample-3779.json",
+        "status": "success",
+        "summary": "Sample",
+        "planMarkdown": "Sample"
+      },
+      {
+        "phase": "Sample",
+        "file": "whatsapp-media/sample-7335.json",
+        "status": "success",
+        "summary": "Sample summar",
+        "approved": true,
+        "findings": [
+          "Sample"
+        ],
+        "blocking": []
+      },
+      {
+        "phase": "Sampl",
+        "file": "whatsapp-media/sample-8170.json",
+        "status": "success",
+        "summary": "Sample summar",
+        "changedFiles": []
+      }
+    ],
+    "roster": [
+      {
+        "name": "Sample na",
+        "model": "Sample model 75",
+        "writes": [
+          "Sample ",
+          "Sample w",
+          "Sample w"
+        ]
+      },
+      {
+        "name": "Sample ",
+        "model": "Sample model 96",
+        "writes": [
+          "Sample",
+          "Sample write",
+          "Sample wr"
+        ]
+      },
+      {
+        "name": "Sample n",
+        "model": "Sample model 96",
+        "writes": []
+      }
+    ]
+  }
+}

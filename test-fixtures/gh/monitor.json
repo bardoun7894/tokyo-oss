@@ -1,0 +1,143 @@
+{
+  "id": "monitor",
+  "k": "K3",
+  "method": "GET",
+  "path": "/monitor",
+  "status": 200,
+  "body": {
+    "at": "2026-10-17T13:06:25.618Z",
+    "containers": {
+      "running": 11,
+      "exited": 10,
+      "total": 32,
+      "list": [
+        {
+          "name": "Sample name 75",
+          "state": "running",
+          "status": "Sample status 9"
+        },
+        {
+          "name": "Sample name 11",
+          "state": "running",
+          "status": "Up 18 hours"
+        },
+        {
+          "name": "Sample name 53",
+          "state": "running",
+          "status": "Sample status 99"
+        }
+      ]
+    },
+    "links": {
+      "list": [
+        {
+          "name": "Sample ",
+          "href": "https://example.invalid/sample-15",
+          "up": true,
+          "ms": 22,
+          "note": "Sample n"
+        },
+        {
+          "name": "Sample name 49",
+          "href": "https://example.invalid/sample-198",
+          "up": true,
+          "ms": 5,
+          "note": "Sample n"
+        },
+        {
+          "name": "Sample name 31",
+          "href": "https://example.invalid/sample-198",
+          "up": true,
+          "ms": 5,
+          "note": "Sample n"
+        }
+      ],
+      "up": 72,
+      "down": 3
+    },
+    "tokens": {
+      "total": 9483338,
+      "byTool": {
+        "pi": 12631,
+        "claude": 1095177
+      }
+    },
+    "hosts": {
+      "server": {
+        "host": "Sample hos",
+        "cpu": 10,
+        "ram": 63,
+        "disk": 24,
+        "uptime": "Sample uptime 85"
+      },
+      "mac": {
+        "host": "Sample host 12",
+        "cpu": 68,
+        "ram": 38,
+        "disk": 75,
+        "uptime": "14:17"
+      }
+    },
+    "services": [
+      {
+        "id": "Sampl",
+        "where": "Sample",
+        "kind": "pm2",
+        "label": "Sample label 22",
+        "status": "online"
+      },
+      {
+        "id": "Sample id 16",
+        "where": "Sample",
+        "kind": "pm2",
+        "label": "Sample label 4",
+        "status": "online"
+      },
+      {
+        "id": "Sample id 9",
+        "where": "Sample",
+        "kind": "systemd",
+        "label": "Sample label 45",
+        "status": "active"
+      }
+    ],
+    "models": [
+      "Sample models 67",
+      "Sample models 85",
+      "Sample models "
+    ],
+    "tools": {
+      "claude": "Sample ",
+      "opencode": "Sample opencode 30",
+      "pi": "Sample pi 11"
+    },
+    "controlStale": false,
+    "controlWarming": false,
+    "runs": [
+      {
+        "id": "Sample id 15",
+        "graph": "Sample ",
+        "done": true,
+        "ok": true,
+        "started": 6383275906902,
+        "phases": 3
+      },
+      {
+        "id": "Sample id 50",
+        "graph": "Sample ",
+        "done": true,
+        "ok": true,
+        "started": 8919208700234,
+        "phases": 2
+      },
+      {
+        "id": "Sample id 96",
+        "graph": "Sample g",
+        "done": true,
+        "ok": false,
+        "started": 1037897738061,
+        "phases": 1
+      }
+    ]
+  }
+}

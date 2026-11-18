@@ -1,0 +1,3942 @@
+{
+  "capturedAt": "2026-10-17T14:08:32.446Z",
+  "docker": [
+    {
+      "name": "crmdemo-backend-1",
+      "state": "running",
+      "status": "Up 19 hours (unhealthy)"
+    },
+    {
+      "name": "crmdemo-frontend-1",
+      "state": "running",
+      "status": "Up 19 hours"
+    },
+    {
+      "name": "studio2-dev-nginx",
+      "state": "running",
+      "status": "Up 27 hours (healthy)"
+    },
+    {
+      "name": "studio2-dev-web",
+      "state": "running",
+      "status": "Up 27 hours (healthy)"
+    },
+    {
+      "name": "studio2-dev-scheduler",
+      "state": "running",
+      "status": "Up 27 hours"
+    },
+    {
+      "name": "studio2-dev-horizon",
+      "state": "running",
+      "status": "Up 27 hours (healthy)"
+    },
+    {
+      "name": "studio2-dev-backend",
+      "state": "running",
+      "status": "Up 27 hours (healthy)"
+    },
+    {
+      "name": "studio2-dev-mt-api",
+      "state": "running",
+      "status": "Up 35 hours (healthy)"
+    },
+    {
+      "name": "studio2-dev-mt-worker",
+      "state": "running",
+      "status": "Up 35 hours"
+    },
+    {
+      "name": "studio2-dev-docker-guard",
+      "state": "running",
+      "status": "Up 3 days (healthy)"
+    },
+    {
+      "name": "studio2-dev-minio",
+      "state": "running",
+      "status": "Up 3 days (healthy)"
+    },
+    {
+      "name": "studio2-dev-sites",
+      "state": "running",
+      "status": "Up 3 days (healthy)"
+    },
+    {
+      "name": "studio2-dev-docker-proxy",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "lab-app-prod",
+      "state": "running",
+      "status": "Up 4 days"
+    },
+    {
+      "name": "studio2-dev-shot",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "studio2-dev-shot-egress",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "board-prod-backend-1",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "board-prod-import-converter-1",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "board-prod-migrate-1",
+      "state": "exited",
+      "status": "Exited (0) 4 days ago"
+    },
+    {
+      "name": "studio2-dev-mt-postgres",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "fashiondemo-dev-frontend-1",
+      "state": "running",
+      "status": "Up 5 days"
+    },
+    {
+      "name": "fashiondemo-dev-backend-1",
+      "state": "running",
+      "status": "Up 5 days"
+    },
+    {
+      "name": "fashiondemo-dev-horizon-1",
+      "state": "running",
+      "status": "Up 5 days"
+    },
+    {
+      "name": "fashiondemo-dev-scheduler-1",
+      "state": "running",
+      "status": "Up 5 days"
+    },
+    {
+      "name": "lab-floor-dev",
+      "state": "running",
+      "status": "Up 4 days"
+    },
+    {
+      "name": "shopdemo-backend",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "shopdemo-nginx-backend",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "shopdemo-redis",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "shopdemo-mysql",
+      "state": "running",
+      "status": "Up 8 days (healthy)"
+    },
+    {
+      "name": "board-dashboard-dashboard-1",
+      "state": "running",
+      "status": "Up 8 days (healthy)"
+    },
+    {
+      "name": "obs-node-exporter",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "dev-stack-searxng",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "appstudio-portal-1",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "appstudio-pg-1",
+      "state": "running",
+      "status": "Up 8 days (healthy)"
+    },
+    {
+      "name": "obs-n8n",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "shopdemo-monorepo-frontend-1",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "studio2-dev-u-01m4dcd0wpqq7x8dwg8scpva7d",
+      "state": "exited",
+      "status": "Exited (1) 9 days ago"
+    },
+    {
+      "name": "studio2-dev-postgres",
+      "state": "running",
+      "status": "Up 9 days (healthy)"
+    },
+    {
+      "name": "studio2-dev-redis",
+      "state": "running",
+      "status": "Up 9 days (healthy)"
+    },
+    {
+      "name": "board-prod-minio-init-1",
+      "state": "exited",
+      "status": "Exited (0) 4 days ago"
+    },
+    {
+      "name": "board-prod-minio-1",
+      "state": "running",
+      "status": "Up 10 days (healthy)"
+    },
+    {
+      "name": "board-test-minio-1",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "edudemo-web",
+      "state": "running",
+      "status": "Up 10 days (healthy)"
+    },
+    {
+      "name": "edudemo-backend",
+      "state": "running",
+      "status": "Up 10 days (healthy)"
+    },
+    {
+      "name": "mt-prod-postgres",
+      "state": "running",
+      "status": "Up 10 days"
+    },
+    {
+      "name": "mt-dev-postgres",
+      "state": "running",
+      "status": "Up 10 days"
+    },
+    {
+      "name": "stupefied_jackson",
+      "state": "exited",
+      "status": "Exited (1) 11 days ago"
+    },
+    {
+      "name": "temporal-temporal-ui-1",
+      "state": "running",
+      "status": "Up 11 days"
+    },
+    {
+      "name": "temporal-temporal-admin-tools-1",
+      "state": "running",
+      "status": "Up 11 days"
+    },
+    {
+      "name": "temporal-temporal-1",
+      "state": "running",
+      "status": "Up 11 days"
+    },
+    {
+      "name": "board-test-postgres-1",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "board-test-redis-1",
+      "state": "running",
+      "status": "Up 4 days (healthy)"
+    },
+    {
+      "name": "fashiondemo-dev-mailpit-1",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "fashiondemo-dev-gotenberg-1",
+      "state": "running",
+      "status": "Up 5 days (healthy)"
+    },
+    {
+      "name": "app-worker-1",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "app-web-1",
+      "state": "running",
+      "status": "Up 8 days (healthy)"
+    },
+    {
+      "name": "trusting_johnson",
+      "state": "exited",
+      "status": "Exited (1) 2 weeks ago"
+    },
+    {
+      "name": "fashiondemo-dev-gltf-validator-1",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "sharp_taussig",
+      "state": "exited",
+      "status": "Exited (2) 2 weeks ago"
+    },
+    {
+      "name": "crmdemo-postgres-1",
+      "state": "running",
+      "status": "Up 22 hours (healthy)"
+    },
+    {
+      "name": "appstudio-app-1",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "appstudio-scheduler-1",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "appstudio-worker-1",
+      "state": "running",
+      "status": "Up 4 days"
+    },
+    {
+      "name": "appstudio-redis-1",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "edudemo-redis",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "board-test-minio",
+      "state": "exited",
+      "status": "Exited (0) 2 weeks ago"
+    },
+    {
+      "name": "board-test-redis",
+      "state": "exited",
+      "status": "Exited (0) 2 weeks ago"
+    },
+    {
+      "name": "board-test-pg",
+      "state": "exited",
+      "status": "Exited (0) 2 weeks ago"
+    },
+    {
+      "name": "fashiondemo-dev-redis-1",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "lab-app-pg",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "fashiondemo-readiness-frontend-1",
+      "state": "exited",
+      "status": "Exited (143) 4 weeks ago"
+    },
+    {
+      "name": "fashiondemo-readiness-worker-1",
+      "state": "exited",
+      "status": "Exited (0) 4 weeks ago"
+    },
+    {
+      "name": "fashiondemo-readiness-backend-1",
+      "state": "exited",
+      "status": "Exited (0) 4 weeks ago"
+    },
+    {
+      "name": "fashiondemo-readiness-postgres-1",
+      "state": "exited",
+      "status": "Exited (0) 4 weeks ago"
+    },
+    {
+      "name": "fashiondemo-readiness-redis-1",
+      "state": "exited",
+      "status": "Exited (0) 4 weeks ago"
+    },
+    {
+      "name": "fashiondemo-readiness-minio-1",
+      "state": "exited",
+      "status": "Exited (0) 4 weeks ago"
+    },
+    {
+      "name": "board-prod-postgres-1",
+      "state": "running",
+      "status": "Up 9 days (healthy)"
+    },
+    {
+      "name": "board-prod-redis-1",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "temporal-temporal-postgres-1",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "fashiondemo-dev-minio-1",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "fashiondemo-dev-postgres-1",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "edudemo-mailpit",
+      "state": "exited",
+      "status": "Exited (0) 2 weeks ago"
+    },
+    {
+      "name": "fdesign-design-frontend-1",
+      "state": "running",
+      "status": "Up 4 days"
+    },
+    {
+      "name": "obs-tokyo-hygiene",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "beszel",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "obs-tokyo-exporter",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "obs-pipeline",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "obs-tokyo-actions",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "obs-grafana",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "obs-homarr",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "obs-prometheus",
+      "state": "running",
+      "status": "Up 2 weeks"
+    },
+    {
+      "name": "obs-cadvisor",
+      "state": "exited",
+      "status": "Exited (0) 4 days ago"
+    },
+    {
+      "name": "portainer",
+      "state": "running",
+      "status": "Up 8 days"
+    },
+    {
+      "name": "headscale",
+      "state": "running",
+      "status": "Up 2 weeks (healthy)"
+    },
+    {
+      "name": "shopdemo-soketi",
+      "state": "running",
+      "status": "Up 9 days"
+    }
+  ],
+  "pm2": [
+    {
+      "name": "portfolio-site",
+      "namespace": "default"
+    },
+    {
+      "name": "tokyo",
+      "namespace": "default"
+    },
+    {
+      "name": "tokyo-supplier",
+      "namespace": "default"
+    },
+    {
+      "name": "tokyo-shop",
+      "namespace": "default"
+    },
+    {
+      "name": "portfolio-next",
+      "namespace": "default"
+    },
+    {
+      "name": "mt-worker",
+      "namespace": "default"
+    },
+    {
+      "name": "mt-web",
+      "namespace": "default"
+    },
+    {
+      "name": "helper-opencode",
+      "namespace": "default"
+    },
+    {
+      "name": "helper-web",
+      "namespace": "default"
+    },
+    {
+      "name": "radiodemo",
+      "namespace": "default"
+    },
+    {
+      "name": "courses",
+      "namespace": "default"
+    },
+    {
+      "name": "tokyo-demo-shop",
+      "namespace": "default"
+    }
+  ],
+  "units": [
+    {
+      "unit": "invoices-queue.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "accounts-daemon.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "apparmor.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "apport-autoreport.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "apport.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "apt-daily-upgrade.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "apt-daily.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "auditd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "avahi-daemon.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "blk-availability.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "block-c2.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "board-pgcrypt.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "certbot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "chkrootkit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "proxyapi.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "cloud-init-local.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "colord.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "connman.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "console-screen.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "console-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "containerd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "cron.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "cups-browsed.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "cups.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dbus.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dm-event.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "dmesg.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "docker.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dpi-backend.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dpi-hub.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dpi-real-be.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dpi-real-tail.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dpkg-db-backup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "dsh-king.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "dsh-web.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "e2scrub_all.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "e2scrub_reap.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "earlyoom.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "emergency.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "fail2ban.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "fcoe.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "finalrd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "finance-assistant.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "firewalld.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "fstrim.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "fwupd-refresh.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "fwupd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "getty-static.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "getty@tty1.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "getty@tty7.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "grub-common.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "grub-initrd-fallback.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "herdr.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "hv_kvp_daemon.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "initrd-cleanup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "initrd-parse-etc.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "initrd-switch-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "initrd-udevadm-cleanup-db.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ip6tables.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ipset.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "iptables.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "iscsi-shutdown.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "iscsid.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "kbd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "keyboard-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "kmod-static-nodes.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "ldconfig.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "lightdm.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "lightpanda.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "lm-sensors.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "logrotate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "lvm2-activation-early.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "lvm2-lvmpolld.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "lvm2-monitor.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "lxc.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "man-db.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "tenders-agent.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "tenders-dashboard.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "tenders-portal.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "mei-mail-relay.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "mesh-control.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "ModemManager.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "modprobe@configfs.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "modprobe@dm_mod.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "modprobe@drm.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "modprobe@efi_pstore.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "modprobe@fuse.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "modprobe@loop.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "motd-news.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "multipathd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "mysql.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "netplan-ovs-cleanup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "networkd-dispatcher.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "NetworkManager-wait-online.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "NetworkManager.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "nftables.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "nginx.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "nslcd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "open-iscsi.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "open-vm-tools.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ovsdb-server.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "php8.2-fpm.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "php8.3-fpm.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "php8.5-fpm.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "phpsessionclean.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "pi-dashboard.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "plymouth-quit-wait.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "plymouth-quit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "plymouth-read-write.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "plymouth-start.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "plymouth-switch-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "pm2-root.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "pm2-tokyo-agent.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "polkit.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "pollinate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "rbdmap.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "rc-local.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "rescue.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "meaning-meaning.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "rsyslog.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "rtkit-daemon.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "secureboot-db.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "serial-getty@ttyS0.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "setvtrgb.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "snap.cups.cups-browsed.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "snap.cups.cupsd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "snapd.apparmor.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "snapd.autoimport.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "snapd.core-fixup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "snapd.failure.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "snapd.recovery-chooser-trigger.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "snapd.seeded.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "snapd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "snapd.snap-repair.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "snapd.system-shutdown.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ssh.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "ssl-cert.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "sysstat-collect.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "sysstat-summary.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "sysstat.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-ask-password-console.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-ask-password-plymouth.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-ask-password-wall.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-battery-check.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-binfmt.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-bsod.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-firstboot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-fsck-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-fsck@dev-disk-by\\x2dlabel-BOOT.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-fsck@dev-disk-by\\x2dlabel-UEFI.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-fsckd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-hibernate-resume.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-hibernate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-hwdb-update.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-hybrid-sleep.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-initctl.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-journal-catalog-update.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-journal-flush.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-journald.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "systemd-logind.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "systemd-machine-id-commit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-modules-load.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-networkd-wait-online.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-networkd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "systemd-oomd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-pcrmachine.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-pcrphase-initrd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-pcrphase-sysinit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-pcrphase.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-pstore.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-quotacheck.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-random-seed.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-remount-fs.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-repart.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-resolved.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "systemd-rfkill.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-soft-reboot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-suspend-then-hibernate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-suspend.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-sysctl.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-sysext.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-sysusers.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-timesyncd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "systemd-tmpfiles-clean.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-tmpfiles-setup-dev-early.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-tmpfiles-setup-dev.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-tmpfiles-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-tpm2-setup-early.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-tpm2-setup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-udev-settle.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-udev-trigger.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-udevd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "systemd-update-done.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-update-utmp-runlevel.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "systemd-update-utmp.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-user-sessions.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "systemd-vconsole-setup.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "tailscaled.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "tokyo-jobs-web.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "tpm-udev.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ua-auto-attach.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ua-reboot-cmds.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ua-timer.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ubuntu-advantage-cloud-id-shim.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ubuntu-advantage.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "ubuntu-fan.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "udisks2.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "ufw.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "unattended-upgrades.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "update-notifier-download.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "update-notifier-motd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "upower.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "user-runtime-dir@0.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "user-runtime-dir@1000.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "user-runtime-dir@111.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "unit": "user@0.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "user@1000.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "user@111.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "uuidd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "vgauth.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "warp-svc.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "whoopsie.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "unit": "wpa_supplicant.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "xrdp-sesman.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "xrdp.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "zfs-mount.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    }
+  ],
+  "show": {
+    "invoices-queue.service": {
+      "id": "invoices-queue.service",
+      "names": [
+        "invoices-queue.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/invoices-queue.service",
+      "execStart": "/usr/bin/php /var/www/invoices/artisan",
+      "environment": ""
+    },
+    "accounts-daemon.service": {
+      "id": "accounts-daemon.service",
+      "names": [
+        "accounts-daemon.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/accounts-daemon.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "apparmor.service": {
+      "id": "apparmor.service",
+      "names": [
+        "apparmor.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/apparmor.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "apport-autoreport.service": {
+      "id": "apport-autoreport.service",
+      "names": [
+        "apport-autoreport.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/apport-autoreport.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "apport.service": {
+      "id": "apport.service",
+      "names": [
+        "apport.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/apport.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "apt-daily-upgrade.service": {
+      "id": "apt-daily-upgrade.service",
+      "names": [
+        "apt-daily-upgrade.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/apt-daily-upgrade.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "apt-daily.service": {
+      "id": "apt-daily.service",
+      "names": [
+        "apt-daily.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/apt-daily.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "auditd.service": {
+      "id": "auditd.service",
+      "names": [
+        "auditd.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "avahi-daemon.service": {
+      "id": "avahi-daemon.service",
+      "names": [
+        "avahi-daemon.service",
+        "dbus-org.freedesktop.Avahi.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/avahi-daemon.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "blk-availability.service": {
+      "id": "blk-availability.service",
+      "names": [
+        "blk-availability.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/blk-availability.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "block-c2.service": {
+      "id": "block-c2.service",
+      "names": [
+        "block-c2.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/block-c2.service",
+      "execStart": "/usr/local/sbin/block-c2.sh",
+      "environment": ""
+    },
+    "board-pgcrypt.service": {
+      "id": "board-pgcrypt.service",
+      "names": [
+        "board-pgcrypt.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/board-pgcrypt.service",
+      "execStart": "/bin/sh -c",
+      "environment": ""
+    },
+    "certbot.service": {
+      "id": "certbot.service",
+      "names": [
+        "certbot.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/certbot.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "chkrootkit.service": {
+      "id": "chkrootkit.service",
+      "names": [
+        "chkrootkit.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/chkrootkit.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "proxyapi.service": {
+      "id": "proxyapi.service",
+      "names": [
+        "proxyapi.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/proxyapi.service",
+      "execStart": "/root/proxyapi/cli-proxy-api",
+      "environment": "HOME=<stripped>"
+    },
+    "cloud-init-local.service": {
+      "id": "cloud-init-local.service",
+      "names": [
+        "cloud-init-local.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/cloud-init-local.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "colord.service": {
+      "id": "colord.service",
+      "names": [
+        "colord.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/colord.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "connman.service": {
+      "id": "connman.service",
+      "names": [
+        "connman.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "console-screen.service": {
+      "id": "console-screen.service",
+      "names": [
+        "console-screen.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "console-setup.service": {
+      "id": "console-setup.service",
+      "names": [
+        "console-setup.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/console-setup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "containerd.service": {
+      "id": "containerd.service",
+      "names": [
+        "containerd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/containerd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "cron.service": {
+      "id": "cron.service",
+      "names": [
+        "cron.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/cron.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "cups-browsed.service": {
+      "id": "cups-browsed.service",
+      "names": [
+        "cups-browsed.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/cups-browsed.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "cups.service": {
+      "id": "cups.service",
+      "names": [
+        "cups.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/cups.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "dbus.service": {
+      "id": "dbus.service",
+      "names": [
+        "dbus.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/dbus.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "dm-event.service": {
+      "id": "dm-event.service",
+      "names": [
+        "dm-event.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/dm-event.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "dmesg.service": {
+      "id": "dmesg.service",
+      "names": [
+        "dmesg.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/dmesg.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "docker.service": {
+      "id": "docker.service",
+      "names": [
+        "docker.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/docker.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "dpi-backend.service": {
+      "id": "dpi-backend.service",
+      "names": [
+        "dpi-backend.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/dpi-backend.service",
+      "execStart": "/root/.nvm/versions/node/v24.21.0/bin/node /root/durable-pi/apps/dpi-backend/node_modules/tsx/dist/cli.mjs",
+      "environment": "PATH=<stripped> HOME=<stripped> DPI_HOME=<stripped> NODE_NO_WARNINGS=<stripped>"
+    },
+    "dpi-hub.service": {
+      "id": "dpi-hub.service",
+      "names": [
+        "dpi-hub.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/dpi-hub.service",
+      "execStart": "/root/.nvm/versions/node/v24.21.0/bin/npx tsx",
+      "environment": "PATH=<stripped> HOME=<stripped> DPI_HUB_PORT=<stripped>"
+    },
+    "dpi-real-be.service": {
+      "id": "dpi-real-be.service",
+      "names": [
+        "dpi-real-be.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/dpi-real-be.service",
+      "execStart": "/bin/sh -c",
+      "environment": "PATH=<stripped> DPI_STATE_DIR=<stripped> NODE_NO_WARNINGS=<stripped>"
+    },
+    "dpi-real-tail.service": {
+      "id": "dpi-real-tail.service",
+      "names": [
+        "dpi-real-tail.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/dpi-real-tail.service",
+      "execStart": "/root/durable-pi/apps/proactive-dpi-demo/node_modules/.bin/tsx apps/proactive-dpi-logs/src/real.ts",
+      "environment": "PATH=<stripped> DPI_STATE_DIR=<stripped> NODE_NO_WARNINGS=<stripped>"
+    },
+    "dpkg-db-backup.service": {
+      "id": "dpkg-db-backup.service",
+      "names": [
+        "dpkg-db-backup.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/dpkg-db-backup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "dsh-king.service": {
+      "id": "dsh-king.service",
+      "names": [
+        "dsh-king.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/dsh-king.service",
+      "execStart": "/usr/bin/dsh web",
+      "environment": "DSH_HOME=<stripped> DSH_AGENTS_HOME=<stripped>"
+    },
+    "dsh-web.service": {
+      "id": "dsh-web.service",
+      "names": [
+        "dsh-web.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/dsh-web.service",
+      "execStart": "/usr/local/bin/dsh-agent web",
+      "environment": "HOME=<stripped> DSH_HOME=<stripped>"
+    },
+    "e2scrub_all.service": {
+      "id": "e2scrub_all.service",
+      "names": [
+        "e2scrub_all.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/e2scrub_all.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "e2scrub_reap.service": {
+      "id": "e2scrub_reap.service",
+      "names": [
+        "e2scrub_reap.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/e2scrub_reap.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "earlyoom.service": {
+      "id": "earlyoom.service",
+      "names": [
+        "earlyoom.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/earlyoom.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "emergency.service": {
+      "id": "emergency.service",
+      "names": [
+        "emergency.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/emergency.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "fail2ban.service": {
+      "id": "fail2ban.service",
+      "names": [
+        "fail2ban.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/fail2ban.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "fcoe.service": {
+      "id": "fcoe.service",
+      "names": [
+        "fcoe.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "finalrd.service": {
+      "id": "finalrd.service",
+      "names": [
+        "finalrd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/finalrd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "finance-assistant.service": {
+      "id": "finance-assistant.service",
+      "names": [
+        "finance-assistant.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/finance-assistant.service",
+      "execStart": "/usr/bin/node server.js",
+      "environment": "NODE_ENV=<stripped> PORT=<stripped> HOSTNAME=<stripped>"
+    },
+    "firewalld.service": {
+      "id": "firewalld.service",
+      "names": [
+        "firewalld.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "fstrim.service": {
+      "id": "fstrim.service",
+      "names": [
+        "fstrim.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/fstrim.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "fwupd-refresh.service": {
+      "id": "fwupd-refresh.service",
+      "names": [
+        "fwupd-refresh.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/fwupd-refresh.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "fwupd.service": {
+      "id": "fwupd.service",
+      "names": [
+        "fwupd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/fwupd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "getty-static.service": {
+      "id": "getty-static.service",
+      "names": [
+        "getty-static.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/getty-static.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "getty@tty1.service": {
+      "id": "getty@tty1.service",
+      "names": [
+        "getty@tty1.service",
+        "autovt@tty1.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/getty@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "getty@tty7.service": {
+      "id": "getty@tty7.service",
+      "names": [
+        "getty@tty7.service",
+        "autovt@tty7.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/getty@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "grub-common.service": {
+      "id": "grub-common.service",
+      "names": [
+        "grub-common.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/grub-common.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "grub-initrd-fallback.service": {
+      "id": "grub-initrd-fallback.service",
+      "names": [
+        "grub-initrd-fallback.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/grub-initrd-fallback.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "herdr.service": {
+      "id": "herdr.service",
+      "names": [
+        "herdr.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/herdr.service",
+      "execStart": "/root/.local/bin/herdr server",
+      "environment": "HOME=<stripped>"
+    },
+    "hv_kvp_daemon.service": {
+      "id": "hv_kvp_daemon.service",
+      "names": [
+        "hv_kvp_daemon.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "initrd-cleanup.service": {
+      "id": "initrd-cleanup.service",
+      "names": [
+        "initrd-cleanup.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/initrd-cleanup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "initrd-parse-etc.service": {
+      "id": "initrd-parse-etc.service",
+      "names": [
+        "initrd-parse-etc.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/initrd-parse-etc.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "initrd-switch-root.service": {
+      "id": "initrd-switch-root.service",
+      "names": [
+        "initrd-switch-root.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/initrd-switch-root.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "initrd-udevadm-cleanup-db.service": {
+      "id": "initrd-udevadm-cleanup-db.service",
+      "names": [
+        "initrd-udevadm-cleanup-db.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/initrd-udevadm-cleanup-db.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ip6tables.service": {
+      "id": "ip6tables.service",
+      "names": [
+        "ip6tables.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "ipset.service": {
+      "id": "ipset.service",
+      "names": [
+        "ipset.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "iptables.service": {
+      "id": "iptables.service",
+      "names": [
+        "iptables.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "iscsi-shutdown.service": {
+      "id": "iscsi-shutdown.service",
+      "names": [
+        "iscsi-shutdown.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "iscsid.service": {
+      "id": "iscsid.service",
+      "names": [
+        "iscsid.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/iscsid.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "kbd.service": {
+      "id": "kbd.service",
+      "names": [
+        "kbd.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "keyboard-setup.service": {
+      "id": "keyboard-setup.service",
+      "names": [
+        "keyboard-setup.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/keyboard-setup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "kmod-static-nodes.service": {
+      "id": "kmod-static-nodes.service",
+      "names": [
+        "kmod-static-nodes.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/kmod-static-nodes.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ldconfig.service": {
+      "id": "ldconfig.service",
+      "names": [
+        "ldconfig.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ldconfig.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "lightdm.service": {
+      "id": "lightdm.service",
+      "names": [
+        "lightdm.service",
+        "display-manager.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/lightdm.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "lightpanda.service": {
+      "id": "lightpanda.service",
+      "names": [
+        "lightpanda.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/lightpanda.service",
+      "execStart": "/usr/local/bin/lightpanda serve",
+      "environment": "LIGHTPANDA_DISABLE_TELEMETRY=<stripped> HOME=<stripped> XDG_DATA_HOME=<stripped>"
+    },
+    "lm-sensors.service": {
+      "id": "lm-sensors.service",
+      "names": [
+        "lm-sensors.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/lm-sensors.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "logrotate.service": {
+      "id": "logrotate.service",
+      "names": [
+        "logrotate.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/logrotate.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "lvm2-activation-early.service": {
+      "id": "lvm2-activation-early.service",
+      "names": [
+        "lvm2-activation-early.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "lvm2-lvmpolld.service": {
+      "id": "lvm2-lvmpolld.service",
+      "names": [
+        "lvm2-lvmpolld.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/lvm2-lvmpolld.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "lvm2-monitor.service": {
+      "id": "lvm2-monitor.service",
+      "names": [
+        "lvm2-monitor.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/lvm2-monitor.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "lxc.service": {
+      "id": "lxc.service",
+      "names": [
+        "lxc.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "man-db.service": {
+      "id": "man-db.service",
+      "names": [
+        "man-db.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/man-db.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "tenders-agent.service": {
+      "id": "tenders-agent.service",
+      "names": [
+        "tenders-agent.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/tenders-agent.service",
+      "execStart": "/usr/bin/python3 /root/tenders-agent/marches_agent.py",
+      "environment": "HOME=<stripped> PATH=<stripped>"
+    },
+    "tenders-dashboard.service": {
+      "id": "tenders-dashboard.service",
+      "names": [
+        "tenders-dashboard.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/tenders-dashboard.service",
+      "execStart": "/usr/bin/python3 -m",
+      "environment": ""
+    },
+    "tenders-portal.service": {
+      "id": "tenders-portal.service",
+      "names": [
+        "tenders-portal.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/tenders-portal.service",
+      "execStart": "/usr/bin/python3 /root/tenders-agent/portal.py",
+      "environment": ""
+    },
+    "mei-mail-relay.service": {
+      "id": "mei-mail-relay.service",
+      "names": [
+        "mei-mail-relay.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/mei-mail-relay.service",
+      "execStart": "/usr/bin/socat -d",
+      "environment": ""
+    },
+    "mesh-control.service": {
+      "id": "mesh-control.service",
+      "names": [
+        "mesh-control.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/mesh-control.service",
+      "execStart": "/usr/bin/node server.js",
+      "environment": "HOME=<stripped> PATH=<stripped>"
+    },
+    "ModemManager.service": {
+      "id": "ModemManager.service",
+      "names": [
+        "ModemManager.service",
+        "dbus-org.freedesktop.ModemManager1.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ModemManager.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "modprobe@configfs.service": {
+      "id": "modprobe@configfs.service",
+      "names": [
+        "modprobe@configfs.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/modprobe@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "modprobe@dm_mod.service": {
+      "id": "modprobe@dm_mod.service",
+      "names": [
+        "modprobe@dm_mod.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/modprobe@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "modprobe@drm.service": {
+      "id": "modprobe@drm.service",
+      "names": [
+        "modprobe@drm.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/modprobe@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "modprobe@efi_pstore.service": {
+      "id": "modprobe@efi_pstore.service",
+      "names": [
+        "modprobe@efi_pstore.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/modprobe@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "modprobe@fuse.service": {
+      "id": "modprobe@fuse.service",
+      "names": [
+        "modprobe@fuse.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/modprobe@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "modprobe@loop.service": {
+      "id": "modprobe@loop.service",
+      "names": [
+        "modprobe@loop.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/modprobe@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "motd-news.service": {
+      "id": "motd-news.service",
+      "names": [
+        "motd-news.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/motd-news.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "multipathd.service": {
+      "id": "multipathd.service",
+      "names": [
+        "multipathd.service",
+        "multipath-tools.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/multipathd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "mysql.service": {
+      "id": "mysql.service",
+      "names": [
+        "mysql.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/mysql.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "netplan-ovs-cleanup.service": {
+      "id": "netplan-ovs-cleanup.service",
+      "names": [
+        "netplan-ovs-cleanup.service"
+      ],
+      "fragmentPath": "/run/systemd/system/netplan-ovs-cleanup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "networkd-dispatcher.service": {
+      "id": "networkd-dispatcher.service",
+      "names": [
+        "networkd-dispatcher.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/networkd-dispatcher.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "NetworkManager-wait-online.service": {
+      "id": "NetworkManager-wait-online.service",
+      "names": [
+        "NetworkManager-wait-online.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/NetworkManager-wait-online.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "NetworkManager.service": {
+      "id": "NetworkManager.service",
+      "names": [
+        "NetworkManager.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/NetworkManager.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "nftables.service": {
+      "id": "nftables.service",
+      "names": [
+        "nftables.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/nftables.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "nginx.service": {
+      "id": "nginx.service",
+      "names": [
+        "nginx.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/nginx.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "nslcd.service": {
+      "id": "nslcd.service",
+      "names": [
+        "nslcd.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "open-iscsi.service": {
+      "id": "open-iscsi.service",
+      "names": [
+        "open-iscsi.service",
+        "iscsi.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/open-iscsi.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "open-vm-tools.service": {
+      "id": "open-vm-tools.service",
+      "names": [
+        "open-vm-tools.service",
+        "vmtoolsd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/open-vm-tools.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ovsdb-server.service": {
+      "id": "ovsdb-server.service",
+      "names": [
+        "ovsdb-server.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "php8.2-fpm.service": {
+      "id": "php8.2-fpm.service",
+      "names": [
+        "php8.2-fpm.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/php8.2-fpm.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "php8.3-fpm.service": {
+      "id": "php8.3-fpm.service",
+      "names": [
+        "php8.3-fpm.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/php8.3-fpm.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "php8.5-fpm.service": {
+      "id": "php8.5-fpm.service",
+      "names": [
+        "php8.5-fpm.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/php8.5-fpm.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "phpsessionclean.service": {
+      "id": "phpsessionclean.service",
+      "names": [
+        "phpsessionclean.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/phpsessionclean.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "pi-dashboard.service": {
+      "id": "pi-dashboard.service",
+      "names": [
+        "pi-dashboard.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/pi-dashboard.service",
+      "execStart": "/usr/bin/node --import",
+      "environment": "HOME=<stripped> PATH=<stripped> ANTHROPIC_BASE_URL=<stripped> GODHOME_QUOTA_ALERTS=<stripped>"
+    },
+    "plymouth-quit-wait.service": {
+      "id": "plymouth-quit-wait.service",
+      "names": [
+        "plymouth-quit-wait.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/plymouth-quit-wait.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "plymouth-quit.service": {
+      "id": "plymouth-quit.service",
+      "names": [
+        "plymouth-quit.service",
+        "plymouth.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/plymouth-quit.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "plymouth-read-write.service": {
+      "id": "plymouth-read-write.service",
+      "names": [
+        "plymouth-read-write.service",
+        "plymouth-log.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/plymouth-read-write.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "plymouth-start.service": {
+      "id": "plymouth-start.service",
+      "names": [
+        "plymouth-start.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/plymouth-start.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "plymouth-switch-root.service": {
+      "id": "plymouth-switch-root.service",
+      "names": [
+        "plymouth-switch-root.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/plymouth-switch-root.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "pm2-root.service": {
+      "id": "pm2-root.service",
+      "names": [
+        "pm2-root.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/pm2-root.service",
+      "execStart": "/usr/lib/node_modules/pm2/bin/pm2 resurrect",
+      "environment": "PATH=<stripped> PM2_HOME=/root/.pm2"
+    },
+    "pm2-tokyo-agent.service": {
+      "id": "pm2-tokyo-agent.service",
+      "names": [
+        "pm2-tokyo-agent.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/pm2-tokyo-agent.service",
+      "execStart": "/usr/lib/node_modules/pm2/bin/pm2 resurrect",
+      "environment": "PATH=<stripped> PM2_HOME=/home/tokyo-agent/.pm2"
+    },
+    "polkit.service": {
+      "id": "polkit.service",
+      "names": [
+        "polkit.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/polkit.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "pollinate.service": {
+      "id": "pollinate.service",
+      "names": [
+        "pollinate.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/pollinate.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "rbdmap.service": {
+      "id": "rbdmap.service",
+      "names": [
+        "rbdmap.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "rc-local.service": {
+      "id": "rc-local.service",
+      "names": [
+        "rc-local.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/rc-local.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "rescue.service": {
+      "id": "rescue.service",
+      "names": [
+        "rescue.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/rescue.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "meaning-meaning.service": {
+      "id": "meaning-meaning.service",
+      "names": [
+        "meaning-meaning.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/meaning-meaning.service",
+      "execStart": "/usr/bin/python3 /opt/meaning-meaning/app.py",
+      "environment": "MEANING_MEANING_INDEX=<stripped> MEANING_MEANING_CACHE=<stripped> MEANING_MEANING_KEY_FILE=<stripped>"
+    },
+    "rsyslog.service": {
+      "id": "rsyslog.service",
+      "names": [
+        "rsyslog.service",
+        "syslog.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/rsyslog.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "rtkit-daemon.service": {
+      "id": "rtkit-daemon.service",
+      "names": [
+        "rtkit-daemon.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/rtkit-daemon.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "secureboot-db.service": {
+      "id": "secureboot-db.service",
+      "names": [
+        "secureboot-db.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/secureboot-db.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "serial-getty@ttyS0.service": {
+      "id": "serial-getty@ttyS0.service",
+      "names": [
+        "serial-getty@ttyS0.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/serial-getty@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "setvtrgb.service": {
+      "id": "setvtrgb.service",
+      "names": [
+        "setvtrgb.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/setvtrgb.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snap.cups.cups-browsed.service": {
+      "id": "snap.cups.cups-browsed.service",
+      "names": [
+        "snap.cups.cups-browsed.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/snap.cups.cups-browsed.service",
+      "execStart": "/usr/bin/snap run",
+      "environment": ""
+    },
+    "snap.cups.cupsd.service": {
+      "id": "snap.cups.cupsd.service",
+      "names": [
+        "snap.cups.cupsd.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/snap.cups.cupsd.service",
+      "execStart": "/usr/bin/snap run",
+      "environment": ""
+    },
+    "snapd.apparmor.service": {
+      "id": "snapd.apparmor.service",
+      "names": [
+        "snapd.apparmor.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.apparmor.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.autoimport.service": {
+      "id": "snapd.autoimport.service",
+      "names": [
+        "snapd.autoimport.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.autoimport.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.core-fixup.service": {
+      "id": "snapd.core-fixup.service",
+      "names": [
+        "snapd.core-fixup.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.core-fixup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.failure.service": {
+      "id": "snapd.failure.service",
+      "names": [
+        "snapd.failure.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.failure.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.recovery-chooser-trigger.service": {
+      "id": "snapd.recovery-chooser-trigger.service",
+      "names": [
+        "snapd.recovery-chooser-trigger.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.recovery-chooser-trigger.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.seeded.service": {
+      "id": "snapd.seeded.service",
+      "names": [
+        "snapd.seeded.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.seeded.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.service": {
+      "id": "snapd.service",
+      "names": [
+        "snapd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.snap-repair.service": {
+      "id": "snapd.snap-repair.service",
+      "names": [
+        "snapd.snap-repair.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.snap-repair.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "snapd.system-shutdown.service": {
+      "id": "snapd.system-shutdown.service",
+      "names": [
+        "snapd.system-shutdown.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/snapd.system-shutdown.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ssh.service": {
+      "id": "ssh.service",
+      "names": [
+        "ssh.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ssh.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ssl-cert.service": {
+      "id": "ssl-cert.service",
+      "names": [
+        "ssl-cert.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ssl-cert.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "sysstat-collect.service": {
+      "id": "sysstat-collect.service",
+      "names": [
+        "sysstat-collect.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/sysstat-collect.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "sysstat-summary.service": {
+      "id": "sysstat-summary.service",
+      "names": [
+        "sysstat-summary.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/sysstat-summary.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "sysstat.service": {
+      "id": "sysstat.service",
+      "names": [
+        "sysstat.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/sysstat.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-ask-password-console.service": {
+      "id": "systemd-ask-password-console.service",
+      "names": [
+        "systemd-ask-password-console.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-ask-password-console.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-ask-password-plymouth.service": {
+      "id": "systemd-ask-password-plymouth.service",
+      "names": [
+        "systemd-ask-password-plymouth.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-ask-password-plymouth.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-ask-password-wall.service": {
+      "id": "systemd-ask-password-wall.service",
+      "names": [
+        "systemd-ask-password-wall.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-ask-password-wall.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-battery-check.service": {
+      "id": "systemd-battery-check.service",
+      "names": [
+        "systemd-battery-check.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-battery-check.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-binfmt.service": {
+      "id": "systemd-binfmt.service",
+      "names": [
+        "systemd-binfmt.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-binfmt.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-bsod.service": {
+      "id": "systemd-bsod.service",
+      "names": [
+        "systemd-bsod.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-bsod.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-firstboot.service": {
+      "id": "systemd-firstboot.service",
+      "names": [
+        "systemd-firstboot.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-firstboot.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-fsck-root.service": {
+      "id": "systemd-fsck-root.service",
+      "names": [
+        "systemd-fsck-root.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-fsck-root.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-fsck@dev-disk-by\\x2dlabel-BOOT.service": {
+      "id": "systemd-fsck@dev-disk-by\\x2dlabel-BOOT.service",
+      "names": [
+        "\"systemd-fsck@dev-disk-by\\\\x2dlabel-BOOT.service\""
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-fsck@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-fsck@dev-disk-by\\x2dlabel-UEFI.service": {
+      "id": "systemd-fsck@dev-disk-by\\x2dlabel-UEFI.service",
+      "names": [
+        "\"systemd-fsck@dev-disk-by\\\\x2dlabel-UEFI.service\""
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-fsck@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-fsckd.service": {
+      "id": "systemd-fsckd.service",
+      "names": [
+        "systemd-fsckd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-fsckd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-hibernate-resume.service": {
+      "id": "systemd-hibernate-resume.service",
+      "names": [
+        "systemd-hibernate-resume.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-hibernate-resume.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-hibernate.service": {
+      "id": "systemd-hibernate.service",
+      "names": [
+        "systemd-hibernate.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-hibernate.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-hwdb-update.service": {
+      "id": "systemd-hwdb-update.service",
+      "names": [
+        "systemd-hwdb-update.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-hwdb-update.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-hybrid-sleep.service": {
+      "id": "systemd-hybrid-sleep.service",
+      "names": [
+        "systemd-hybrid-sleep.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-hybrid-sleep.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-initctl.service": {
+      "id": "systemd-initctl.service",
+      "names": [
+        "systemd-initctl.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-initctl.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-journal-catalog-update.service": {
+      "id": "systemd-journal-catalog-update.service",
+      "names": [
+        "systemd-journal-catalog-update.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-journal-catalog-update.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-journal-flush.service": {
+      "id": "systemd-journal-flush.service",
+      "names": [
+        "systemd-journal-flush.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-journal-flush.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-journald.service": {
+      "id": "systemd-journald.service",
+      "names": [
+        "systemd-journald.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-journald.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-logind.service": {
+      "id": "systemd-logind.service",
+      "names": [
+        "systemd-logind.service",
+        "dbus-org.freedesktop.login1.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-logind.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-machine-id-commit.service": {
+      "id": "systemd-machine-id-commit.service",
+      "names": [
+        "systemd-machine-id-commit.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-machine-id-commit.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-modules-load.service": {
+      "id": "systemd-modules-load.service",
+      "names": [
+        "systemd-modules-load.service",
+        "kmod.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-modules-load.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-networkd-wait-online.service": {
+      "id": "systemd-networkd-wait-online.service",
+      "names": [
+        "systemd-networkd-wait-online.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-networkd-wait-online.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-networkd.service": {
+      "id": "systemd-networkd.service",
+      "names": [
+        "systemd-networkd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-networkd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-oomd.service": {
+      "id": "systemd-oomd.service",
+      "names": [
+        "systemd-oomd.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-pcrmachine.service": {
+      "id": "systemd-pcrmachine.service",
+      "names": [
+        "systemd-pcrmachine.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-pcrmachine.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-pcrphase-initrd.service": {
+      "id": "systemd-pcrphase-initrd.service",
+      "names": [
+        "systemd-pcrphase-initrd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-pcrphase-initrd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-pcrphase-sysinit.service": {
+      "id": "systemd-pcrphase-sysinit.service",
+      "names": [
+        "systemd-pcrphase-sysinit.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-pcrphase-sysinit.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-pcrphase.service": {
+      "id": "systemd-pcrphase.service",
+      "names": [
+        "systemd-pcrphase.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-pcrphase.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-pstore.service": {
+      "id": "systemd-pstore.service",
+      "names": [
+        "systemd-pstore.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-pstore.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-quotacheck.service": {
+      "id": "systemd-quotacheck.service",
+      "names": [
+        "systemd-quotacheck.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-quotacheck.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-random-seed.service": {
+      "id": "systemd-random-seed.service",
+      "names": [
+        "systemd-random-seed.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-random-seed.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-remount-fs.service": {
+      "id": "systemd-remount-fs.service",
+      "names": [
+        "systemd-remount-fs.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-remount-fs.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-repart.service": {
+      "id": "systemd-repart.service",
+      "names": [
+        "systemd-repart.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-repart.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-resolved.service": {
+      "id": "systemd-resolved.service",
+      "names": [
+        "systemd-resolved.service",
+        "dbus-org.freedesktop.resolve1.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-resolved.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-rfkill.service": {
+      "id": "systemd-rfkill.service",
+      "names": [
+        "systemd-rfkill.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-rfkill.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-soft-reboot.service": {
+      "id": "systemd-soft-reboot.service",
+      "names": [
+        "systemd-soft-reboot.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-soft-reboot.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-suspend-then-hibernate.service": {
+      "id": "systemd-suspend-then-hibernate.service",
+      "names": [
+        "systemd-suspend-then-hibernate.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-suspend-then-hibernate.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-suspend.service": {
+      "id": "systemd-suspend.service",
+      "names": [
+        "systemd-suspend.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-suspend.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-sysctl.service": {
+      "id": "systemd-sysctl.service",
+      "names": [
+        "systemd-sysctl.service",
+        "procps.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-sysctl.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-sysext.service": {
+      "id": "systemd-sysext.service",
+      "names": [
+        "systemd-sysext.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-sysext.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-sysusers.service": {
+      "id": "systemd-sysusers.service",
+      "names": [
+        "systemd-sysusers.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-sysusers.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-timesyncd.service": {
+      "id": "systemd-timesyncd.service",
+      "names": [
+        "systemd-timesyncd.service",
+        "dbus-org.freedesktop.timesync1.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-timesyncd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-tmpfiles-clean.service": {
+      "id": "systemd-tmpfiles-clean.service",
+      "names": [
+        "systemd-tmpfiles-clean.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-tmpfiles-clean.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-tmpfiles-setup-dev-early.service": {
+      "id": "systemd-tmpfiles-setup-dev-early.service",
+      "names": [
+        "systemd-tmpfiles-setup-dev-early.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-tmpfiles-setup-dev-early.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-tmpfiles-setup-dev.service": {
+      "id": "systemd-tmpfiles-setup-dev.service",
+      "names": [
+        "systemd-tmpfiles-setup-dev.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-tmpfiles-setup-dev.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-tmpfiles-setup.service": {
+      "id": "systemd-tmpfiles-setup.service",
+      "names": [
+        "systemd-tmpfiles-setup.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-tmpfiles-setup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-tpm2-setup-early.service": {
+      "id": "systemd-tpm2-setup-early.service",
+      "names": [
+        "systemd-tpm2-setup-early.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-tpm2-setup-early.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-tpm2-setup.service": {
+      "id": "systemd-tpm2-setup.service",
+      "names": [
+        "systemd-tpm2-setup.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-tpm2-setup.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-udev-settle.service": {
+      "id": "systemd-udev-settle.service",
+      "names": [
+        "systemd-udev-settle.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-udev-settle.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-udev-trigger.service": {
+      "id": "systemd-udev-trigger.service",
+      "names": [
+        "systemd-udev-trigger.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-udev-trigger.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-udevd.service": {
+      "id": "systemd-udevd.service",
+      "names": [
+        "systemd-udevd.service",
+        "udev.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-udevd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-update-done.service": {
+      "id": "systemd-update-done.service",
+      "names": [
+        "systemd-update-done.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-update-done.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-update-utmp-runlevel.service": {
+      "id": "systemd-update-utmp-runlevel.service",
+      "names": [
+        "systemd-update-utmp-runlevel.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-update-utmp-runlevel.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-update-utmp.service": {
+      "id": "systemd-update-utmp.service",
+      "names": [
+        "systemd-update-utmp.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-update-utmp.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-user-sessions.service": {
+      "id": "systemd-user-sessions.service",
+      "names": [
+        "systemd-user-sessions.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/systemd-user-sessions.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "systemd-vconsole-setup.service": {
+      "id": "systemd-vconsole-setup.service",
+      "names": [
+        "systemd-vconsole-setup.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "tailscaled.service": {
+      "id": "tailscaled.service",
+      "names": [
+        "tailscaled.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/tailscaled.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "tokyo-jobs-web.service": {
+      "id": "tokyo-jobs-web.service",
+      "names": [
+        "tokyo-jobs-web.service"
+      ],
+      "fragmentPath": "/etc/systemd/system/tokyo-jobs-web.service",
+      "execStart": "/usr/bin/npx tsx",
+      "environment": "NODE_ENV=<stripped> JOBS_WEB_PORT=<stripped> JOBS_WEB_HOST=<stripped>"
+    },
+    "tpm-udev.service": {
+      "id": "tpm-udev.service",
+      "names": [
+        "tpm-udev.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/tpm-udev.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ua-auto-attach.service": {
+      "id": "ua-auto-attach.service",
+      "names": [
+        "ua-auto-attach.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "ua-reboot-cmds.service": {
+      "id": "ua-reboot-cmds.service",
+      "names": [
+        "ua-reboot-cmds.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ua-reboot-cmds.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ua-timer.service": {
+      "id": "ua-timer.service",
+      "names": [
+        "ua-timer.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ua-timer.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ubuntu-advantage-cloud-id-shim.service": {
+      "id": "ubuntu-advantage-cloud-id-shim.service",
+      "names": [
+        "ubuntu-advantage-cloud-id-shim.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    },
+    "ubuntu-advantage.service": {
+      "id": "ubuntu-advantage.service",
+      "names": [
+        "ubuntu-advantage.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ubuntu-advantage.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ubuntu-fan.service": {
+      "id": "ubuntu-fan.service",
+      "names": [
+        "ubuntu-fan.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ubuntu-fan.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "udisks2.service": {
+      "id": "udisks2.service",
+      "names": [
+        "udisks2.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/udisks2.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "ufw.service": {
+      "id": "ufw.service",
+      "names": [
+        "ufw.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/ufw.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "unattended-upgrades.service": {
+      "id": "unattended-upgrades.service",
+      "names": [
+        "unattended-upgrades.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/unattended-upgrades.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "update-notifier-download.service": {
+      "id": "update-notifier-download.service",
+      "names": [
+        "update-notifier-download.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/update-notifier-download.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "update-notifier-motd.service": {
+      "id": "update-notifier-motd.service",
+      "names": [
+        "update-notifier-motd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/update-notifier-motd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "upower.service": {
+      "id": "upower.service",
+      "names": [
+        "upower.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/upower.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "user-runtime-dir@0.service": {
+      "id": "user-runtime-dir@0.service",
+      "names": [
+        "user-runtime-dir@0.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/user-runtime-dir@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "user-runtime-dir@1000.service": {
+      "id": "user-runtime-dir@1000.service",
+      "names": [
+        "user-runtime-dir@1000.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/user-runtime-dir@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "user-runtime-dir@111.service": {
+      "id": "user-runtime-dir@111.service",
+      "names": [
+        "user-runtime-dir@111.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/user-runtime-dir@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "user@0.service": {
+      "id": "user@0.service",
+      "names": [
+        "user@0.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/user@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "user@1000.service": {
+      "id": "user@1000.service",
+      "names": [
+        "user@1000.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/user@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "user@111.service": {
+      "id": "user@111.service",
+      "names": [
+        "user@111.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/user@.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "uuidd.service": {
+      "id": "uuidd.service",
+      "names": [
+        "uuidd.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/uuidd.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "vgauth.service": {
+      "id": "vgauth.service",
+      "names": [
+        "vgauth.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/vgauth.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "warp-svc.service": {
+      "id": "warp-svc.service",
+      "names": [
+        "warp-svc.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/warp-svc.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "whoopsie.service": {
+      "id": "whoopsie.service",
+      "names": [
+        "whoopsie.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/whoopsie.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "wpa_supplicant.service": {
+      "id": "wpa_supplicant.service",
+      "names": [
+        "wpa_supplicant.service",
+        "dbus-fi.w1.wpa_supplicant1.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/wpa_supplicant.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "xrdp-sesman.service": {
+      "id": "xrdp-sesman.service",
+      "names": [
+        "xrdp-sesman.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/xrdp-sesman.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "xrdp.service": {
+      "id": "xrdp.service",
+      "names": [
+        "xrdp.service"
+      ],
+      "fragmentPath": "/usr/lib/systemd/system/xrdp.service",
+      "execStart": "",
+      "environment": ""
+    },
+    "zfs-mount.service": {
+      "id": "zfs-mount.service",
+      "names": [
+        "zfs-mount.service"
+      ],
+      "fragmentPath": "",
+      "execStart": "",
+      "environment": ""
+    }
+  }
+}

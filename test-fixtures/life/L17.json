@@ -1,0 +1,16 @@
+{
+  "id": "L17",
+  "method": "GET",
+  "path": "/products/stats",
+  "query": null,
+  "status": 200,
+  "body": {
+    "total": 82480,
+    "priced": 315,
+    "unpriced": 20304,
+    "lowConfidence": 89935,
+    "minPrice": 10,
+    "maxPrice": 4534,
+    "batches": 100
+  }
+}

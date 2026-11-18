@@ -1,0 +1,11 @@
+{
+  "id": "world_layout",
+  "k": "K9",
+  "method": "GET",
+  "path": "/world/layout",
+  "status": 200,
+  "body": {
+    "version": 1,
+    "positions": {}
+  }
+}

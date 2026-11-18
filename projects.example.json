@@ -1,0 +1,4 @@
+[
+  { "name": "my-saas", "location": "server", "path": "/srv/my-saas", "url": "https://example.com", "aliases": ["saas"], "note": "Main product." },
+  { "name": "mobile-app", "location": "laptop", "path": "/Users/me/projects/mobile-app" }
+]

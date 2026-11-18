@@ -1,0 +1,51 @@
+{
+  "id": "factory",
+  "k": "K25",
+  "method": "GET",
+  "path": "/factory",
+  "status": 200,
+  "body": {
+    "ok": true,
+    "root": "...fake-path",
+    "stages": [
+      "Samp",
+      "Samp",
+      "Sampl"
+    ],
+    "adws": [
+      "Samp",
+      "Samp",
+      "Sample adws 31"
+    ],
+    "repos": [
+      {
+        "name": "Sample ",
+        "path": "...fake-path"
+      },
+      {
+        "name": "Sample na",
+        "path": "...fake-path"
+      },
+      {
+        "name": "Sample name 5",
+        "path": "...fake-path"
+      }
+    ],
+    "kanban": {
+      "backlog": [],
+      "key970": [],
+      "done": [
+        {
+          "file": "whatsapp-media/sample-7839.md",
+          "title": "Sample title 92",
+          "repo": "...fake-path"
+        },
+        {
+          "file": "whatsapp-media/sample-3153.md",
+          "title": "Sample title 90",
+          "repo": "...fake-path"
+        }
+      ]
+    }
+  }
+}

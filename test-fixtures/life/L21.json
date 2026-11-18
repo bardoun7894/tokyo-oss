@@ -1,0 +1,182 @@
+{
+  "id": "L21",
+  "method": "GET",
+  "path": "/project-repos",
+  "query": null,
+  "status": 200,
+  "body": {
+    "repos": [
+      {
+        "id": 518,
+        "host": "Sam",
+        "path": "...fake-path",
+        "name": "Sample name 6",
+        "branch": "Sample branch 30",
+        "remote_url": null,
+        "last_commit_at": "2026-10-17T13:14:57.000Z",
+        "last_commit_subject": "Sample lastcommitsubj 84",
+        "commits_7d": 57,
+        "commits_30d": 751,
+        "present": true,
+        "first_seen_at": "2026-10-17T12:46:09.472Z",
+        "last_seen_at": "2026-10-17T13:19:45.426Z",
+        "status": "active",
+        "client_id": null,
+        "category": null,
+        "description": null,
+        "hidden": false,
+        "project_id": null,
+        "client_name": null,
+        "project_name": null,
+        "project_deadline": null,
+        "project_budget": null,
+        "project_currency": null,
+        "project_status": null,
+        "project_client_name": null,
+        "activity": "Sample",
+        "daysSince": 0
+      },
+      {
+        "id": 523,
+        "host": "Sam",
+        "path": "...fake-path",
+        "name": "Sample name 43",
+        "branch": "Sample branch ",
+        "remote_url": null,
+        "last_commit_at": "2026-10-17T13:14:57.000Z",
+        "last_commit_subject": "Sample lastcommitsubj 84",
+        "commits_7d": 57,
+        "commits_30d": 751,
+        "present": true,
+        "first_seen_at": "2026-10-17T13:19:45.426Z",
+        "last_seen_at": "2026-10-17T13:19:45.426Z",
+        "status": "active",
+        "client_id": null,
+        "category": null,
+        "description": null,
+        "hidden": false,
+        "project_id": null,
+        "client_name": null,
+        "project_name": null,
+        "project_deadline": null,
+        "project_budget": null,
+        "project_currency": null,
+        "project_status": null,
+        "project_client_name": null,
+        "activity": "Sample",
+        "daysSince": 0
+      },
+      {
+        "id": 521,
+        "host": "Sample",
+        "path": "...fake-path",
+        "name": "Sample nam",
+        "branch": "Sample branch 62",
+        "remote_url": "https://example.invalid/sample-37",
+        "last_commit_at": "2026-10-17T13:13:01.000Z",
+        "last_commit_subject": "Sample lastcommitsubj 49",
+        "commits_7d": 49,
+        "commits_30d": 444,
+        "present": true,
+        "first_seen_at": "2026-10-17T13:19:45.401Z",
+        "last_seen_at": "2026-10-17T13:19:45.401Z",
+        "status": "active",
+        "client_id": null,
+        "category": null,
+        "description": null,
+        "hidden": false,
+        "project_id": null,
+        "client_name": null,
+        "project_name": null,
+        "project_deadline": null,
+        "project_budget": null,
+        "project_currency": null,
+        "project_status": null,
+        "project_client_name": null,
+        "activity": "Sample",
+        "daysSince": 0
+      }
+    ],
+    "hosts": [
+      {
+        "host": "Sam",
+        "last_attempt_at": "2026-10-17T13:19:45.426Z",
+        "last_ok_at": "2026-10-17T13:19:45.426Z",
+        "last_error": null,
+        "repo_count": 150
+      },
+      {
+        "host": "Sample",
+        "last_attempt_at": "2026-10-17T13:19:45.401Z",
+        "last_ok_at": "2026-10-17T13:19:45.401Z",
+        "last_error": null,
+        "repo_count": 141
+      }
+    ],
+    "syncing": false,
+    "clients": [
+      {
+        "id": 1,
+        "name": "Sample "
+      },
+      {
+        "id": 6,
+        "name": "Sample nam"
+      },
+      {
+        "id": 5,
+        "name": "Sample"
+      }
+    ],
+    "projects": [
+      {
+        "id": 1,
+        "client_id": 1,
+        "name": "Sample name 41",
+        "description": "Sample description 9",
+        "category": "product",
+        "status": "active",
+        "budget": null,
+        "currency": "MAD",
+        "deadline": null,
+        "estimated_hours": 200,
+        "actual_hours": 130,
+        "created_at": "2026-03-22 13:55:44",
+        "completed_at": null,
+        "client_name": "Sample "
+      },
+      {
+        "id": 2,
+        "client_id": 2,
+        "name": "Sample name 38",
+        "description": "Sample description 6",
+        "category": "client",
+        "status": "active",
+        "budget": null,
+        "currency": "MAD",
+        "deadline": null,
+        "estimated_hours": 250,
+        "actual_hours": 165,
+        "created_at": "2026-03-22 13:55:44",
+        "completed_at": null,
+        "client_name": "Sampl"
+      },
+      {
+        "id": 3,
+        "client_id": 3,
+        "name": "Sample name",
+        "description": "Sample description 37",
+        "category": "client",
+        "status": "active",
+        "budget": null,
+        "currency": "MAD",
+        "deadline": null,
+        "estimated_hours": 120,
+        "actual_hours": 105,
+        "created_at": "2026-03-22 13:55:44",
+        "completed_at": null,
+        "client_name": "Sampl"
+      }
+    ]
+  }
+}

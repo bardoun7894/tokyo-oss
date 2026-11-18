@@ -1,0 +1,207 @@
+{
+  "id": "L35",
+  "method": "GET",
+  "path": "/chat-analyzer/habits",
+  "query": null,
+  "status": 200,
+  "body": {
+    "responseTime": {
+      "key415": {
+        "name": "Sample name 25",
+        "avgMinutes": 550
+      },
+      "key574": {
+        "name": "Sample name 3",
+        "avgMinutes": 53
+      },
+      "key970": {
+        "name": "Sample name 48",
+        "avgMinutes": 982
+      },
+      "key276": {
+        "name": "Sample name 5",
+        "avgMinutes": 31
+      },
+      "key558": {
+        "name": "Sample name 48",
+        "avgMinutes": 0
+      },
+      "key409": {
+        "name": "Sample",
+        "avgMinutes": 12
+      },
+      "key231": {
+        "name": "Sample name 28",
+        "avgMinutes": 168
+      },
+      "key799": {
+        "name": "Sample nam",
+        "avgMinutes": 14
+      },
+      "key643": {
+        "name": "Sample name 54",
+        "avgMinutes": 36
+      },
+      "key645": {
+        "name": "Sample name",
+        "avgMinutes": 14
+      },
+      "key473": {
+        "name": "Sample",
+        "avgMinutes": 75
+      },
+      "key196": {
+        "name": "Sample nam",
+        "avgMinutes": 102
+      },
+      "key77": {
+        "name": "Sample name 48",
+        "avgMinutes": 14
+      },
+      "key267": {
+        "name": "S",
+        "avgMinutes": 2
+      },
+      "key657": {
+        "name": "Sample name 48",
+        "avgMinutes": 5
+      },
+      "key450": {
+        "name": "Sample na",
+        "avgMinutes": 8
+      },
+      "key848": {
+        "name": "Sample name 48",
+        "avgMinutes": 47
+      },
+      "key166": {
+        "name": "Sample name 48",
+        "avgMinutes": 2
+      },
+      "key478": {
+        "name": "Sample name 48",
+        "avgMinutes": 20
+      },
+      "key429": {
+        "name": "Sample name 48",
+        "avgMinutes": 8
+      },
+      "key146": {
+        "name": "Sample name 97",
+        "avgMinutes": 3
+      },
+      "key70": {
+        "name": "Sample name 48",
+        "avgMinutes": 10
+      },
+      "key480": {
+        "name": "Sample nam",
+        "avgMinutes": 111
+      },
+      "key9": {
+        "name": "Samp",
+        "avgMinutes": 270
+      },
+      "key505": {
+        "name": "S",
+        "avgMinutes": 8
+      },
+      "key15": {
+        "name": "Sample name 48",
+        "avgMinutes": 13
+      },
+      "key65": {
+        "name": "Sampl",
+        "avgMinutes": 3
+      },
+      "key773": {
+        "name": "Sample name 48",
+        "avgMinutes": 4
+      },
+      "key749": {
+        "name": "Sample name 48",
+        "avgMinutes": 565
+      },
+      "key197": {
+        "name": "Sample name 48",
+        "avgMinutes": 1
+      },
+      "key308": {
+        "name": "Sample name 29",
+        "avgMinutes": 51
+      },
+      "key313": {
+        "name": "Sample name 48",
+        "avgMinutes": 5627
+      },
+      "key452": {
+        "name": "Sample name 48",
+        "avgMinutes": 471
+      },
+      "key727": {
+        "name": "Sample name 73",
+        "avgMinutes": 36
+      },
+      "key157": {
+        "name": "Sample name 48",
+        "avgMinutes": 0
+      },
+      "key560": {
+        "name": "Sample name 48",
+        "avgMinutes": 10
+      },
+      "key622": {
+        "name": "Sample name 48",
+        "avgMinutes": 0
+      }
+    },
+    "frequency": [
+      {
+        "date": "2026-10-08",
+        "count": 436
+      },
+      {
+        "date": "2026-10-09",
+        "count": 325
+      },
+      {
+        "date": "2026-10-10",
+        "count": 145
+      }
+    ],
+    "heatmap": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "messageLength": [
+      {
+        "date": "2026-03-24",
+        "avgChars": 65,
+        "count": 88
+      },
+      {
+        "date": "2026-03-25",
+        "avgChars": 85,
+        "count": 277
+      },
+      {
+        "date": "2026-03-26",
+        "avgChars": 104,
+        "count": 133
+      }
+    ]
+  }
+}

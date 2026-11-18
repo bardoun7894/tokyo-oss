@@ -1,0 +1,224 @@
+{
+  "id": "control",
+  "k": "K10",
+  "method": "GET",
+  "path": "/control",
+  "status": 200,
+  "body": {
+    "sites": {
+      "at": "2026-10-17T13:05:47.909Z",
+      "sites": [
+        {
+          "name": "Sampl",
+          "repo": "...fake-path",
+          "url": "https://example.invalid/sample-775",
+          "health": {
+            "url": "https://example.invalid/sample-423",
+            "expectStatus": 943,
+            "state": "ok",
+            "detail": "Sample det",
+            "ms": 504
+          },
+          "deploy": "Sample deploy 27",
+          "notes": "Sample notes 99",
+          "git": {
+            "branch": "Sample branch 32",
+            "dirty": 52,
+            "commit": "Sample ",
+            "ago": "Sample ago 0",
+            "subject": "Sample subject 79"
+          }
+        },
+        {
+          "name": "Sample ",
+          "repo": "...fake-path",
+          "url": "https://example.invalid/sample-810",
+          "health": {
+            "url": "https://example.invalid/sample-520",
+            "expectStatus": 943,
+            "state": "ok",
+            "detail": "Sample det",
+            "ms": 459
+          },
+          "deploy": "Sample deploy ",
+          "notes": "Sample notes 74",
+          "git": {
+            "branch": "Sample branc",
+            "dirty": 8,
+            "ahead": 11,
+            "behind": 0,
+            "commit": "Sample ",
+            "ago": "Sample ago 73",
+            "subject": "Sample subject 66"
+          }
+        },
+        {
+          "name": "Sample name 34",
+          "repo": "...fake-path",
+          "url": "https://example.invalid/sample-241",
+          "health": {
+            "url": "https://example.invalid/sample-920",
+            "expectStatus": 464,
+            "state": "ok",
+            "detail": "Sample det",
+            "ms": 407
+          },
+          "deploy": "Sample deploy 95",
+          "notes": "Sample notes 24",
+          "git": {
+            "branch": "Samp",
+            "dirty": 1,
+            "commit": "Sample ",
+            "ago": "Sample ago",
+            "subject": "Sample subject 64"
+          }
+        }
+      ]
+    },
+    "missions": {
+      "missions": [
+        {
+          "id": "Sample i",
+          "project": "Sample proje",
+          "sender": "Sample sender 18",
+          "state": "failed",
+          "engine": "Sample",
+          "prompt": "Sample prompt 17",
+          "answered_by": "Sam",
+          "branch": "Sample branch 1",
+          "tmux_session": "Sample tmuxsessi",
+          "exit_code": 1,
+          "hold_reason": "Sample holdreason 71",
+          "result": "Sample result 19",
+          "created_at": 1792238462414,
+          "updated_at": 1792238474183,
+          "expires_at": 1792240262414
+        },
+        {
+          "id": "Sample i",
+          "project": "Sam",
+          "sender": "Sample sender 18",
+          "state": "failed",
+          "engine": "Sample",
+          "prompt": "Sample prompt 54",
+          "answered_by": "Sam",
+          "branch": "Sample branch 18",
+          "tmux_session": "Sample tmuxsessi",
+          "exit_code": 1,
+          "hold_reason": "Sample holdreason 71",
+          "result": "Sample result 19",
+          "created_at": 1792238429414,
+          "updated_at": 1792238454184,
+          "expires_at": 1792240229414
+        }
+      ]
+    },
+    "network": {
+      "at": "2026-10-17T13:05:54.724Z",
+      "chainsDown": [
+        {
+          "label": "Sample label 79",
+          "reason": "Sample reason 14"
+        }
+      ],
+      "unexpectedPorts": [
+        9902,
+        3225,
+        3899
+      ]
+    },
+    "overview": {
+      "at": "2026-10-17T13:06:24.513Z",
+      "machine": {
+        "data": {
+          "cpus": 8,
+          "load1": 8.48,
+          "load5": 4.35,
+          "load15": 8.12,
+          "memTotalGb": 94.1,
+          "memAvailGb": 10.8,
+          "diskUsedPct": 10,
+          "diskAvailGb": 40.2
+        }
+      },
+      "runtime": {
+        "data": {
+          "pm2": [
+            {
+              "name": "Sample name 16",
+              "status": "online",
+              "restarts": 2,
+              "uptimeMs": 100154023
+            },
+            {
+              "name": "Sampl",
+              "status": "online",
+              "restarts": 42,
+              "uptimeMs": 54451890
+            },
+            {
+              "name": "Sample name 24",
+              "status": "online",
+              "restarts": 0,
+              "uptimeMs": 5545200689
+            }
+          ],
+          "containerProblems": [
+            {
+              "name": "Sample name 75",
+              "state": "running",
+              "status": "Sample status 9",
+              "health": "Sample he"
+            }
+          ],
+          "failedUnits": []
+        }
+      },
+      "agents": {
+        "data": [
+          {
+            "pid": 1124,
+            "kind": "dsh",
+            "user": "Sample ",
+            "elapsedS": 4413066,
+            "detail": "Sample detail 19"
+          },
+          {
+            "pid": 1183,
+            "kind": "dsh",
+            "user": "Samp",
+            "elapsedS": 4413066,
+            "detail": "Sample detail 65"
+          },
+          {
+            "pid": 913895,
+            "kind": "pi",
+            "user": "Samp",
+            "elapsedS": 242103,
+            "detail": "Sa"
+          }
+        ]
+      }
+    },
+    "needsYou": [
+      {
+        "severity": "critical",
+        "kind": "secret-exposed",
+        "title": "Sample title 5",
+        "detail": "Sample detail 14"
+      },
+      {
+        "severity": "critical",
+        "kind": "site-down",
+        "title": "Sample title 28",
+        "detail": "Sample detail 19"
+      },
+      {
+        "severity": "critical",
+        "kind": "secret-exposed",
+        "title": "Sample title 92",
+        "detail": "Sample detail 75"
+      }
+    ]
+  }
+}

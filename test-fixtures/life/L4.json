@@ -1,0 +1,17 @@
+{
+  "id": "L4",
+  "method": "GET",
+  "path": "/tasks-bulk/suggestions",
+  "query": null,
+  "status": 200,
+  "body": {
+    "generatedAt": "2026-09-13T17:02:37Z",
+    "counts": {
+      "OBSOLETE": 446,
+      "UNKNOWN": 113,
+      "LIKELY_DONE": 8,
+      "STILL_OPEN": 51
+    },
+    "suggestions": []
+  }
+}

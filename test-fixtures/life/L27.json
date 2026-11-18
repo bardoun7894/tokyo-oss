@@ -1,0 +1,45 @@
+{
+  "id": "L27",
+  "method": "GET",
+  "path": "/whatsapp/media",
+  "query": "limit=3",
+  "status": 200,
+  "body": {
+    "items": [
+      {
+        "id": 90134,
+        "jid": "15550109322@g.us",
+        "chatName": "Sample chatN",
+        "sender": "Sample send",
+        "fromMe": false,
+        "timestamp": 1792242478,
+        "type": "image",
+        "file": "whatsapp-media/sample-7636.jpg",
+        "caption": "Sample caption 34"
+      },
+      {
+        "id": 90133,
+        "jid": "15550109322@g.us",
+        "chatName": "Sample chatN",
+        "sender": "Sample send",
+        "fromMe": false,
+        "timestamp": 1792242468,
+        "type": "image",
+        "file": "whatsapp-media/sample-3138.jpg",
+        "caption": "Sample caption 91"
+      },
+      {
+        "id": 90132,
+        "jid": "15550109322@g.us",
+        "chatName": "Sample chatN",
+        "sender": "Sample send",
+        "fromMe": false,
+        "timestamp": 1792242451,
+        "type": "image",
+        "file": "whatsapp-media/sample-4306.jpg",
+        "caption": "Sample caption 96"
+      }
+    ],
+    "nextBefore": 93375
+  }
+}

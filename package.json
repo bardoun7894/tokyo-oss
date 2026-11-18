@@ -1,0 +1,51 @@
+{
+  "name": "tokyo",
+  "version": "1.0.0",
+  "description": "Tokyo — AI-powered life management Telegram bot",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc",
+    "prod": "node dist/index.js",
+    "test": "tsx --test \"src/**/*.test.ts\" \"dashboard/src/**/*.test.ts\""
+  },
+  "keywords": [],
+  "author": "Mohamed Bardouni",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "@google/genai": "^1.50.1",
+    "@modernrelay/omnigraph": "0.14.0",
+    "@temporalio/activity": "1.23.0",
+    "@temporalio/client": "1.23.0",
+    "@temporalio/worker": "1.23.0",
+    "@temporalio/workflow": "1.23.0",
+    "@types/nodemailer": "^8.0.1",
+    "@whiskeysockets/baileys": "^7.0.0-rc.9",
+    "baileys-biz": "npm:@whiskeysockets/baileys@^7.0.0-rc14",
+    "better-sqlite3": "^12.8.0",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "grammy": "^1.41.1",
+    "https-proxy-agent": "^8.0.0",
+    "imapflow": "^2.0.1",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^10.0.3",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.4",
+    "socks-proxy-agent": "^9.0.0"
+  },
+  "devDependencies": {
+    "@temporalio/testing": "1.23.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "@types/node-cron": "^3.0.11",
+    "@types/qrcode": "^1.5.6",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

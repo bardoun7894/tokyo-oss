@@ -1,0 +1,36 @@
+{
+  "id": "fleet_services",
+  "k": "K1",
+  "method": "GET",
+  "path": "/fleet/services",
+  "status": 200,
+  "body": {
+    "services": [
+      {
+        "name": "Sample name ",
+        "kind": "systemd",
+        "active": true,
+        "status": "running",
+        "since": "Sample since 99",
+        "enabled": true
+      },
+      {
+        "name": "Sampl",
+        "kind": "systemd",
+        "active": true,
+        "status": "running",
+        "since": "Sample since 34",
+        "enabled": true
+      },
+      {
+        "name": "Sample name",
+        "kind": "systemd",
+        "active": true,
+        "status": "running",
+        "since": "Sample since 80",
+        "enabled": true
+      }
+    ],
+    "at": "2026-10-17T13:06:24.212Z"
+  }
+}
