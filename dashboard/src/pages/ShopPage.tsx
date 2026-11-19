@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../api/client";
 import { Input, StatTile, cx } from "@bardouni/ui";
+import { cur } from "../lib/currency";
 
 // the seller posts his own price in the group; the shop's real price is a fixed
 // multiple of it. Default ×10, adjustable and remembered per browser.
@@ -165,18 +166,18 @@ export default function ShopPage() {
             onChange={(e) => changeMult(Number(e.target.value))}
             className="w-[70px] flex-none"
           />
-          <span className="text-fg3">= real DH</span>
+          <span className="text-fg3">= real {cur()}</span>
         </label>
       </div>
 
-      {/* KPI row — real DH on top, raw WhatsApp figure underneath */}
+      {/* KPI row — real amount on top, raw WhatsApp figure underneath */}
       <div className="mb-5 flex flex-wrap gap-3">
-        <Kpi label="Today" value={`${fmt(x(totals.today))} DH`} sub={`${counts.today} sales · ${fmt(totals.today)} in chat`} color="var(--green)" />
-        <Kpi label="This week" value={`${fmt(x(totals.week))} DH`} sub={`${counts.week} sales · ${fmt(totals.week)} in chat`} color="var(--blue)" />
-        <Kpi label="This month" value={`${fmt(x(totals.month))} DH`} sub={`${counts.month} sales · ${fmt(totals.month)} in chat`} color="var(--accent2)" />
+        <Kpi label="Today" value={`${fmt(x(totals.today))} ${cur()}`} sub={`${counts.today} sales · ${fmt(totals.today)} in chat`} color="var(--green)" />
+        <Kpi label="This week" value={`${fmt(x(totals.week))} ${cur()}`} sub={`${counts.week} sales · ${fmt(totals.week)} in chat`} color="var(--blue)" />
+        <Kpi label="This month" value={`${fmt(x(totals.month))} ${cur()}`} sub={`${counts.month} sales · ${fmt(totals.month)} in chat`} color="var(--accent2)" />
         <Kpi
           label={data.statsSince ? "Since the move" : "All time"}
-          value={`${fmt(x(totals.all))} DH`}
+          value={`${fmt(x(totals.all))} ${cur()}`}
           sub={`${counts.all} sales · ${stats.activeDays} active days`}
           color="var(--orange)"
         />
@@ -184,17 +185,17 @@ export default function ShopPage() {
 
       {/* Secondary stats */}
       <div className="mb-6 flex flex-wrap gap-3">
-        <Kpi label="Avg sale" value={`${fmt(x(stats.avgSale))} DH`} sub={`${fmt(stats.avgSale)} in chat`} color="var(--text)" />
-        <Kpi label="Biggest sale" value={`${fmt(x(stats.maxSale))} DH`} sub={`smallest ${fmt(x(stats.minSale))} DH`} color="var(--text)" />
+        <Kpi label="Avg sale" value={`${fmt(x(stats.avgSale))} ${cur()}`} sub={`${fmt(stats.avgSale)} in chat`} color="var(--text)" />
+        <Kpi label="Biggest sale" value={`${fmt(x(stats.maxSale))} ${cur()}`} sub={`smallest ${fmt(x(stats.minSale))} ${cur()}`} color="var(--text)" />
         <Kpi
           label="Avg day (last 7)"
-          value={`${fmt(x(stats.avgDay))} DH`}
+          value={`${fmt(x(stats.avgDay))} ${cur()}`}
           sub={totals.today > 0 ? `today ${todayVsAvg >= 0 ? "+" : ""}${todayVsAvg.toFixed(0)}%` : "no sales yet today"}
           color={todayVsAvg >= 0 ? "var(--green)" : "var(--red)"}
         />
         <Kpi
           label="Best day"
-          value={stats.bestDay ? `${fmt(x(stats.bestDay.total))} DH` : "—"}
+          value={stats.bestDay ? `${fmt(x(stats.bestDay.total))} ${cur()}` : "—"}
           sub={stats.bestDay ? dayLabel(stats.bestDay.date) : ""}
           color="var(--amber)"
         />
@@ -211,8 +212,8 @@ export default function ShopPage() {
           {insights.monthToDate && (
             <Signal
               label={`${monthLabel(insights.monthToDate.month)} pace`}
-              value={`${fmt(x(insights.monthToDate.projectedTotal))} DH`}
-              note={`${fmt(x(insights.monthToDate.total))} DH after ${insights.monthToDate.daysElapsed} days`}
+              value={`${fmt(x(insights.monthToDate.projectedTotal))} ${cur()}`}
+              note={`${fmt(x(insights.monthToDate.total))} ${cur()} after ${insights.monthToDate.daysElapsed} days`}
             />
           )}
         </div>
@@ -220,22 +221,22 @@ export default function ShopPage() {
           <Signal
             label="Busiest hour"
             value={insights.peakHour ? `${String(insights.peakHour.hour).padStart(2, "0")}:00` : "\u2014"}
-            note={insights.peakHour ? `${fmt(x(insights.peakHour.total))} DH over ${insights.peakHour.count} sales` : ""}
+            note={insights.peakHour ? `${fmt(x(insights.peakHour.total))} ${cur()} over ${insights.peakHour.count} sales` : ""}
           />
           <Signal
             label="Strongest weekday (per day worked)"
             value={insights.bestWeekday ? insights.bestWeekday.name : "\u2014"}
             note={
               insights.bestWeekday
-                ? `${fmt(x(insights.bestWeekday.avgPerActiveDay))} DH per day worked \u00b7 ` +
+                ? `${fmt(x(insights.bestWeekday.avgPerActiveDay))} ${cur()} per day worked \u00b7 ` +
                   `${insights.bestWeekday.activeDays} day${insights.bestWeekday.activeDays === 1 ? "" : "s"} logged`
                 : ""
             }
           />
           <Signal
             label="Typical sale"
-            value={`${fmt(x(insights.medianSale))} DH`}
-            note={`median \u00b7 top 10% above ${fmt(x(insights.p90Sale))} DH`}
+            value={`${fmt(x(insights.medianSale))} ${cur()}`}
+            note={`median \u00b7 top 10% above ${fmt(x(insights.p90Sale))} ${cur()}`}
           />
           <Signal
             label="Rhythm"
@@ -254,15 +255,15 @@ export default function ShopPage() {
             <div key={m.month} className="mb-3">
               <div className="mb-1 flex justify-between text-[.8rem]">
                 <span>{monthLabel(m.month)}</span>
-                <span className="font-semibold text-green">{fmt(x(m.total))} DH</span>
+                <span className="font-semibold text-green">{fmt(x(m.total))} {cur()}</span>
               </div>
               <div className="h-[18px] overflow-hidden rounded bg-surface2">
                 <div style={{ width: `${(m.total / maxMonthly) * 100}%`, background: "linear-gradient(90deg, var(--accent2), var(--blue))" }} className="h-full rounded" />
               </div>
               <div className="mt-0.5 text-[.7rem] text-fg3">
                 {m.count} sales over {m.activeDays} active day{m.activeDays === 1 ? "" : "s"}
-                {" \u00b7 "}{fmt(x(m.avgPerActiveDay))} DH per day worked
-                {m.best && <> {" \u00b7 "}best {dayLabel(m.best.date)} at {fmt(x(m.best.total))} DH</>}
+                {" \u00b7 "}{fmt(x(m.avgPerActiveDay))} {cur()} per day worked
+                {m.best && <> {" \u00b7 "}best {dayLabel(m.best.date)} at {fmt(x(m.best.total))} {cur()}</>}
               </div>
             </div>
           ))}
@@ -281,7 +282,7 @@ export default function ShopPage() {
                 <div style={{ width: `${(w.total / maxWeekday) * 100}%`, minWidth: w.total > 0 ? 2 : 0 }} className="h-full rounded bg-accent" />
               </div>
               <span className="min-w-[74px] shrink-0 text-right text-[.74rem] text-fg2">
-                {w.count ? `${fmt(x(w.total))} DH` : "\u2014"}
+                {w.count ? `${fmt(x(w.total))} ${cur()}` : "\u2014"}
               </span>
               <span className="min-w-[58px] shrink-0 text-right text-[.7rem] text-fg3">
                 {w.count ? `${w.activeDays}d \u00b7 ${w.count}\u00d7` : ""}
@@ -306,7 +307,7 @@ export default function ShopPage() {
             <div key={d.date} className="flex h-full flex-col items-center justify-end gap-1" style={{ flex: "1 0 28px" }}>
               <div className="text-[.68rem] whitespace-nowrap text-fg2">{fmt(x(d.total))}</div>
               <div
-                title={`${d.date} — ${fmt(x(d.total))} DH over ${d.count} sales`}
+                title={`${d.date} — ${fmt(x(d.total))} ${cur()} over ${d.count} sales`}
                 className="w-full rounded-t"
                 style={{
                   height: `${Math.max((d.total / maxDaily) * 100, 2)}%`,
@@ -332,7 +333,7 @@ export default function ShopPage() {
             {hourly.map((h) => (
               <div
                 key={h.hour}
-                title={`${String(h.hour).padStart(2, "0")}:00 — ${fmt(x(h.total))} DH over ${h.count} sales on ${h.activeDays} day${h.activeDays === 1 ? "" : "s"} (avg ${fmt(x(h.avg))} DH per sale)`}
+                title={`${String(h.hour).padStart(2, "0")}:00 — ${fmt(x(h.total))} ${cur()} over ${h.count} sales on ${h.activeDays} day${h.activeDays === 1 ? "" : "s"} (avg ${fmt(x(h.avg))} ${cur()} per sale)`}
                 className="flex h-full flex-1 flex-col justify-end"
               >
                 <div className={cx("rounded-t-[3px]", h.total > 0 ? "bg-accent" : "bg-surface2")} style={{ height: `${(h.total / maxHourly) * 100}%`, minHeight: 2 }} />
@@ -352,7 +353,7 @@ export default function ShopPage() {
                   className={cx("flex h-full items-center rounded pl-2 text-[.72rem] font-semibold text-on-color", i === 0 ? "bg-green" : "bg-accent2")}
                   style={{ width: `${(s.total / (sellers[0]?.total || 1)) * 100}%` }}
                 >
-                  {fmt(x(s.total))} DH
+                  {fmt(x(s.total))} {cur()}
                 </div>
               </div>
               <span className="min-w-[46px] shrink-0 text-[.74rem] text-fg3">{s.count}×</span>
@@ -368,7 +369,7 @@ export default function ShopPage() {
           <thead>
             <tr className="text-left text-fg3">
               <th className="px-3 py-2">Day</th>
-              <th className="px-3 py-2 text-right">Revenue (DH)</th>
+              <th className="px-3 py-2 text-right">Revenue ({cur()})</th>
               <th className="px-3 py-2 text-right">In chat</th>
               <th className="px-3 py-2 text-right">Sales</th>
               <th className="px-3 py-2 text-right">Avg</th>
@@ -399,7 +400,7 @@ export default function ShopPage() {
               <th className="px-3 py-2">When</th>
               <th className="px-3 py-2">By</th>
               <th className="px-3 py-2 text-right">Chat</th>
-              <th className="px-3 py-2 text-right">Real (DH)</th>
+              <th className="px-3 py-2 text-right">Real ({cur()})</th>
             </tr>
           </thead>
           <tbody>

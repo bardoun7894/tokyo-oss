@@ -47,6 +47,9 @@ import { isOwnerUpdate } from "./tg-guard";
 import { handleApprovalText } from "./tg-approve";
 import { setShopChatFn } from "./shop-group";
 import { startObligationReminders } from "./obligation-reminders";
+import { registerSetup, profileIsSet } from "./setup-telegram";
+import { applyStoredTimezone } from "./settings";
+import { ownerName, currency, prayerOn, shopOn, whatsappOn } from "./profile";
 
 if (!BOT_TOKEN) {
   console.error("Missing TELEGRAM_BOT_TOKEN in .env");
@@ -59,6 +62,7 @@ if (!process.env.CLIPROXY_API_KEY && !process.env.ANTHROPIC_API_KEY) {
 
 // Init
 initDatabase();
+applyStoredTimezone(); // a timezone saved from /setup or the dashboard wins over .env
 initPrayerTable();
 initStateTable();
 const bot = new Bot(BOT_TOKEN);
@@ -70,6 +74,9 @@ bot.use(async (ctx, next) => {
   console.warn(`[telegram] dropped update from ${ctx.from?.id ?? "unknown"} (@${ctx.from?.username ?? "?"})`);
   if (ctx.callbackQuery) await ctx.answerCallbackQuery({ text: "Not authorized" }).catch(() => {});
 });
+
+// /setup wizard: registered first so its text answers are not taken as chat.
+registerSetup(bot);
 
 // Track every Telegram API call for the loopback status endpoint, and keep what was
 // sent to the owner for the Control app's feed. The result is re-thrown on error, so
@@ -273,21 +280,16 @@ bot.command("start", async (ctx) => {
   await ctx.reply(
     `🏙 *Tokyo — Your Life OS*
 
-بسم الله الرحمن الرحيم
+${prayerOn() ? "بسم الله الرحمن الرحيم\n\n" : ""}Hi ${ownerName()}! I keep your tasks, habits, goals, journal and money${whatsappOn() ? ", plus your WhatsApp," : ""} in one place.
+${prayerOn() ? "\n🕌 Prayer times are always priority.\n📖 Quran & adhkar tracked daily.\n" : ""}
+💰 Amounts are in ${currency()}.${shopOn() ? " Shop sales come from your WhatsApp group." : ""}
 
-Hey the owner! I manage your 3 roles:
-👨‍💻 *Dev* — freelance clients + SaaS products
-🏪 *Shop* — selling with your father
-📚 *Learning* — AI, marketing, new skills
-
-🕌 Prayer times are always priority.
-📖 Quran & adhkar tracked daily.
-💰 Income & shop sales monitored.
+${profileIsSet() ? "Change your profile any time with /setup." : "👉 First time? Send /setup and tell me about you (2 minutes)."}
 
 Type /help for commands, or just *talk naturally*:
-_"عندي مشروع جديد من مستقل"_
-_"قرأت 5 صفحات من القرآن"_
-_"بعت اليوم ب 800 ريال"_`,
+_"New client project, due Friday"_
+_"Spent 200 on groceries"_
+_"Remind me to call the bank tomorrow at 10"_`,
     { parse_mode: "Markdown" }
   );
 });
@@ -296,11 +298,13 @@ bot.command("help", async (ctx) => {
   await ctx.reply(
     `*Tokyo Commands:*
 
+⚙️ /setup — Your profile: name, country, language, currency, work, features
+${prayerOn() ? `
 🕌 *Deen*
 /adhkar — Adhkar status / mark done
 /quran [pages] — Log Quran reading
 /quranstats — Quran progress
-
+` : ""}
 📋 *Tasks*
 /tasks — Active tasks
 /done [id] — Complete task
@@ -316,9 +320,8 @@ bot.command("help", async (ctx) => {
 /rmhabit [id] — Remove habit
 
 ⏱ *Work*
-/work [project] — Start dev session
-/shop — Start shop session
-/stopwork — End session
+/work [project] — Start work session
+${shopOn() ? "/shop — Start shop session\n" : ""}/stopwork — End session
 /breakk — Start break
 /endbreak — End break
 /stats — Today's stats
@@ -331,11 +334,8 @@ bot.command("help", async (ctx) => {
 
 💰 *Finance*
 /income [amount] [source] — Log income
-/shopsale [amount] — Log shop sale
 /money — Monthly summary
-/shops — Neighborhood shops
-/addshop [name] — Track a shop
-
+${shopOn() ? "/shopsale [amount] — Log shop sale\n/shops — Neighborhood shops\n/addshop [name] — Track a shop\n" : ""}
 📊 *Reports*
 /briefing — Morning briefing (AI)
 /review — Evening review (AI)
@@ -1487,7 +1487,7 @@ registerMacCommand(bot, isOwner); // /mac and /laptop
 
 registerClientCommands(bot);
 registerFinanceCommands(bot);
-registerQuranCommands(bot);
+if (prayerOn()) registerQuranCommands(bot);
 registerReportCommands(bot);
 registerCalendarCommands(bot);
 registerResearchCommands(bot);
@@ -1573,8 +1573,8 @@ bot.command("week", async (ctx) => {
       `\ud83d\udccb Tasks: ${progress.tasks.completed} done / ${progress.tasks.created} created`,
       `\u23f1 Work: ${progress.work.totalHours}h${Object.entries(progress.work.byType).map(([k, v]) => ` (${k}: ${v}h)`).join("") || ""}`,
       `\u2705 Habits: ${progress.habits.rate}% completion`,
-      `\ud83d\udcd6 Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)`,
-      `\ud83d\udcb0 Income: ${progress.finance.total} DH${progress.finance.shopRevenue ? ` + ${progress.finance.shopRevenue} shop` : ""}`,
+      ...(prayerOn() ? [`\ud83d\udcd6 Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)`] : []),
+      `\ud83d\udcb0 Income: ${progress.finance.total} ${currency()}${shopOn() && progress.finance.shopRevenue ? ` + ${progress.finance.shopRevenue} shop` : ""}`,
       `\ud83d\udcdd Journal: ${progress.journal.entries} entries`,
     ];
 
@@ -1821,7 +1821,8 @@ async function main() {
   // Wire shop group AI chat function (uses the same chat() from ai.ts)
   setShopChatFn(async (prompt: string) => chat(prompt, bot, parseInt(USER_ID || "0")));
 
-  startWhatsApp().catch((err) => console.error("WhatsApp auto-start failed:", err));
+  if (whatsappOn()) startWhatsApp().catch((err) => console.error("WhatsApp auto-start failed:", err));
+  else console.log("WhatsApp bridge off (FEATURE_WHATSAPP=0)");
 
   // Voice-coach scheduler — disabled by user
   // (was: scoreBatch loop + 21:00 digest)

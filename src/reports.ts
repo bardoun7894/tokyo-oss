@@ -4,6 +4,7 @@ import { getFinancialContext } from "./finance";
 import { getDeenContext } from "./quran";
 import type { WeeklyReportData } from "./types";
 import { localNow, localToday } from "./utils";
+import { currency, shopOn, prayerOn, ownerName, ownerProfile, languageRule } from "./profile";
 
 // Through the proxy gateway (Max subscription) like the rest of Tokyo, not the paid API key.
 const anthropic = new Anthropic({
@@ -65,7 +66,10 @@ function gatherData(startDate: string, endDate: string): WeeklyReportData {
 }
 
 async function generateReport(data: WeeklyReportData, period: string, startDate: string, endDate: string): Promise<string> {
-  const prompt = `Generate a ${period} life report for the owner. He is a Muslim developer + shop seller.
+  const prayer = prayerOn();
+  const prompt = `Generate a ${period} life report for ${ownerName()}.
+
+${ownerProfile()}
 
 Period: ${startDate} to ${endDate}
 
@@ -73,15 +77,12 @@ DATA:
 - Tasks completed: ${data.tasksCompleted} (${Object.entries(data.tasksByCategory).map(([k, v]) => `${k}: ${v}`).join(", ") || "none"})
 - Work hours: ${Math.round(data.totalWorkMinutes / 60)}h (${Object.entries(data.workByType).map(([k, v]) => `${k}: ${Math.round(v / 60)}h`).join(", ") || "none tracked"})
 - Habits: ${data.habitsCompleted}/${data.habitsTotal} completed
-- Quran: ${data.quranPages} pages read
-- Adhkar: morning ${data.adhkarDays.morning} days, evening ${data.adhkarDays.evening} days
-- Dev income: ${data.devIncome} DH
-- Shop revenue: ${data.shopRevenue} DH
-- Total: ${data.totalIncome} DH
+${prayer ? `- Quran: ${data.quranPages} pages read\n- Adhkar: morning ${data.adhkarDays.morning} days, evening ${data.adhkarDays.evening} days\n` : ""}- Work income: ${data.devIncome} ${currency()}
+${shopOn() ? `- Shop revenue: ${data.shopRevenue} ${currency()}\n` : ""}- Total: ${data.totalIncome} ${currency()}
 
-Give scores 1-10 for: Productivity, Deen, Work-Life-Deen Balance.
-Include: top 3 wins, top 3 priorities for next ${period === "weekly" ? "week" : "month"}, one Islamic motivational reminder.
-Keep it concise but meaningful. Use some Arabic Islamic phrases naturally (bismillah, alhamdulillah, etc).
+Give scores 1-10 for: Productivity, ${prayer ? "Deen, Work-Life-Deen Balance" : "Work-Life Balance"}.
+Include: top 3 wins, top 3 priorities for next ${period === "weekly" ? "week" : "month"}, ${prayer ? "one Islamic motivational reminder" : "one short motivational line"}.
+Keep it concise but meaningful.${prayer ? " Use some Arabic Islamic phrases naturally (bismillah, alhamdulillah, etc)." : ""} ${languageRule()}
 Format for Telegram (Markdown).`;
 
   const response = await anthropic.messages.create({

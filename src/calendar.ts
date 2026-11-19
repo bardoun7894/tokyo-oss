@@ -2,6 +2,7 @@ import * as db from "./db";
 import { generateBriefing } from "./ai";
 import Anthropic from "@anthropic-ai/sdk";
 import { localToday, localNow } from "./utils";
+import { currency, shopOn, prayerOn, languageRule } from "./profile";
 
 const anthropic = new Anthropic({
   apiKey: process.env.CLIPROXY_API_KEY || process.env.ANTHROPIC_API_KEY,
@@ -168,10 +169,10 @@ function formatDailyCalendar(data: ReturnType<typeof db.getDailyActivity>): stri
   if (data.income.length > 0 || data.shopSales.length > 0) {
     lines.push("💰 *Finance*");
     for (const inc of data.income as any[]) {
-      lines.push(`  +${inc.amount} ${inc.currency || "DH"} (${inc.source}${inc.description ? ": " + inc.description : ""})`);
+      lines.push(`  +${inc.amount} ${inc.currency || currency()} (${inc.source}${inc.description ? ": " + inc.description : ""})`);
     }
     for (const sale of data.shopSales as any[]) {
-      lines.push(`  🏪 Shop: ${sale.total_revenue} DH${sale.items_sold ? ` (${sale.items_sold} items)` : ""}`);
+      if (shopOn()) lines.push(`  🏪 Shop: ${sale.total_revenue} ${currency()}${sale.items_sold ? ` (${sale.items_sold} items)` : ""}`);
     }
     lines.push("");
   }
@@ -234,20 +235,22 @@ function formatProgress(data: ReturnType<typeof db.getProgressData>, label: stri
   lines.push("");
 
   // Deen
-  lines.push(`🕌 *Deen*`);
-  lines.push(`  📖 Quran: ${data.deen.quranPages} pages across ${data.deen.quranDays} days (avg ${data.deen.quranAvgPerDay}/day)`);
-  lines.push(`  🌅 Morning adhkar: ${data.deen.adhkarMorning} days`);
-  lines.push(`  🌙 Evening adhkar: ${data.deen.adhkarEvening} days`);
-  lines.push("");
+  if (prayerOn()) {
+    lines.push(`🕌 *Deen*`);
+    lines.push(`  📖 Quran: ${data.deen.quranPages} pages across ${data.deen.quranDays} days (avg ${data.deen.quranAvgPerDay}/day)`);
+    lines.push(`  🌅 Morning adhkar: ${data.deen.adhkarMorning} days`);
+    lines.push(`  🌙 Evening adhkar: ${data.deen.adhkarEvening} days`);
+    lines.push("");
+  }
 
   // Finance
   lines.push(`💰 *Finance*`);
-  lines.push(`  Dev income: ${data.finance.devIncome} DH`);
-  lines.push(`  Shop revenue: ${data.finance.shopRevenue} DH`);
-  lines.push(`  Total: ${data.finance.total} DH`);
+  lines.push(`  Work income: ${data.finance.devIncome} ${currency()}`);
+  if (shopOn()) lines.push(`  Shop revenue: ${data.finance.shopRevenue} ${currency()}`);
+  lines.push(`  Total: ${data.finance.total} ${currency()}`);
   if (Object.keys(data.finance.bySource).length > 0) {
     const sources = Object.entries(data.finance.bySource)
-      .map(([k, v]) => `${k}: ${v} DH`)
+      .map(([k, v]) => `${k}: ${v} ${currency()}`)
       .join(", ");
     lines.push(`  Breakdown: ${sources}`);
   }
@@ -283,14 +286,12 @@ function progressBar(pct: number): string {
 }
 
 async function generateProgressInsight(data: ReturnType<typeof db.getProgressData>, label: string): Promise<string> {
-  const prompt = `Analyze this ${label} progress data and give a SHORT, motivational insight (3-5 sentences). Compare work types, highlight wins, flag concerns. Use Islamic encouragement naturally. Respond in the user's language context (mix Arabic phrases).
+  const prompt = `Analyze this ${label} progress data and give a SHORT, motivational insight (3-5 sentences). Compare work types, highlight wins, flag concerns. ${prayerOn() ? "Use Islamic encouragement naturally. " : ""}${languageRule()}
 
 Tasks: ${data.tasks.completed} completed, ${data.tasks.created} created
 Work: ${data.work.totalHours}h (${Object.entries(data.work.byType).map(([k, v]) => `${k}: ${v}h`).join(", ")})
 Habits: ${data.habits.rate}% completion
-Quran: ${data.deen.quranPages} pages, ${data.deen.quranDays} days
-Adhkar: morning ${data.deen.adhkarMorning}d, evening ${data.deen.adhkarEvening}d
-Income: dev ${data.finance.devIncome} DH, shop ${data.finance.shopRevenue} DH
+${prayerOn() ? `Quran: ${data.deen.quranPages} pages, ${data.deen.quranDays} days\nAdhkar: morning ${data.deen.adhkarMorning}d, evening ${data.deen.adhkarEvening}d\n` : ""}Income: work ${data.finance.devIncome} ${currency()}${shopOn() ? `, shop ${data.finance.shopRevenue} ${currency()}` : ""}
 Journal: ${data.journal.entries} entries`;
 
   try {

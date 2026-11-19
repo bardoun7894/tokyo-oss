@@ -1,6 +1,7 @@
 import * as db from "./db";
 import type { Bot } from "grammy";
 import { localToday, localNow } from "./utils";
+import { currency, shopOn } from "./profile";
 
 function getMonthRange(): { start: string; end: string } {
   const now = localNow();
@@ -14,12 +15,12 @@ export function registerFinanceCommands(bot: Bot): void {
     const parts = ctx.match.trim().split(/\s+/);
     const amount = parseFloat(parts[0]);
     if (!amount || isNaN(amount)) {
-      await ctx.reply("Usage: /income [amount] [source]\nSources: mostaql, upwork, direct, shop, saas\n\nExample: /income 1500 mostaql");
+      await ctx.reply(`Usage: /income [amount] [source]\nSources: direct (salary, cash, transfers), upwork, mostaql, saas, other${shopOn() ? ", shop" : ""}\n\nExample: /income 1500 direct`);
       return;
     }
     const source = parts[1] || "direct";
     db.logIncome(amount, source);
-    await ctx.reply(`💰 Logged: ${amount} DH from ${source}`);
+    await ctx.reply(`💰 Logged: ${amount} ${currency()} from ${source}`);
   });
 
   bot.command("shopsale", async (ctx) => {
@@ -32,7 +33,7 @@ export function registerFinanceCommands(bot: Bot): void {
     const items = parseInt(parts[1], 10) || undefined;
     const today = localToday();
     db.logShopSale(today, amount, items);
-    await ctx.reply(`🏪 Shop sale logged: ${amount} DH${items ? ` (${items} items)` : ""}`);
+    await ctx.reply(`🏪 Shop sale logged: ${amount} ${currency()}${items ? ` (${items} items)` : ""}`);
   });
 
   bot.command("money", async (ctx) => {
@@ -50,16 +51,19 @@ export function registerFinanceCommands(bot: Bot): void {
     }
 
     const shopTotal = shopSummary.total || 0;
-    const grandTotal = devTotal + shopTotal;
+    const grandTotal = devTotal + (shopOn() ? shopTotal : 0);
 
     const month = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
 
     let msg = `💰 *Financial Summary — ${month}*\n\n`;
-    msg += `👨‍💻 *Dev Income:* ${devTotal} DH\n`;
+    const cur = currency();
+    msg += `💼 *Work Income:* ${devTotal} ${cur}\n`;
     if (devLines.length > 0) msg += devLines.join("\n") + "\n";
-    msg += `\n🏪 *Shop Revenue:* ${shopTotal} DH`;
-    if (shopSummary.days_tracked > 0) msg += ` (${shopSummary.days_tracked} days, ${shopSummary.total_items || "?"} items)`;
-    msg += `\n\n📊 *Total:* ${grandTotal} DH`;
+    if (shopOn()) {
+      msg += `\n🏪 *Shop Revenue:* ${shopTotal} ${cur}`;
+      if (shopSummary.days_tracked > 0) msg += ` (${shopSummary.days_tracked} days, ${shopSummary.total_items || "?"} items)`;
+    }
+    msg += `\n\n📊 *Total:* ${grandTotal} ${cur}`;
 
     await ctx.reply(msg, { parse_mode: "Markdown" });
   });
@@ -99,5 +103,7 @@ export function getFinancialContext(): string {
   }
   const shopTotal = shopSummary.total || 0;
 
-  return `Dev: ${devTotal} DH | Shop: ${shopTotal} DH | Total: ${devTotal + shopTotal} DH`;
+  const cur = currency();
+  if (!shopOn()) return `Work income: ${devTotal} ${cur}`;
+  return `Work: ${devTotal} ${cur} | Shop: ${shopTotal} ${cur} | Total: ${devTotal + shopTotal} ${cur}`;
 }

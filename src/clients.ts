@@ -1,5 +1,6 @@
 import * as db from "./db";
 import type { Bot } from "grammy";
+import { currency, shopOn, prayerOn } from "./profile";
 
 export function registerClientCommands(bot: Bot): void {
   bot.command("clients", async (ctx) => {
@@ -48,7 +49,7 @@ export function registerClientCommands(bot: Bot): void {
     const clientId = parseInt(parts[0], 10);
     const name = parts.slice(1).join(" ");
     if (!clientId || !name) {
-      await ctx.reply("Usage: /newproject [client_id] [project name]\n\nExample: /newproject 1 E-commerce website\n\nSet budget/deadline via chat: \"set project 1 budget 2500 DH deadline 2026-04-15\"");
+      await ctx.reply(`Usage: /newproject [client_id] [project name]\n\nExample: /newproject 1 E-commerce website\n\nSet budget/deadline via chat: "set project 1 budget 2500 ${currency()} deadline 2026-04-15"`);
       return;
     }
     const client = db.getClient(clientId) as any;

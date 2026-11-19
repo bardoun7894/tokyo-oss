@@ -1,6 +1,11 @@
 import Database from "better-sqlite3";
 import path from "path";
 import { localToday, sqliteTzModifier } from "./utils";
+
+/** The user's currency (settings). Required lazily: profile -> settings -> db would be an import cycle. */
+function defaultCurrency(): string {
+  return require("./profile").currency();
+}
 import { decideArea, isArea, type Area } from "./area";
 import { ensureLaptopQueue, laptopTaskOpenForRun as laptopOpen } from "./laptop-open";
 
@@ -898,7 +903,7 @@ export function getClient(id: number) {
 // PROJECTS
 // ========================
 
-export function addProject(name: string, clientId?: number, category = "client", budget?: number, currency = "DH", deadline?: string, estimatedHours?: number, description?: string) {
+export function addProject(name: string, clientId?: number, category = "client", budget?: number, currency = defaultCurrency(), deadline?: string, estimatedHours?: number, description?: string) {
   return db.prepare(
     "INSERT INTO projects (name, client_id, category, budget, currency, deadline, estimated_hours, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
   ).run(name, clientId ?? null, category, budget ?? null, currency, deadline ?? null, estimatedHours ?? null, description ?? null);
@@ -958,7 +963,7 @@ export function getUpcomingDeadlines(days = 3) {
 // INCOME
 // ========================
 
-export function logIncome(amount: number, source = "direct", date?: string, projectId?: number, description?: string, currency = "DH") {
+export function logIncome(amount: number, source = "direct", date?: string, projectId?: number, description?: string, currency = defaultCurrency()) {
   const d = date ?? localToday();
   return db.prepare("INSERT INTO income (amount, currency, source, project_id, description, date) VALUES (?, ?, ?, ?, ?, ?)").run(
     amount, currency, source, projectId ?? null, description ?? null, d
@@ -1040,7 +1045,7 @@ export function logShopSaleItem(
 
   // Lazy rollup: if yesterday has items but no shop_sales row, aggregate it
   try {
-    const yesterday = new Date(params.timestamp * 1000 - 86400000).toLocaleDateString("en-CA", { timeZone: process.env.TIMEZONE || "Africa/Casablanca" });
+    const yesterday = new Date(params.timestamp * 1000 - 86400000).toLocaleDateString("en-CA", { timeZone: process.env.TIMEZONE || "UTC" });
     const existingRollup = (target as any).prepare("SELECT id FROM shop_sales WHERE date = ?").get(yesterday);
     if (!existingRollup) {
       const agg = (target as any).prepare(
@@ -1408,7 +1413,7 @@ export function deleteGoal(id: number) {
 // EXPENSES
 // ========================
 
-export function logExpense(amount: number, category = "other", description?: string, date?: string, currency = "MAD", recurring = false) {
+export function logExpense(amount: number, category = "other", description?: string, date?: string, currency = defaultCurrency(), recurring = false) {
   const d = date ?? localToday();
   return db.prepare("INSERT INTO expenses (amount, currency, category, description, date, recurring) VALUES (?, ?, ?, ?, ?, ?)").run(
     amount, currency, category, description ?? null, d, recurring ? 1 : 0
@@ -2405,7 +2410,7 @@ export function updateWATranscriptionWithDuration(id: number, transcription: str
 }
 
 export function getCoachRowsForRange(range: "today" | "week" | "all", coherenceFilter?: string[]): any[] {
-  const tz = process.env.TIMEZONE || "Africa/Casablanca";
+  const tz = process.env.TIMEZONE || "UTC";
   const modifier = sqliteTzModifier ? `, '${sqliteTzModifier()}'` : "";
   let dateClause = "";
   if (range === "today") {
@@ -2507,7 +2512,7 @@ export function getAllMessageTimestamps(limit: number): MessageTimestamp[] {
 }
 
 export function getMessageLengths(): any[] {
-  const tz = process.env.TIMEZONE || "Africa/Casablanca";
+  const tz = process.env.TIMEZONE || "UTC";
   return db.prepare(`
     SELECT date(timestamp, 'unixepoch', '+3 hours') as date,
       ROUND(AVG(LENGTH(content))) as avgChars,
@@ -2690,7 +2695,7 @@ export interface ProductUpsert {
 export function upsertProducts(rows: ProductUpsert[]): void {
   const insert = db.prepare(`
     INSERT INTO products (message_id, jid, media_file, title, brand, price, currency, price_source, confidence, batch_id, price_message_id, status, timestamp, updated_at)
-    VALUES (@messageId, @jid, @mediaFile, @title, @brand, @price, 'DH', @priceSource, @confidence, @batchId, @priceMessageId, 'new', @timestamp, datetime('now'))
+    VALUES (@messageId, @jid, @mediaFile, @title, @brand, @price, @currency, @priceSource, @confidence, @batchId, @priceMessageId, 'new', @timestamp, datetime('now'))
     ON CONFLICT(message_id) DO UPDATE SET
       title = excluded.title,
       brand = excluded.brand,
@@ -2702,8 +2707,9 @@ export function upsertProducts(rows: ProductUpsert[]): void {
       updated_at = datetime('now')
     WHERE products.price_source <> 'manual'
   `);
+  const currency = defaultCurrency();
   const tx = db.transaction((items: ProductUpsert[]) => {
-    for (const r of items) insert.run(r as any);
+    for (const r of items) insert.run({ ...r, currency } as any);
   });
   tx(rows);
 }
@@ -2936,7 +2942,7 @@ export function addObligation(o: {
   return db.prepare(`
     INSERT INTO obligations (name, kind, counterparty, amount, currency, due_day, principal, notes)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(o.name, o.kind, o.counterparty ?? null, o.amount ?? 0, o.currency ?? "DH",
+  `).run(o.name, o.kind, o.counterparty ?? null, o.amount ?? 0, o.currency ?? defaultCurrency(),
          o.dueDay ?? null, o.principal ?? null, o.notes ?? null);
 }
 

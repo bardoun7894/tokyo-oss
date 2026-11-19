@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button, Input, Select, Empty, Card } from "@bardouni/ui";
 import { api, postApi, patchApi, deleteApi } from "../api/client";
 import { useToast } from "../components/ui/Toast";
+import { cur } from "../lib/currency";
 
 // What is owed: recurring bills (rent on the 26th) and loans with a balance.
 // The dates and balances are computed on the server (src/obligations.ts).
@@ -277,11 +278,11 @@ export default function MoneyPage() {
           <div className="mb-4 flex flex-wrap gap-3">
             <div className="rounded-lg border border-line bg-surface px-4 py-3">
               <div className="text-[.72rem] tracking-[.08em] text-fg3 uppercase">Still to pay this month</div>
-              <div className="text-2xl font-semibold">{owedThisMonth.toLocaleString()} DH</div>
+              <div className="text-2xl font-semibold">{owedThisMonth.toLocaleString()} {cur()}</div>
             </div>
             <div className="rounded-lg border border-line bg-surface px-4 py-3">
               <div className="text-[.72rem] tracking-[.08em] text-fg3 uppercase">Loans outstanding</div>
-              <div className="text-2xl font-semibold">{Math.round(loansLeft).toLocaleString()} DH</div>
+              <div className="text-2xl font-semibold">{Math.round(loansLeft).toLocaleString()} {cur()}</div>
             </div>
           </div>
 

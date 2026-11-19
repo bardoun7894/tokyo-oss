@@ -6,6 +6,7 @@ import { api } from "../api/client";
 import { useModuleVisible } from "../hooks/useSettings";
 import { fmtMin, timeToMin, nowMin } from "../lib/utils";
 import type { OverviewResponse } from "../types";
+import { cur } from "../lib/currency";
 
 // Home is a grid of summary widgets. Each one shows the headline numbers for one
 // section and links to that section's page, which holds the full UI.
@@ -163,7 +164,7 @@ export default function HomePage() {
       <Widget
         to="/finance"
         title="Income this month"
-        value={`${(o.finance.monthTotal || 0).toLocaleString()} DH`}
+        value={`${(o.finance.monthTotal || 0).toLocaleString()} ${cur()}`}
         sub={`Dev ${(o.finance.monthDevIncome || 0).toLocaleString()} · Shop ${(o.finance.monthShopRevenue || 0).toLocaleString()}`}
       />
 
@@ -182,7 +183,7 @@ export default function HomePage() {
         <Link to="/money" className={`${card} transition-colors hover:border-accent hover:bg-surface1`}>
           <div className={title}>To pay</div>
           <div className="truncate text-2xl leading-tight font-semibold">
-            {dueSoon.reduce((n, i) => n + i.amount, 0).toLocaleString()} DH
+            {dueSoon.reduce((n, i) => n + i.amount, 0).toLocaleString()} {cur()}
           </div>
           <ul className="mt-1.5 flex list-none flex-col gap-0.5 p-0">
             {dueSoon.slice(0, 3).map((i) => (

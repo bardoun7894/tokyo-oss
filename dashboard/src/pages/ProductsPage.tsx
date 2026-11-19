@@ -7,6 +7,7 @@ import { useToast } from "../components/ui/Toast";
 import ProductCard from "../components/products/ProductCard";
 import BatchReviewModal from "../components/products/BatchReviewModal";
 import ForwardModal from "../components/products/ForwardModal";
+import { cur } from "../lib/currency";
 
 const SORT_OPTIONS: Array<{ value: SortOrder; label: string }> = [
   { value: "date_desc", label: "Newest first" },
@@ -227,8 +228,8 @@ export default function ProductsPage() {
           onChange={(e) => setSearch(e.target.value)}
           className="min-w-[160px] flex-1 sm:max-w-[240px]"
         />
-        <Input type="number" placeholder="Min DH" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="w-24" />
-        <Input type="number" placeholder="Max DH" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="w-24" />
+        <Input type="number" placeholder={`Min ${cur()}`} value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="w-24" />
+        <Input type="number" placeholder={`Max ${cur()}`} value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="w-24" />
         <Button size="sm" variant={unpricedOnly ? "primary" : "default"} onClick={toggleUnpricedOnly}>
           Unpriced only
         </Button>
@@ -271,7 +272,7 @@ export default function ProductsPage() {
         <div className="fixed inset-x-0 bottom-0 z-50 flex flex-wrap items-center gap-2 border-t border-line bg-bg1 px-3 py-2.5 shadow-[0_-4px_12px_rgba(0,0,0,.08)]">
           {/* Sidebar has a higher z-index (100) so it renders on top of this bar's left edge at every width -- no breakpoint math needed to dodge it. */}
           <span className="text-[.85rem] text-fg">
-            {selected.size.toLocaleString("en-US")} selected · total {selectedTotal.toLocaleString("en-US")} DH
+            {selected.size.toLocaleString("en-US")} selected · total {selectedTotal.toLocaleString("en-US")} {cur()}
           </span>
           <span className="ml-auto flex flex-wrap gap-2">
             <Button size="sm" onClick={() => setSelected(new Set())}>Clear</Button>

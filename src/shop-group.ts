@@ -52,7 +52,7 @@ const SHOP_DISPLAY_NAME = "My Shop";
 const SHOP_FULL_NAME = "My Shop 🛒";
 
 export function isShopGroup(jid: string): boolean {
-  return MYSHOP_GROUP_JIDS.includes(jid);
+  return settingOn("FEATURE_SHOP") && MYSHOP_GROUP_JIDS.includes(jid);
 }
 
 // ---------------------------------------------------------------------------
@@ -246,7 +246,7 @@ function fmtAmount(n: number): string {
 
 export function formatTotals(totals: db.ShopSaleTotals): string {
   return (
-    `🛒 ${SHOP_DISPLAY_NAME} — Totals (Africa/Casablanca)\n\n` +
+    `🛒 ${SHOP_DISPLAY_NAME} — Totals (${process.env.TIMEZONE || "UTC"})\n\n` +
     `Today: ${fmtAmount(totals.today.amount)} DH (${totals.today.count} items)\n` +
     `This week: ${fmtAmount(totals.week.amount)} DH (${totals.week.count} items)\n` +
     `This month: ${fmtAmount(totals.month.amount)} DH (${totals.month.count} items)\n` +
@@ -270,9 +270,9 @@ function buildShopChatPrompt(
     .join("\n");
 
   return (
-    `You are Tokyo's shop assistant for a small Moroccan shop called "${SHOP_FULL_NAME}".\n` +
+    `You are Tokyo's shop assistant for a small shop called "${SHOP_FULL_NAME}".\n` +
     `The shop owner's partner the seller logs each sale as a bare DH number in this group.\n` +
-    `Answer in the language of the question (Arabic / Darija / English / French).\n` +
+    `Answer in the language of the question (any language or dialect).\n` +
     `Keep reply under 800 characters.\n` +
     `Ground every claim in the brief below. If it does not answer the question, say so\n` +
     `rather than inventing a number.\n\n` +
@@ -302,7 +302,7 @@ function buildShopBrief(dbOverride?: Database.Database): string {
     // does. getHours() would agree only for as long as the server clock happens
     // to be set to the same zone, and would silently shift the whole BY HOUR
     // table the day that stops being true.
-    const tz = process.env.TIMEZONE || "Africa/Casablanca";
+    const tz = process.env.TIMEZONE || "UTC";
     const hourOf = (ts: number) =>
       parseInt(
         new Date(ts * 1000).toLocaleString("en-GB", { timeZone: tz, hour: "2-digit", hour12: false }),

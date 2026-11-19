@@ -15,7 +15,7 @@ export type SettingType = "bool" | "number" | "text" | "select";
 
 export interface SettingDef {
   key: string;
-  section: "profile" | "modules" | "ai" | "whatsapp" | "jobhunt";
+  section: "profile" | "features" | "modules" | "ai" | "whatsapp" | "jobhunt";
   label: string;
   type: SettingType;
   help?: string;
@@ -44,13 +44,36 @@ export const MODULES = [
 const PRAYER_METHODS = [
   ["2", "ISNA (North America)"], ["3", "Muslim World League"], ["4", "Umm Al-Qura (Makkah)"], ["5", "Egyptian Authority"],
   ["21", "Morocco"], ["12", "UOIF (France)"], ["13", "Diyanet (Turkey)"], ["16", "Dubai"],
+  ["1", "Karachi (South Asia)"], ["17", "JAKIM (Malaysia)"], ["20", "Kemenag (Indonesia)"],
 ];
 
 export const SETTINGS: SettingDef[] = [
   { key: "PROFILE_NAME", section: "profile", label: "Your name", type: "text", default: "The owner",
-    help: "Used when Jev decides which area of your life an item belongs to." },
-  { key: "PRAYER_CITY", section: "profile", label: "Prayer city", type: "text", default: "Riyadh" },
-  { key: "PRAYER_COUNTRY", section: "profile", label: "Prayer country", type: "text", default: "Saudi Arabia" },
+    help: "How Tokyo addresses you in its prompts." },
+  { key: "PROFILE_COUNTRY", section: "profile", label: "Country", type: "text" },
+  { key: "PROFILE_CITY", section: "profile", label: "City", type: "text" },
+  { key: "TIMEZONE", section: "profile", label: "Timezone", type: "text", default: "UTC",
+    help: "IANA name, e.g. Africa/Cairo, Europe/Paris, America/New_York. Sets when your day starts and ends." },
+  { key: "PROFILE_LANGUAGE", section: "profile", label: "Reply language or dialect", type: "text",
+    help: "e.g. Egyptian Arabic, Moroccan Darija, French, English. Empty: Tokyo answers in the language you write in." },
+  { key: "CURRENCY", section: "profile", label: "Currency", type: "text", default: "USD",
+    help: "Shown next to every amount, e.g. EGP, MAD, EUR, USD." },
+  { key: "PROFILE_WORK", section: "profile", label: "Your work and expertise", type: "text",
+    help: "e.g. \"Accountant in a small firm\", \"Nurse, night shifts\", \"Freelance designer\". Tokyo plans and coaches around it." },
+  { key: "PROFILE_GOALS", section: "profile", label: "Your main goals", type: "text",
+    help: "One or two lines Tokyo keeps in mind when it plans your day." },
+
+  { key: "FEATURE_WHATSAPP", section: "features", label: "WhatsApp bridge", type: "bool", default: "1", on: "1", off: "0",
+    scope: "server", help: "Read and answer WhatsApp from Tokyo. Takes effect after a restart." },
+  { key: "FEATURE_PRAYER", section: "features", label: "Prayer times and worship", type: "bool", default: "1", on: "1", off: "0",
+    scope: "server", help: "Prayer reminders, adhkar and Quran tracking, and planning around prayer times." },
+  { key: "FEATURE_SHOP", section: "features", label: "Shop sales group", type: "bool", default: "1", on: "1", off: "0",
+    scope: "server", help: "Logs sales posted in a WhatsApp group. Only active when MYSHOP_GROUP_JIDS is set in .env." },
+
+  { key: "PRAYER_CITY", section: "profile", label: "Prayer city", type: "text",
+    help: "Empty: your city above." },
+  { key: "PRAYER_COUNTRY", section: "profile", label: "Prayer country", type: "text",
+    help: "Empty: your country above." },
   { key: "PRAYER_METHOD", section: "profile", label: "Prayer calculation method", type: "select", default: "4",
     options: PRAYER_METHODS.map(([value, label]) => ({ value, label })),
     help: "Changing the city, country or method refetches today's prayer times." },
@@ -130,20 +153,52 @@ export function validateSetting(key: string, value: unknown): string | null {
     case "select":
       return def.options?.some((o) => o.value === value) ? null : "not one of the options";
     case "text":
-      return value.trim().length > 0 && value.length <= 200 ? null : "must be 1 to 200 characters";
+      if (!(value.trim().length > 0 && value.length <= 200)) return "must be 1 to 200 characters";
+      if (key === "TIMEZONE" && !isTimeZone(value.trim())) return "not a known timezone (e.g. Africa/Cairo)";
+      return null;
   }
 }
+
+export function isTimeZone(tz: string): boolean {
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: tz });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// The date helpers in utils.ts read process.env.TIMEZONE on every call (utils.ts
+// cannot import this module: db.ts imports utils.ts). So a saved TIMEZONE is
+// mirrored into process.env, at startup and on every save.
+const ENV_TIMEZONE = process.env.TIMEZONE;
+
+/** Copies a saved TIMEZONE into process.env. Call after the settings table exists. */
+export function applyStoredTimezone(): void {
+  try {
+    const saved = stored("TIMEZONE");
+    if (saved && isTimeZone(saved)) process.env.TIMEZONE = saved;
+  } catch {
+    // db not ready yet (import cycle or tests): index.ts calls this again after initDatabase().
+  }
+}
+applyStoredTimezone();
 
 /** Saves, or with null removes the override. Validate first. */
 export function saveSetting(key: string, value: string | null): void {
   if (value === null) {
     db.prepare("DELETE FROM settings WHERE scope = ? AND key = ?").run(SCOPE, key);
+    if (key === "TIMEZONE") {
+      if (ENV_TIMEZONE === undefined) delete process.env.TIMEZONE;
+      else process.env.TIMEZONE = ENV_TIMEZONE;
+    }
     return;
   }
   db.prepare(`
     INSERT INTO settings (scope, key, value, updated_at) VALUES (?, ?, ?, datetime('now'))
     ON CONFLICT(scope, key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at
   `).run(SCOPE, key, value);
+  if (key === "TIMEZONE") process.env.TIMEZONE = value.trim();
 }
 
 export function listSettings() {

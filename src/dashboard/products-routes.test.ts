@@ -6,6 +6,7 @@ import { join } from "path";
 import express from "express";
 import type { AddressInfo } from "net";
 import { useTempMediaDir } from "../test-media";
+process.env.CURRENCY = "DH"; // captions carry the configured currency; these fixtures are priced in DH
 
 // Point db.ts at a scratch file BEFORE importing anything that touches it —
 // db.ts opens the database at module load (see area-db.test.ts / transcripts.test.ts).

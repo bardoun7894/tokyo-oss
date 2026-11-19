@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
+    "setup": "tsx scripts/setup.ts",
     "build": "tsc",
     "prod": "node dist/index.js",
     "test": "tsx --test \"src/**/*.test.ts\" \"dashboard/src/**/*.test.ts\""

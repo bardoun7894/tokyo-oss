@@ -2,8 +2,8 @@
  * Speech-to-Text. Three paths, tried in order:
  *
  *   1. agy-stt bridge on this host -- primary since 2026-10-17. Gemini 3.8 Flash through
- *      the Antigravity CLI, run as a sandboxed unprivileged user; writes Darija in Arabic
- *      script as spoken. Needs AGY_STT_TOKEN (from /etc/agy-stt.env); optional AGY_STT_URL.
+ *      the Antigravity CLI, run as a sandboxed unprivileged user; writes Arabic dialects in
+ *      Arabic script as spoken. Needs AGY_STT_TOKEN (from /etc/agy-stt.env); optional AGY_STT_URL.
  *      Source: crmDemo repo, ops/agy-stt.
  *   2. OpenRouter multimodal (chat/completions, inline audio) -- same model, paid key.
  *      Needs OPENROUTER_API_KEY; optional OPENROUTER_STT_MODEL
@@ -30,16 +30,26 @@
 
 import { promises as fsp } from "fs";
 import { settingOn } from "./settings";
+import { replyLanguage } from "./profile";
 
 const DEFAULT_TRANSCRIBE_URL = "http://100.64.0.50:8787/transcribe";
 const TIMEOUT_MS = 120_000; // 120 s — Whisper on M-series is fast but not instant
 const DEFAULT_AGY_STT_URL = "http://172.17.0.1:8318/stt";
 const AGY_BUDGET_SECONDS = 120; // bridge-side limit for all its attempts; the HTTP wait adds a margin
 const AGY_LANGUAGE: Record<string, string> = {
-  ar: "Moroccan Darija (Arabic)",
+  ar: "Arabic (any dialect, written as spoken)",
   fr: "French",
   en: "English",
 };
+
+/** The language hint for a voice note: the profile's dialect when it fits the code, else a plain name. */
+export function spokenLanguage(code?: string): string | undefined {
+  const profile = replyLanguage();
+  if (!code) return profile || undefined;
+  const c = code.toLowerCase();
+  if (c === "ar" && /arab|darija|عرب|دارج/i.test(profile)) return profile;
+  return AGY_LANGUAGE[c] ?? code;
+}
 
 /**
  * Transcribe through the agy-stt bridge. It re-encodes the audio itself, retries Gemini
@@ -54,7 +64,7 @@ async function transcribeViaAgy(buffer: Buffer, language?: string): Promise<Tran
     "Content-Type": "application/octet-stream",
     "X-Budget": String(AGY_BUDGET_SECONDS),
   };
-  const hint = language ? AGY_LANGUAGE[language.toLowerCase()] : undefined;
+  const hint = spokenLanguage(language);
   if (hint) headers["X-Language"] = hint;
 
   const controller = new AbortController();
@@ -154,9 +164,10 @@ async function transcribeViaOpenRouter(
   }
 
   const model = process.env.OPENROUTER_STT_MODEL || "google/gemini-3.8-flash";
-  const target = language
-    ? `The speaker is using ${language}.`
-    : "The speaker is most likely using an Arabic dialect (Moroccan Darija, Egyptian, Levantine, Gulf), or French, or English.";
+  const hint = spokenLanguage(language);
+  const target = hint
+    ? `The speaker is using ${hint}.`
+    : "The speaker may use any language or dialect (for example Egyptian or Moroccan Arabic, Levantine, Gulf, French, English).";
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
@@ -239,7 +250,7 @@ export async function transcribe(
   language?: string,
 ): Promise<TranscribeResult | null> {
   if (!isTranscriptionEnabled()) return null;
-  // agy first: same Gemini 3.8 Flash as OpenRouter, on the subscription, Darija-first prompt.
+  // agy first: same Gemini 3.8 Flash as OpenRouter, on the subscription, dialect-aware prompt.
   const viaAgy = await transcribeViaAgy(buffer, language);
   if (viaAgy) return viaAgy;
   return transcribeViaLaptop(buffer, ext, language);

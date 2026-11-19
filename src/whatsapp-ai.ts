@@ -7,6 +7,7 @@ import { EventBus } from "./agents/event-bus";
 import { getTodayPrayerTimes, getWorkWindows } from "./prayer";
 import { localToday } from "./utils";
 import { settingOn } from "./settings";
+import { prayerOn, replyLanguage } from "./profile";
 import { extractPromises } from "./promises";
 // notifyConfirmation is being added by a parallel agent in src/auto_log.ts.
 // Import may fail at tsc time until that change lands — that's expected.
@@ -67,7 +68,7 @@ const COUNTRY_LANGUAGE: Record<string, string> = {
 function getLanguageFromJid(jid: string): string {
   // JID format: <country_code><number>@s.whatsapp.net
   const number = jid.split("@")[0];
-  if (!number) return COUNTRY_LANGUAGE["212"]; // default Darija
+  if (!number) return replyLanguage() || "the language of their message";
 
   // Try matching longest country code first (3 digits, then 2, then 1)
   for (const len of [3, 2, 1]) {
@@ -77,10 +78,6 @@ function getLanguageFromJid(jid: string): string {
 
   // Default: if unknown, reply in English
   return "English (casual, friendly).";
-}
-
-function isMoroccan(jid: string): boolean {
-  return jid.split("@")[0].startsWith("212");
 }
 
 // Task batching — collect tasks and send summary instead of spamming
@@ -191,7 +188,7 @@ function buildContactProfile(
 
 /**
  * Generate a smart reply as the owner based on the contact's language.
- * Detects language from phone country code — Moroccan numbers get Darija, others get their language.
+ * Detects language from phone country code; the reply follows the language the contact used.
  */
 async function generateSmartReply(
   msg: WAMessageData,
@@ -231,10 +228,10 @@ INSTRUCTIONS:
 1. You KNOW this person. Use the contact info above to understand your relationship with them. Reply accordingly — warm with family, professional with clients, casual with friends.
 2. Reply to what they ACTUALLY SAID. Read their message carefully. If they asked a question, answer it. If they said something specific, respond to that specific thing.
 3. Use the conversation history to understand context. If they reference something from earlier messages, you should understand what they mean.
-4. Write in the SAME language they used. If Darija reply Darija. If French reply French. If Arabic reply Arabic.
+4. Write in the SAME language and dialect they used. If they wrote in a dialect, reply in that dialect.
 5. Sound like a real person texting — short, casual, 1-2 sentences.
 6. No emojis. No bot language. You are the owner.
-7. If reply examples are provided above, match the owner's tone, vocabulary, and style from those examples. This is how he ACTUALLY talks.
+7. If reply examples are provided above, match the owner's tone, vocabulary, and style from those examples. This is how the owner ACTUALLY talks.
 8. Only return SKIP if: group message not directed at you, spam, or mass forward.
 
 REPLY:`;
@@ -1554,8 +1551,7 @@ Their message: ${msg.content}
 Available time slots today:
 ${slotDescriptions}
 
-Prayer times for reference: Fajr ${prayerTimes.fajr}, Dhuhr ${prayerTimes.dhuhr}, Asr ${prayerTimes.asr}, Maghrib ${prayerTimes.maghrib}, Isha ${prayerTimes.isha}
-
+${prayerOn() ? `Prayer times for reference: Fajr ${prayerTimes.fajr}, Dhuhr ${prayerTimes.dhuhr}, Asr ${prayerTimes.asr}, Maghrib ${prayerTimes.maghrib}, Isha ${prayerTimes.isha}\n` : ""}
 INSTRUCTIONS:
 1. Reply in their language (hint: ${language})
 2. Suggest these ${topSlots.length} available time slots
@@ -1588,9 +1584,7 @@ REPLY:`;
   } catch (err) {
     console.error("Meeting request handling failed:", err);
     // Fallback: just acknowledge
-    const fallback = isMoroccan(msg.jid)
-      ? "nchouf lwa9t li ymkn o nrjaa3 lik"
-      : "Let me check my schedule and get back to you";
+    const fallback = "Let me check my schedule and get back to you";
     try {
       await sendWhatsAppMessage(msg.jid, fallback);
     } catch {}

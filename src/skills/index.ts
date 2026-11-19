@@ -5,6 +5,7 @@ import * as db from "../db";
 import { runCommand } from "../shell";
 import * as fs from "fs";
 import * as path from "path";
+import { prayerOn } from "../profile";
 
 const skills = new Map<string, Skill>();
 
@@ -97,6 +98,7 @@ export function getSkillsPromptSection(): string {
 
   const byCategory = new Map<SkillCategory, Skill[]>();
   for (const skill of skills.values()) {
+    if (skill.category === "deen" && !prayerOn()) continue;
     const list = byCategory.get(skill.category) || [];
     list.push(skill);
     byCategory.set(skill.category, list);

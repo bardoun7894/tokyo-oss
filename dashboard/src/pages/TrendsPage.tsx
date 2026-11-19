@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useTrends } from "../hooks/useTrends";
 import type { WeeklyTrendEntry } from "../types";
+import { cur } from "../lib/currency";
 
 interface MetricDef {
   key: keyof WeeklyTrendEntry;
@@ -12,7 +13,7 @@ interface MetricDef {
 const METRICS: MetricDef[] = [
   { key: "totalWorkMinutes", label: "Work Hours", fmt: (v) => `${(v / 60).toFixed(1)}h`, color: "var(--blue)" },
   { key: "tasksCompleted", label: "Tasks Done", fmt: (v) => String(v), color: "var(--green)" },
-  { key: "totalIncome", label: "Income (DH)", fmt: (v) => v.toLocaleString(), color: "var(--amber)" },
+  { key: "totalIncome", label: `Income (${cur()})`, fmt: (v) => v.toLocaleString(), color: "var(--amber)" },
   { key: "quranPages", label: "Quran Pages", fmt: (v) => String(v), color: "var(--accent2)" },
   { key: "habitsCompleted", label: "Habits Done", fmt: (v) => String(v), color: "var(--green)" },
   { key: "devIncome", label: "Dev Income", fmt: (v) => v.toLocaleString(), color: "var(--blue)" },

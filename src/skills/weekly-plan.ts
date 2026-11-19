@@ -1,11 +1,12 @@
 import type { Skill } from "./types";
+import { ownerProfile, prayerOn, shopOn, languageRule } from "../profile";
 
 const skill: Skill = {
   name: "weekly-plan",
   description: "AI-generated weekly plan based on tasks, deadlines, and goals",
   category: "planning",
   args: [
-    { name: "focus", type: "string", description: "Optional focus area (dev, shop, deen, learning)", required: false },
+    { name: "focus", type: "string", description: "Optional focus area (e.g. work, learning, health)", required: false },
   ],
   async execute(ctx, args) {
     await ctx.sendUpdate("Analyzing data and generating weekly plan...");
@@ -35,11 +36,11 @@ ${projects.map(p => `- ${p.name} (${p.status})${p.deadline ? ` deadline: ${p.dea
 Goals: ${goals.length > 0 ? goals.map((g: any) => `${g.title} (${g.current_value}/${g.target_value})`).join(", ") : "none set"}
 ${args.focus ? `\nFocus area: ${args.focus}` : ""}
 
+${ownerProfile()}
+
 Rules:
-- Schedule around 5 daily prayers — NEVER during prayer times
-- Friday = minimal work, focus on Jumu'ah
-- Include Quran reading daily
-- Balance dev, shop, and learning roles
+${prayerOn() ? "- Schedule around 5 daily prayers — NEVER during prayer times\n- Friday = minimal work, focus on Jumu'ah\n- Include Quran reading daily\n" : ""}- Balance the owner's work, ${shopOn() ? "the shop, " : ""}learning and rest
+- ${languageRule()}
 - Be specific: which tasks on which days
 - Format for Telegram Markdown`;
 

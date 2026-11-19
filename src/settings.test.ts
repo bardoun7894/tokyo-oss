@@ -23,7 +23,7 @@ beforeEach(() => {
 });
 
 test('dashboard value beats .env, which beats the default', () => {
-  assert.equal(s.setting('PRAYER_CITY'), 'Riyadh');
+  assert.equal(s.setting('PRAYER_CITY'), undefined, 'no default city: prayer.ts falls back to PROFILE_CITY');
   process.env.PRAYER_CITY = 'Tetouan';
   assert.equal(s.setting('PRAYER_CITY'), 'Tetouan');
   s.saveSetting('PRAYER_CITY', 'Rabat');

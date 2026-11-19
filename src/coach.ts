@@ -1,6 +1,8 @@
 import cron from "node-cron";
 import * as db from "./db";
+import { tz } from "./utils";
 import { getNextPrayer, getWorkWindows } from "./prayer";
+import { prayerOn, shopOn } from "./profile";
 import { generateCoaching } from "./ai";
 import type { Bot } from "grammy";
 import type { CoachingScenario } from "./types";
@@ -21,12 +23,12 @@ const COOLDOWNS: Record<CoachingScenario, number> = {
   balance_check: 4320,
 };
 
-function getRiyadhHour(): number {
-  return parseInt(new Date().toLocaleString("en-US", { timeZone: "Asia/Riyadh", hour: "numeric", hour12: false }), 10);
+function getLocalHour(): number {
+  return parseInt(new Date().toLocaleString("en-US", { timeZone: tz(), hour: "numeric", hour12: false }), 10);
 }
 
-function getRiyadhDate(): string {
-  return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Riyadh" }); // YYYY-MM-DD
+function getLocalDate(): string {
+  return new Date().toLocaleDateString("en-CA", { timeZone: tz() }); // YYYY-MM-DD
 }
 
 async function sendMessage(bot: Bot, chatId: string, text: string) {
@@ -84,7 +86,7 @@ async function checkTimeSensitive(bot: Bot, chatId: string): Promise<void> {
     const onBreak = isOnBreak();
 
     // 1. Prayer wrap-up: next prayer in 10-15 min + actively working (not on break)
-    if (session && !onBreak && next.minutesUntil > 0 && next.minutesUntil <= 15) {
+    if (prayerOn() && session && !onBreak && next.minutesUntil > 0 && next.minutesUntil <= 15) {
       if (shouldSend("prayer_wrapup")) {
         await sendMessage(bot, chatId,
           `⏰ *${next.name} in ${next.minutesUntil} min*\n\nWrap up and prepare for salah. حي على الصلاة`
@@ -98,7 +100,7 @@ async function checkTimeSensitive(bot: Bot, chatId: string): Promise<void> {
       if (shouldSend("overwork")) {
         const hours = (session.minutes_active / 60).toFixed(1);
         await sendMessage(bot, chatId,
-          `⚠️ *${hours}h without a break!*\n\nTake 10 min — stretch, drink water, make dhikr.\nسبحان الله وبحمده\n\n/breakk to start a break.`
+          `⚠️ *${hours}h without a break!*\n\nTake 10 min — stretch, drink water${prayerOn() ? ", make dhikr.\nسبحان الله وبحمده" : "."}\n\n/breakk to start a break.`
         );
         db.logCoachingMessage("overwork", `${hours}h continuous work`);
       }
@@ -157,8 +159,8 @@ interface ScoredScenario {
 
 async function getAllEligibleScenarios(): Promise<ScoredScenario[]> {
   const now = new Date();
-  const today = getRiyadhDate();
-  const hour = getRiyadhHour();
+  const today = getLocalDate();
+  const hour = getLocalHour();
   const dayOfWeek = now.getDay(); // 0=Sunday
   const scenarios: ScoredScenario[] = [];
 
@@ -193,7 +195,7 @@ async function getAllEligibleScenarios(): Promise<ScoredScenario[]> {
         scenarios.push({
           type: "next_action",
           priority: 4,
-          prompt: `The owner has a ${currentWindow.durationMinutes}-minute work window (${currentWindow.start}-${currentWindow.end}, ${currentWindow.label}) before ${next.name}. Looking at his active tasks and deadlines, what is the ONE most important thing he should do right now? Name the exact task or project. If the window is short (<60 min), suggest something quick. 2-3 sentences, direct.`,
+          prompt: `The owner has a ${currentWindow.durationMinutes}-minute work window (${currentWindow.start}-${currentWindow.end}, ${currentWindow.label})${prayerOn() ? ` before ${next.name}` : ""}. Looking at the active tasks and deadlines, what is the ONE most important thing to do right now? Name the exact task or project. If the window is short (<60 min), suggest something quick. 2-3 sentences, direct.`,
         });
       }
     } catch {
@@ -205,19 +207,19 @@ async function getAllEligibleScenarios(): Promise<ScoredScenario[]> {
   const adhkar = db.getAdhkarStatus(today);
   const quranToday = db.getQuranPagesInRange(today, today);
 
-  if (hour >= 12 && !adhkar.morning) {
+  if (prayerOn() && hour >= 12 && !adhkar.morning) {
     scenarios.push({
       type: "deen_reminder",
       priority: 5,
-      prompt: `It's already past noon and the owner hasn't done his morning adhkar today. Give a warm, encouraging Islamic reminder about the importance of morning adhkar. Include one short relevant hadith if possible. 2 sentences, encouraging not preachy.`,
+      prompt: `It's already past noon and the owner hasn't done the morning adhkar today. Give a warm, encouraging Islamic reminder about the importance of morning adhkar. Include one short relevant hadith if possible. 2 sentences, encouraging not preachy.`,
     });
   }
-  if (hour >= 16 && quranToday === 0) {
+  if (prayerOn() && hour >= 16 && quranToday === 0) {
     const quranProgress = db.getQuranProgress();
     scenarios.push({
       type: "deen_reminder",
       priority: 5,
-      prompt: `It's ${hour}:00 and the owner hasn't read any Quran today. He's read ${quranProgress.totalPages || 0} pages total. Give a warm Islamic reminder about daily Quran reading. Mention the reward. 2 sentences, motivating.`,
+      prompt: `It's ${hour}:00 and the owner hasn't read any Quran today. Total so far: ${quranProgress.totalPages || 0} pages. Give a warm Islamic reminder about daily Quran reading. Mention the reward. 2 sentences, motivating.`,
     });
   }
 
@@ -239,7 +241,7 @@ async function getAllEligibleScenarios(): Promise<ScoredScenario[]> {
           scenarios.push({
             type: "learning_window",
             priority: 6,
-            prompt: `The owner has a short ${shortWindow.durationMinutes}-minute work window (${shortWindow.start}-${shortWindow.end}). He hasn't done any learning today. Suggest ONE specific marketing learning activity (he's a beginner building an e-commerce marketplace for neighborhood shops). Be specific — a topic to research, a small experiment, or a practical exercise. 2 sentences.`,
+            prompt: `The owner has a short ${shortWindow.durationMinutes}-minute work window (${shortWindow.start}-${shortWindow.end}). No learning logged today. Suggest ONE specific learning activity that fits the owner's work and goals from the profile. Be specific — a topic to research, a small experiment, or a practical exercise. 2 sentences.`,
           });
         }
       }
@@ -260,7 +262,7 @@ async function getAllEligibleScenarios(): Promise<ScoredScenario[]> {
     scenarios.push({
       type: "deadline_soon",
       priority: 7,
-      prompt: `Project '${p.name}'${p.client_name ? ` (${p.client_name})` : ""} is due in ${daysLeft} days. Progress: ${p.actual_hours || 0}/${p.estimated_hours || "?"}h. Quick status check — is he on track? What should he prioritize? 2 sentences.`,
+      prompt: `Project '${p.name}'${p.client_name ? ` (${p.client_name})` : ""} is due in ${daysLeft} days. Progress: ${p.actual_hours || 0}/${p.estimated_hours || "?"}h. Quick status check — is it on track? What should come first? 2 sentences.`,
     });
   }
 
@@ -283,13 +285,13 @@ async function getAllEligibleScenarios(): Promise<ScoredScenario[]> {
       scenarios.push({
         type: "marketing_nudge",
         priority: 9,
-        prompt: `The owner hasn't done any learning this week. He wants to learn marketing (beginner) and has a neighborhood e-commerce marketplace idea. Give him ONE practical, actionable marketing micro-task for today — something concrete that takes 30 minutes or less. Relate it to his clothing shop or marketplace idea. 2-3 sentences.`,
+        prompt: `The owner hasn't done any learning this week. Give ONE practical micro-task for today that grows a skill tied to the owner's work and goals from the profile — something concrete that takes 30 minutes or less. 2-3 sentences.`,
       });
     }
   }
 
   // Priority 10: Balance check
-  if (hour >= 14 && hour <= 20) {
+  if (shopOn() && hour >= 14 && hour <= 20) {
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
     const recentStats = db.getWorkStatsForRange(threeDaysAgo.toISOString().split("T")[0], today);
@@ -300,7 +302,7 @@ async function getAllEligibleScenarios(): Promise<ScoredScenario[]> {
       scenarios.push({
         type: "balance_check",
         priority: 10,
-        prompt: `Last 3 days: dev=${devHours}h, shop=${shopHours}h. There's an imbalance — the owner needs time for both dev work and the shop. Brief advice on adjusting. 2-3 sentences.`,
+        prompt: `Last 3 days: dev=${devHours}h, shop=${shopHours}h. There's an imbalance — the owner needs time for both main work and the shop. Brief advice on adjusting. 2-3 sentences.`,
       });
     }
   }

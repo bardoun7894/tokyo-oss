@@ -12,6 +12,7 @@ import {
   type RepoStatus,
 } from "../types/projects";
 import { Button, Input, Select as UiSelect } from "@bardouni/ui";
+import { cur } from "../lib/currency";
 
 function relTime(iso: string | null): string {
   if (!iso) return "never";
@@ -302,7 +303,7 @@ function ManualCard({ project: p, repos, tasks }: { project: ManualProject; repo
             due {p.deadline} ({deadlineDays >= 0 ? `${deadlineDays}d` : "overdue"})
           </span>
         )}
-        {p.budget != null && <span>{p.budget.toLocaleString()} {p.currency || "MAD"}</span>}
+        {p.budget != null && <span>{p.budget.toLocaleString()} {p.currency || cur()}</span>}
         {tasks > 0 && <span>{tasks} open tasks</span>}
         <span>
           {repos.length === 0 ? "no linked repo" : `${repos.length} repo${repos.length > 1 ? "s" : ""}`}

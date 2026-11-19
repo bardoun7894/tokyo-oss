@@ -1,5 +1,6 @@
 import type { Agent, AgentContext, AgentResult } from "../types";
 import type { AgentEvent } from "../event-bus";
+import { currency, shopOn, prayerOn } from "../../profile";
 
 /**
  * Research Agent — the owner's knowledge scout.
@@ -268,10 +269,10 @@ ${learningCtx}`;
           if (activity.income.length > 0 || activity.shopSales.length > 0) {
             lines.push("\uD83D\uDCB0 *Finance*");
             for (const inc of activity.income as any[]) {
-              lines.push(`  +${inc.amount} ${inc.currency || "DH"} (${inc.source}${inc.description ? ": " + inc.description : ""})`);
+              lines.push(`  +${inc.amount} ${inc.currency || currency()} (${inc.source}${inc.description ? ": " + inc.description : ""})`);
             }
             for (const sale of activity.shopSales as any[]) {
-              lines.push(`  \uD83C\uDFEA Shop: ${sale.total_revenue} DH${sale.items_sold ? ` (${sale.items_sold} items)` : ""}`);
+              if (shopOn()) lines.push(`  \uD83C\uDFEA Shop: ${sale.total_revenue} ${currency()}${sale.items_sold ? ` (${sale.items_sold} items)` : ""}`);
             }
             lines.push("");
           }

@@ -16,6 +16,7 @@ import assert from "node:assert/strict";
 import { mkdtempSync } from "fs";
 import { tmpdir } from "os";
 import { join } from "path";
+process.env.CURRENCY = "DH"; // captions carry the configured currency; these fixtures are priced in DH
 
 // Point db.ts at a fresh scratch file BEFORE importing anything that opens
 // it — same convention as products-routes.test.ts.

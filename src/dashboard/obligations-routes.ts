@@ -9,6 +9,7 @@ import express, { type Request, type Response } from "express";
 import * as db from "../db";
 import { billStatus, loanStatus, periodOf, type Obligation } from "../obligations";
 import { localToday } from "../utils";
+import { currency as defaultCur } from "../profile";
 
 const router = express.Router();
 
@@ -63,7 +64,7 @@ router.post("/api/obligations", (req: Request, res: Response) => {
   try {
     const r = db.addObligation({
       name: name.trim(), kind, counterparty: counterparty?.trim() || null, amount: amt,
-      currency: (currency || "DH").trim(), dueDay: day, principal: total, notes: notes?.trim() || null,
+      currency: (currency || defaultCur()).trim(), dueDay: day, principal: total, notes: notes?.trim() || null,
     });
     res.json({ ok: true, id: Number(r.lastInsertRowid) });
   } catch (err) {
