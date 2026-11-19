@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import type { CalendarRangeResponse, DaySummary, DailyActivity, Goal } from "../types";
+import { cur } from "../lib/currency";
 
 function getWeekDates(): string[] {
   const now = new Date();
@@ -43,7 +44,7 @@ function DayIndicators({ day }: { day: DaySummary | undefined }) {
   if (day.habitsCompleted > 0) dots.push({ color: "var(--accent2)", label: `${day.habitsCompleted}/${day.habitsTotal} habits` });
   if (day.quranPages > 0) dots.push({ color: "var(--amber)", label: `${day.quranPages}p quran` });
   if (day.journalCount > 0) dots.push({ color: "var(--orange)", label: `${day.journalCount} journal` });
-  if (day.income > 0) dots.push({ color: "var(--green)", label: `${day.income} DH` });
+  if (day.income > 0) dots.push({ color: "var(--green)", label: `${day.income} ${cur()}` });
   if ((day.waMessages ?? 0) > 0) dots.push({ color: "var(--blue)", label: `${day.waMessages} WA msgs` });
   if ((day.conversations ?? 0) > 0) dots.push({ color: "var(--accent2)", label: `${day.conversations} AI convos` });
   return (
@@ -193,10 +194,10 @@ function DayDetail({ activity, loading, goals }: { activity: DailyActivity | nul
       {(activity.income.length > 0 || activity.shopSales.length > 0) && (
         <Section title="Finance" emoji="💰">
           {activity.income.map((inc, i) => (
-            <Row key={`inc-${i}`} left={`+${inc.amount} DH`} right={inc.source + (inc.description ? `: ${inc.description}` : "")} color="var(--green)" />
+            <Row key={`inc-${i}`} left={`+${inc.amount} ${cur()}`} right={inc.source + (inc.description ? `: ${inc.description}` : "")} color="var(--green)" />
           ))}
           {activity.shopSales.map((s, i) => (
-            <Row key={`shop-${i}`} left={`${s.total_revenue} DH`} right={`Shop${s.items_sold ? ` (${s.items_sold} items)` : ""}`} color="var(--green)" />
+            <Row key={`shop-${i}`} left={`${s.total_revenue} ${cur()}`} right={`Shop${s.items_sold ? ` (${s.items_sold} items)` : ""}`} color="var(--green)" />
           ))}
         </Section>
       )}

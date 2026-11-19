@@ -11,7 +11,7 @@ export interface ExtractedPromise {
 function addDays(n: number): string {
   const d = new Date();
   d.setDate(d.getDate() + n);
-  return d.toLocaleDateString("en-CA", { timeZone: process.env.TIMEZONE || "Africa/Casablanca" });
+  return d.toLocaleDateString("en-CA", { timeZone: process.env.TIMEZONE || "UTC" });
 }
 
 function parseContextDate(ctx: string): string | undefined {
@@ -30,7 +30,7 @@ function parseContextDate(ctx: string): string | undefined {
     const month = months[shortDate[1].toLowerCase()];
     const day = parseInt(shortDate[2]);
     const d = new Date(new Date().getFullYear(), month, day);
-    return d.toLocaleDateString("en-CA", { timeZone: process.env.TIMEZONE || "Africa/Casablanca" });
+    return d.toLocaleDateString("en-CA", { timeZone: process.env.TIMEZONE || "UTC" });
   }
   return undefined;
 }

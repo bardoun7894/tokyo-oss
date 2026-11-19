@@ -1,6 +1,7 @@
 import type { Agent, AgentContext, AgentResult, AgentDomain } from "../types";
 import type { AgentEvent } from "../event-bus";
 import { localToday, localNow } from "../../utils";
+import { currency, shopOn } from "../../profile";
 
 // ─── Helpers ───────────────────────────────────────────────
 
@@ -21,11 +22,11 @@ async function handleIncome(args: string, ctx: AgentContext): Promise<AgentResul
   const parts = args.trim().split(/\s+/);
   const amount = parseFloat(parts[0]);
   if (!amount || isNaN(amount)) {
-    return { success: false, output: "Usage: /income [amount] [source]\nSources: mostaql, upwork, direct, shop, saas\n\nExample: /income 1500 mostaql" };
+    return { success: false, output: `Usage: /income [amount] [source]\nSources: direct (salary, cash, transfers), upwork, mostaql, saas, other${shopOn() ? ", shop" : ""}\n\nExample: /income 1500 direct` };
   }
   const source = parts[1] || "direct";
   ctx.db.logIncome(amount, source);
-  return { success: true, output: `💰 Logged: ${amount} DH from ${source}` };
+  return { success: true, output: `💰 Logged: ${amount} ${currency()} from ${source}` };
 }
 
 async function handleShopSale(args: string, ctx: AgentContext): Promise<AgentResult> {
@@ -37,7 +38,7 @@ async function handleShopSale(args: string, ctx: AgentContext): Promise<AgentRes
   const items = parseInt(parts[1], 10) || undefined;
   const today = getTodayStr();
   ctx.db.logShopSale(today, amount, items);
-  return { success: true, output: `🏪 Shop sale logged: ${amount} DH${items ? ` (${items} items)` : ""}` };
+  return { success: true, output: `🏪 Shop sale logged: ${amount} ${currency()}${items ? ` (${items} items)` : ""}` };
 }
 
 async function handleMoney(ctx: AgentContext): Promise<AgentResult> {
@@ -55,16 +56,19 @@ async function handleMoney(ctx: AgentContext): Promise<AgentResult> {
   }
 
   const shopTotal = shopSummary.total || 0;
-  const grandTotal = devTotal + shopTotal;
+  const grandTotal = devTotal + (shopOn() ? shopTotal : 0);
 
   const month = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
 
   let msg = `💰 *Financial Summary — ${month}*\n\n`;
-  msg += `👨‍💻 *Dev Income:* ${devTotal} DH\n`;
+  const cur = currency();
+  msg += `💼 *Work Income:* ${devTotal} ${cur}\n`;
   if (devLines.length > 0) msg += devLines.join("\n") + "\n";
-  msg += `\n🏪 *Shop Revenue:* ${shopTotal} DH`;
-  if (shopSummary.days_tracked > 0) msg += ` (${shopSummary.days_tracked} days, ${shopSummary.total_items || "?"} items)`;
-  msg += `\n\n📊 *Total:* ${grandTotal} DH`;
+  if (shopOn()) {
+    msg += `\n🏪 *Shop Revenue:* ${shopTotal} ${cur}`;
+    if (shopSummary.days_tracked > 0) msg += ` (${shopSummary.days_tracked} days, ${shopSummary.total_items || "?"} items)`;
+  }
+  msg += `\n\n📊 *Total:* ${grandTotal} ${cur}`;
 
   return { success: true, output: msg };
 }
@@ -114,8 +118,8 @@ async function handleAction(action: Record<string, any>, ctx: AgentContext): Pro
       break;
 
     case "log_expense": {
-      db.logExpense(action.amount, action.category, action.description, action.date, action.currency || "MAD", action.recurring);
-      return `💸 Logged: ${action.amount} ${action.currency || "MAD"} — ${action.category}${action.description ? ` (${action.description})` : ""}`;
+      db.logExpense(action.amount, action.category, action.description, action.date, action.currency || currency(), action.recurring);
+      return `💸 Logged: ${action.amount} ${action.currency || currency()} — ${action.category}${action.description ? ` (${action.description})` : ""}`;
     }
 
     case "show_expenses": {
@@ -138,7 +142,7 @@ async function handleAction(action: Record<string, any>, ctx: AgentContext): Pro
       const total = db.getExpenseTotal(start, end);
       if (summary.length === 0) return `\n💸 No expenses logged (${period}).`;
       const lines = summary.map((s: any) => `  ${s.category}: ${s.total} ${s.currency} (${s.count}x)`);
-      return `\n💸 *Expenses (${period}: ${start} → ${end})*\n\n${lines.join("\n")}\n\n*Total: ${total} MAD*`;
+      return `\n💸 *Expenses (${period}: ${start} → ${end})*\n\n${lines.join("\n")}\n\n*Total: ${total} ${currency()}*`;
     }
 
     default:
@@ -160,7 +164,10 @@ function buildFinanceContext(db: typeof import("../../db")): string {
   }
   const shopTotal = shopSummary.total || 0;
 
-  const financialLine = `Dev: ${devTotal} DH | Shop: ${shopTotal} DH | Total: ${devTotal + shopTotal} DH`;
+  const cur = currency();
+  const financialLine = shopOn()
+    ? `Work: ${devTotal} ${cur} | Shop: ${shopTotal} ${cur} | Total: ${devTotal + shopTotal} ${cur}`
+    : `Work income: ${devTotal} ${cur}`;
 
   // Expenses context
   let expenseCtx = "No expense data.";
@@ -170,7 +177,7 @@ function buildFinanceContext(db: typeof import("../../db")): string {
     const total = db.getExpenseTotal(mStart, today);
     const summary = db.getExpenseSummary(mStart, today);
     if (total > 0) {
-      expenseCtx = `Total: ${total} MAD\n${summary.map((s: any) => `- ${s.category}: ${s.total} MAD`).join("\n")}`;
+      expenseCtx = `Total: ${total} ${cur}\n${summary.map((s: any) => `- ${s.category}: ${s.total} ${cur}`).join("\n")}`;
     } else {
       expenseCtx = "No expenses logged this month.";
     }
@@ -186,12 +193,14 @@ ${expenseCtx}`;
 // ─── System Prompt Section ─────────────────────────────────
 
 function getFinancePromptSection(): string {
+  const shop = shopOn();
   return `## Finance Actions
-- {"type": "log_income", "amount": number, "source": "mostaql|upwork|direct|shop|saas|other", "project_id": number, "description": "..."}
-- {"type": "log_shop_sale", "revenue": number, "items_sold": number, "notes": "..."}
+All amounts are in ${currency()} unless the user names another currency.
+- {"type": "log_income", "amount": number, "source": "direct|upwork|mostaql|saas|${shop ? "shop|" : ""}other" (salary and transfers are "direct"), "project_id": number, "description": "..."}
+${shop ? `- {"type": "log_shop_sale", "revenue": number, "items_sold": number, "notes": "..."}
 - {"type": "add_shop", "name": "...", "owner_name": "...", "category": "...", "interest_level": "cold|warm|hot"}
 - {"type": "update_shop", "id": number, "fields": {"interest_level": "...", "notes": "..."}}
-- {"type": "log_expense", "amount": number, "category": "rent|food|internet|transport|shop_supplies|server|tools|health|family|other", "description": "...", "currency": "MAD"}
+` : ""}- {"type": "log_expense", "amount": number, "category": "rent|food|internet|transport|${shop ? "shop_supplies|" : ""}tools|health|family|other", "description": "...", "currency": "${currency()}"}
 - {"type": "show_expenses", "period": "month|week|year"}`;
 }
 
@@ -205,7 +214,7 @@ const financeAgent: Agent = {
   handles: [],
   keywords: [
     "income", "money", "expense", "sale", "shop", "revenue",
-    "دخل", "بعت", "فلوس", "مصروف", "ريال", "درهم",
+    "دخل", "بعت", "فلوس", "مصروف", "ريال", "درهم", "جنيه",
   ],
   commands: ["income", "shopsale", "money", "shops", "addshop"],
   actions: ["log_income", "log_shop_sale", "add_shop", "update_shop", "log_expense", "show_expenses"],

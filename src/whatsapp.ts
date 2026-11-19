@@ -660,7 +660,7 @@ function autoTranscribeFor(jid: string, senderName: string): boolean {
 
 async function transcribeAudio(buffer: Buffer, ext: string): Promise<import("./stt").TranscribeResult | null> {
   const { transcribe } = await import("./stt");
-  return transcribe(buffer, ext, "ar"); // Arabic for WhatsApp (Moroccan Darija)
+  return transcribe(buffer, ext); // no fixed language: the profile language (if set) is the hint
 }
 
 async function describeImage(buffer: Buffer, ext: string): Promise<string | null> {

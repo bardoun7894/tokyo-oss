@@ -1,4 +1,4 @@
-import { OWNER_PROFILE } from "../../owner-profile";
+import { ownerName, ownerProfile, languageRule, currency, prayerOn, shopOn } from "../../profile";
 import type { Agent, AgentContext, AgentResult } from "../types";
 import type { AgentEvent } from "../event-bus";
 
@@ -28,31 +28,29 @@ const coachingAgent: Agent = {
   // ─── System Prompt ───────────────────────────────────────────
 
   getSystemPromptSection(): string {
-    return `You are Tokyo — a personal life & work management assistant for the owner.
+    const prayer = prayerOn();
+    const shop = shopOn();
+    return `You are Tokyo — a personal life & work management assistant for ${ownerName()}.
 
-${OWNER_PROFILE}
+${ownerProfile()}
 
 ## Task categories
-- "client" — freelance dev projects
-- "product" — SaaS/products (SaaS, side projects)
-- "shop" — selling work, shop duties, inventory, suppliers
-- "learning" — AI, marketing, new tech, Islamic knowledge
-- "deen" — religious duties, Quran, Islamic learning
-- "admin" — invoices, proposals, server maintenance
+- "client" — work done for clients or an employer
+- "product" — the owner's own products or side projects
+${shop ? `- "shop" — selling work, shop duties, inventory, suppliers\n` : ""}- "learning" — courses, reading, new skills
+${prayer ? `- "deen" — religious duties, Quran, Islamic learning\n` : ""}- "admin" — invoices, proposals, server maintenance
 - "health" — exercise, meals, sleep, breaks
 - "personal" — family, errands, social
 
 ## Important behavior
-- Morning briefing: start with Fajr/prayer status, then priorities across all 3 roles, deadlines
-- Evening review: what got done, work-life-deen balance (1-10), time split dev/shop/learning
-- If 10+ hours or skips breaks/prayers, push back firmly
+- Morning briefing: ${prayer ? "start with Fajr/prayer status, then " : ""}priorities for the owner's work, deadlines
+- Evening review: what got done, work-life balance (1-10), time split by work type
+- If 10+ hours or skips breaks${prayer ? "/prayers" : ""}, push back firmly
 - Track client deadlines separately from product goals
 - Help estimate time and set milestones for new projects
-- Suggest marketing tips when relevant (beginner level, practical)
-- Respond in user's language (Arabic or English)
+- ${languageRule()}
 - Keep messages short and actionable
-- When scheduling, check Work Windows — suggest times that don't conflict with prayers
-
+${prayer ? "- When scheduling, check Work Windows — suggest times that don't conflict with prayers\n" : ""}
 ## Journal & Follow-up Actions
 - {"type": "journal", "entry": "...", "mood": "great|good|okay|bad|terrible", "energy_level": 1-5, "category": "general|marketing|deen|tech"} — Save a journal entry.
 - {"type": "client_followups"} — Show client follow-up status. Use when user asks "client status", "who should I contact", "follow up", "متابعة العملاء".`;
@@ -95,7 +93,7 @@ ${OWNER_PROFILE}
     try {
       const report = db.getLatestWeeklyReport() as any;
       if (report) {
-        reportCtx = `Week ${report.week_start} to ${report.week_end}:\nProductivity: ${report.productivity_score}/10 | Deen: ${report.deen_score}/10 | Balance: ${report.balance_score}/10\nIncome: ${report.total_income} DH\n\n${report.report_text.slice(0, 300)}...`;
+        reportCtx = `Week ${report.week_start} to ${report.week_end}:\nProductivity: ${report.productivity_score}/10 | Deen: ${report.deen_score}/10 | Balance: ${report.balance_score}/10\nIncome: ${report.total_income} ${currency()}\n\n${report.report_text.slice(0, 300)}...`;
       }
     } catch { /* no report data */ }
 
@@ -112,8 +110,7 @@ ${OWNER_PROFILE}
       progressCtx = `Tasks: ${progress.tasks.completed} done / ${progress.tasks.created} created
 Work: ${progress.work.totalHours}h (${Object.entries(progress.work.byType).map(([k, v]) => `${k}: ${v}h`).join(", ") || "none"})
 Habits: ${progress.habits.rate}% completion
-Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)
-Journal: ${progress.journal.entries} entries`;
+${prayerOn() ? `Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)\n` : ""}Journal: ${progress.journal.entries} entries`;
     } catch { /* no progress data */ }
 
     // Client follow-ups
@@ -296,18 +293,21 @@ ${clientCtx}`;
           lines.push(`  ${data.habits.completed}/${data.habits.total} completions (${data.habits.rate}%)`);
           lines.push("");
 
-          lines.push(`\uD83D\uDD4C *Deen*`);
-          lines.push(`  \uD83D\uDCD6 Quran: ${data.deen.quranPages} pages across ${data.deen.quranDays} days (avg ${data.deen.quranAvgPerDay}/day)`);
-          lines.push(`  \uD83C\uDF05 Morning adhkar: ${data.deen.adhkarMorning} days`);
-          lines.push(`  \uD83C\uDF19 Evening adhkar: ${data.deen.adhkarEvening} days`);
-          lines.push("");
+          if (prayerOn()) {
+            lines.push(`\uD83D\uDD4C *Deen*`);
+            lines.push(`  \uD83D\uDCD6 Quran: ${data.deen.quranPages} pages across ${data.deen.quranDays} days (avg ${data.deen.quranAvgPerDay}/day)`);
+            lines.push(`  \uD83C\uDF05 Morning adhkar: ${data.deen.adhkarMorning} days`);
+            lines.push(`  \uD83C\uDF19 Evening adhkar: ${data.deen.adhkarEvening} days`);
+            lines.push("");
+          }
 
           lines.push(`\uD83D\uDCB0 *Finance*`);
-          lines.push(`  Dev income: ${data.finance.devIncome} DH`);
-          lines.push(`  Shop revenue: ${data.finance.shopRevenue} DH`);
-          lines.push(`  Total: ${data.finance.total} DH`);
+          const cur = currency();
+          lines.push(`  Work income: ${data.finance.devIncome} ${cur}`);
+          if (shopOn()) lines.push(`  Shop revenue: ${data.finance.shopRevenue} ${cur}`);
+          lines.push(`  Total: ${data.finance.total} ${cur}`);
           if (Object.keys(data.finance.bySource).length > 0) {
-            const sources = Object.entries(data.finance.bySource).map(([k, v]) => `${k}: ${v} DH`).join(", ");
+            const sources = Object.entries(data.finance.bySource).map(([k, v]) => `${k}: ${v} ${cur}`).join(", ");
             lines.push(`  Breakdown: ${sources}`);
           }
           lines.push("");

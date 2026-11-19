@@ -152,12 +152,12 @@ test("path parameters are captured", () => {
   assert.equal(matchLife("GET", "/media/gallery-1.jpg")?.id, "L8");
 });
 
-test("POST /settings carries the key allowlist: 26 safe, 4 with a confirm sheet, 3 excluded, and the table covers every live key once", () => {
+test("POST /settings carries the key allowlist: 34 safe, 6 with a confirm sheet, 3 excluded, and the table covers every live key once", () => {
   const row = LIFE_ROWS.find((r) => r.id === "L97")!;
   assert.deepEqual([row.method, row.pattern], ["POST", "/settings"]);
   assert.equal(row.settingsKeys, SETTINGS_KEYS);
-  assert.equal(SETTINGS_KEYS.safe.length, 26);
-  assert.deepEqual([...SETTINGS_KEYS.confirm], ["TRANSCRIBE_ENABLED", "WA_AUTO_REPLIES", "SHOP_AI_REPLIES", "SHOP_PRICE_MULTIPLIER"]);
+  assert.equal(SETTINGS_KEYS.safe.length, 34);
+  assert.deepEqual([...SETTINGS_KEYS.confirm], ["TRANSCRIBE_ENABLED", "WA_AUTO_REPLIES", "SHOP_AI_REPLIES", "SHOP_PRICE_MULTIPLIER", "FEATURE_WHATSAPP", "FEATURE_SHOP"]);
   assert.deepEqual([...SETTINGS_KEYS.excluded], ["JOBHUNT_DRY_RUN", "JOBHUNT_DAILY_CAP", "JOBHUNT_AUTOSEND_SCORE"]);
   const all = [...SETTINGS_KEYS.safe, ...SETTINGS_KEYS.confirm, ...SETTINGS_KEYS.excluded];
   assert.equal(new Set(all).size, all.length, "no key in two lists");

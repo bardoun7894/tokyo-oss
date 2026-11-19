@@ -3,6 +3,7 @@ import { Button, Modal, Select as UiSelect } from "@bardouni/ui";
 import { assignBatch, fetchBatchDetail } from "../../api/products";
 import { shiftAssignments, type BatchDetail } from "../../lib/products";
 import { useToast } from "../ui/Toast";
+import { cur } from "../../lib/currency";
 
 interface BatchReviewModalProps {
   batchId: string;
@@ -134,11 +135,11 @@ export default function BatchReviewModal({ batchId, onClose, onSaved }: BatchRev
                   >
                     <option value="">no price</option>
                     {detail.prices.map((pr) => (
-                      <option key={pr.messageId} value={pr.messageId}>{pr.value} DH</option>
+                      <option key={pr.messageId} value={pr.messageId}>{pr.value} {cur()}</option>
                     ))}
                   </UiSelect>
                   <span className="text-center text-[.75rem] font-semibold text-fg">
-                    {price !== null ? `${price} DH` : "—"}
+                    {price !== null ? `${price} ${cur()}` : "—"}
                   </span>
                 </div>
               );

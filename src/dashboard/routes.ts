@@ -1372,7 +1372,7 @@ const SHOP_GROUP_JIDS: string[] = (
   .map((s) => s.trim())
   .filter(Boolean);
 
-const SHOP_TZ = process.env.TIMEZONE || "Africa/Casablanca";
+const SHOP_TZ = process.env.TIMEZONE || "UTC";
 
 function shopLocalHour(ts: number): number {
   const h = new Date(ts * 1000).toLocaleString("en-GB", {

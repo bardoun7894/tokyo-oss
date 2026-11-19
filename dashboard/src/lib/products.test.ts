@@ -7,6 +7,8 @@ import {
   shiftAssignments,
   MAX_FORWARD_SELECTION,
 } from "./products.ts";
+import { setCurrency } from "./currency";
+setCurrency("DH"); // captions carry the configured currency; these fixtures are priced in DH
 
 // applyMarkup ----------------------------------------------------------
 assert.equal(applyMarkup(58), 58, "no markup returns original price");

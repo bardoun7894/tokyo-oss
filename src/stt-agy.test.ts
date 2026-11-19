@@ -78,16 +78,31 @@ test(
 );
 
 test(
-  "the WhatsApp 'ar' hint reaches the bridge as Moroccan Darija",
+  "an 'ar' hint with no profile dialect reaches the bridge as plain Arabic",
   withFetch(
     ({ init }) => {
-      assert.equal(init.headers["X-Language"], "Moroccan Darija (Arabic)");
+      assert.equal(init.headers["X-Language"], "Arabic (any dialect, written as spoken)");
       return json(200, { text: "واخا" });
     },
-    ENV,
+    { ...ENV, PROFILE_LANGUAGE: undefined },
     async () => {
       const r = await transcribe(Buffer.from("AUDIO"), "ogg", "ar");
       assert.equal(r?.text, "واخا");
+    },
+  ),
+);
+
+test(
+  "an 'ar' hint uses the owner's own dialect from the profile",
+  withFetch(
+    ({ init }) => {
+      assert.equal(init.headers["X-Language"], "Egyptian Arabic");
+      return json(200, { text: "ماشي" });
+    },
+    { ...ENV, PROFILE_LANGUAGE: "Egyptian Arabic" },
+    async () => {
+      const r = await transcribe(Buffer.from("AUDIO"), "ogg", "ar");
+      assert.equal(r?.text, "ماشي");
     },
   ),
 );

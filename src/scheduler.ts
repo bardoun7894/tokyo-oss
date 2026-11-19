@@ -6,13 +6,19 @@ import { formatPromiseSummary } from "./promises";
 import { getUpcomingDeadlines, clearOldConversations, getAllActiveTasks, getHabitLogsForDate, getAdhkarStatus, getClientLastContact, getExpenseTotal, getIncomeSummary } from "./db";
 import { generateAIDigest } from "./research";
 import { checkIdleSessions, updatePromiseStatuses } from "./auto_log";
-import { localToday } from "./utils";
+import { localToday, tz } from "./utils";
+import { prayerOn } from "./profile";
 import { generateMorningSummary } from "./whatsapp-ai";
 import { setJournalPromptTime } from "./index";
 import type { Bot } from "grammy";
 import { pushReminder } from "./control/push/reminders";
 
 let prayerTimers: NodeJS.Timeout[] = [];
+
+// Daily jobs run on the user's clock, not the server's.
+function daily(expr: string, fn: () => unknown) {
+  return cron.schedule(expr, fn as () => void, { timezone: tz() });
+}
 const expenseAlertSentDays = new Set<string>();
 
 async function sendMessage(bot: Bot, chatId: string, text: string, keyboard?: InlineKeyboard) {
@@ -55,7 +61,7 @@ async function sendSmartTaskDigest(bot: Bot, chatId: string, mode: "morning" | "
         kb.text(`✅ ${h.name}`, `habit:${h.id}`).row();
       }
     }
-    if (!adhkar.morning) {
+    if (prayerOn() && !adhkar.morning) {
       kb.text("✅ Morning Adhkar", "adhkar:morning").row();
     }
 
@@ -96,7 +102,7 @@ async function sendSmartTaskDigest(bot: Bot, chatId: string, mode: "morning" | "
         kb.text(`✅ ${h.name}`, `habit:${h.id}`).row();
       }
     }
-    if (!adhkar.evening) {
+    if (prayerOn() && !adhkar.evening) {
       kb.text("✅ Evening Adhkar", "adhkar:evening").row();
     }
 
@@ -105,11 +111,15 @@ async function sendSmartTaskDigest(bot: Bot, chatId: string, mode: "morning" | "
   }
 }
 
+// With prayer off, the daily rhythm hangs on fixed times instead of prayer times.
+const PLAIN_DAY_ANCHORS = { fajr: "07:00", sunrise: "07:00", dhuhr: "13:00", asr: "16:00", maghrib: "19:00", isha: "21:00" };
+
 async function schedulePrayerReminders(bot: Bot, chatId: string) {
   for (const t of prayerTimers) clearTimeout(t);
   prayerTimers = [];
 
-  const times = await getTodayPrayerTimes();
+  const withPrayer = prayerOn();
+  const times = withPrayer ? await getTodayPrayerTimes() : PLAIN_DAY_ANCHORS;
 
   const prayers = [
     { name: "Fajr", time: times.fajr, emoji: "🌅", msg: "وقت صلاة الفجر. قم وصلِّ! The best way to start your day." },
@@ -119,7 +129,7 @@ async function schedulePrayerReminders(bot: Bot, chatId: string) {
     { name: "Isha", time: times.isha, emoji: "🌙", msg: "وقت صلاة العشاء. End your day right." },
   ];
 
-  for (const prayer of prayers) {
+  if (withPrayer) for (const prayer of prayers) {
     const ms = msUntilTime(prayer.time);
     if (ms > 0) {
       prayerTimers.push(setTimeout(() => {
@@ -132,7 +142,7 @@ async function schedulePrayerReminders(bot: Bot, chatId: string) {
   // Morning adhkar — 30 min after Fajr
   const fajrMs = msUntilTime(times.fajr);
   const morningAdhkarMs = fajrMs + 30 * 60000;
-  if (morningAdhkarMs > 0) {
+  if (withPrayer && morningAdhkarMs > 0) {
     prayerTimers.push(setTimeout(() => {
       const kb = new InlineKeyboard()
         .text("✅ Done Morning Adhkar", "adhkar:morning")
@@ -145,7 +155,7 @@ async function schedulePrayerReminders(bot: Bot, chatId: string) {
   // Evening adhkar — 30 min before Maghrib
   const maghribMs = msUntilTime(times.maghrib);
   const eveningAdhkarMs = maghribMs - 30 * 60000;
-  if (eveningAdhkarMs > 0) {
+  if (withPrayer && eveningAdhkarMs > 0) {
     prayerTimers.push(setTimeout(() => {
       const kb = new InlineKeyboard()
         .text("✅ Done Evening Adhkar", "adhkar:evening");
@@ -163,9 +173,16 @@ async function schedulePrayerReminders(bot: Bot, chatId: string) {
     Isha: "End of day — how was it overall? What will you do better tomorrow?",
   };
 
-  for (const prayer of prayers) {
+  // Without prayer: two journal check-ins, midday and evening.
+  const journalSlots = withPrayer
+    ? prayers
+    : [{ name: "Midday", time: times.dhuhr }, { name: "Evening", time: times.isha }];
+  journalPrompts.Midday = journalPrompts.Dhuhr;
+  journalPrompts.Evening = journalPrompts.Isha;
+
+  for (const prayer of journalSlots) {
     const afterPrayerMs = msUntilTime(prayer.time) + 15 * 60000; // 15 min after adhan
-    if (afterPrayerMs > 0 && prayer.name !== "Fajr") { // Fajr handled by morning adhkar
+    if (withPrayer && afterPrayerMs > 0 && prayer.name !== "Fajr") { // Fajr handled by morning adhkar
       prayerTimers.push(setTimeout(() => {
         const kb = new InlineKeyboard()
           .text("✅ Post-Prayer Adhkar", "adhkar:post_prayer");
@@ -182,7 +199,7 @@ async function schedulePrayerReminders(bot: Bot, chatId: string) {
         try { setJournalPromptTime(); } catch {}
         pushReminder("journal", prayer.name, prayer.name);
         sendMessage(bot, chatId,
-          `*Post-${prayer.name} Journal*\n\n${prompt}\n\n_Just reply with your thoughts — I'll save it as a journal entry._`
+          `*${withPrayer ? `Post-${prayer.name}` : prayer.name} Journal*\n\n${prompt}\n\n_Just reply with your thoughts — I'll save it as a journal entry._`
         );
       }, journalMs));
     }
@@ -213,7 +230,7 @@ async function schedulePrayerReminders(bot: Bot, chatId: string) {
   }
 
   // Friday Jumu'ah — 1 hour before Dhuhr
-  if (new Date().getDay() === 5) {
+  if (withPrayer && new Date().getDay() === 5) {
     const jumuahMs = msUntilTime(times.dhuhr) - 60 * 60000;
     if (jumuahMs > 0) {
       prayerTimers.push(setTimeout(() => {
@@ -227,6 +244,7 @@ async function schedulePrayerReminders(bot: Bot, chatId: string) {
     }
   }
 
+  if (!withPrayer) { console.log("Daily reminders set (prayer off)"); return; }
   console.log(`Prayer reminders set: ${Object.entries(times).map(([k, v]) => `${k}=${v}`).join(", ")}`);
 }
 
@@ -237,14 +255,14 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   schedulePrayerReminders(bot, chatId);
 
   // Midnight: re-fetch prayer times + set next day's reminders
-  cron.schedule("0 0 * * *", async () => {
+  daily("0 0 * * *", async () => {
     console.log("Midnight: refreshing prayer times...");
     await schedulePrayerReminders(bot, chatId);
     await prefetchTomorrow();
   });
 
   // Morning briefing — 5:30 AM
-  cron.schedule("30 5 * * *", async () => {
+  daily("30 5 * * *", async () => {
     try {
       const briefing = await generateBriefing();
       await sendMessage(bot, chatId, `🌅 *Morning Briefing*\n\n${briefing}`);
@@ -258,7 +276,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // WhatsApp overnight summary — 5:45 AM
-  cron.schedule("45 5 * * *", async () => {
+  daily("45 5 * * *", async () => {
     try {
       const waSummary = await generateMorningSummary();
       if (waSummary && waSummary.length > 10) {
@@ -272,7 +290,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   // Midday check-in and break reminders replaced by Smart Coach (coach.ts)
 
   // Evening review — 9:00 PM
-  cron.schedule("0 21 * * *", async () => {
+  daily("0 21 * * *", async () => {
     try {
       const review = await generateReview();
       await sendMessage(bot, chatId, `🌙 *Evening Review*\n\n${review}`);
@@ -282,7 +300,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // Deadline warning — 9 AM
-  cron.schedule("0 9 * * *", async () => {
+  daily("0 9 * * *", async () => {
     try {
       const deadlines = getUpcomingDeadlines(3) as any[];
       if (deadlines.length > 0) {
@@ -295,7 +313,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // M5.4: Monthly expense vs income overspend alert — 9 AM daily
-  cron.schedule("0 9 * * *", async () => {
+  daily("0 9 * * *", async () => {
     try {
       const today = localToday();
       if (expenseAlertSentDays.has(today)) return;
@@ -334,7 +352,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // Weekly report — Sunday 8 PM
-  cron.schedule("0 20 * * 0", async () => {
+  daily("0 20 * * 0", async () => {
     try {
       const report = await generateWeeklyReport();
       await sendMessage(bot, chatId, `📊 *Weekly Report*\n\n${report}`);
@@ -344,7 +362,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // Client follow-up alerts — 10:00 AM
-  cron.schedule("0 10 * * *", async () => {
+  daily("0 10 * * *", async () => {
     try {
       const clients = getClientLastContact();
       const overdue = clients.filter(c => c.days_ago >= 5);
@@ -361,7 +379,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // Daily AI Digest — 8:00 AM (after morning routine)
-  cron.schedule("0 8 * * *", async () => {
+  daily("0 8 * * *", async () => {
     try {
       const digest = await generateAIDigest();
       if (digest && digest.length > 30) {
@@ -373,17 +391,17 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // Cleanup — Sunday 3 AM
-  cron.schedule("0 3 * * 0", () => {
+  daily("0 3 * * 0", () => {
     clearOldConversations(7);
     console.log("Cleared old conversations.");
   });
 
-  cron.schedule("*/15 6-22 * * *", () => {
+  daily("*/15 6-22 * * *", () => {
     checkIdleSessions();
   });
 
   // Proactive checks — every 15 min during waking hours
-  cron.schedule("*/15 7-22 * * *", async () => {
+  daily("*/15 7-22 * * *", async () => {
     try {
       const { runProactiveChecks } = await import("./proactive");
       await runProactiveChecks(bot, chatId);
@@ -393,7 +411,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
   });
 
   // SaaS momentum — Sunday 10 AM
-  cron.schedule("0 10 * * 0", async () => {
+  daily("0 10 * * 0", async () => {
     try {
       const { checkSaaSMomentum } = await import("./proactive");
       await checkSaaSMomentum(bot, chatId);
@@ -402,7 +420,7 @@ export function startScheduler(bot: Bot, generateBriefing: () => Promise<string>
     }
   });
 
-  cron.schedule("0 0 * * *", () => {
+  daily("0 0 * * *", () => {
     updatePromiseStatuses();
   });
 

@@ -1,6 +1,7 @@
 import type { Agent, AgentContext, AgentResult, AgentDomain } from "../types";
 import type { AgentEvent } from "../event-bus";
 import { localToday, localNow } from "../../utils";
+import { currency, shopOn, prayerOn } from "../../profile";
 
 // ─── Helpers ───────────────────────────────────────────────
 
@@ -250,8 +251,8 @@ async function handleWeek(ctx: AgentContext): Promise<AgentResult> {
       `📋 Tasks: ${progress.tasks.completed} done / ${progress.tasks.created} created`,
       `⏱ Work: ${progress.work.totalHours}h${Object.entries(progress.work.byType).map(([k, v]) => ` (${k}: ${v}h)`).join("") || ""}`,
       `✅ Habits: ${progress.habits.rate}% completion`,
-      `📖 Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)`,
-      `💰 Income: ${progress.finance.total} DH${progress.finance.shopRevenue ? ` + ${progress.finance.shopRevenue} shop` : ""}`,
+      ...(prayerOn() ? [`📖 Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)`] : []),
+      `💰 Income: ${progress.finance.total} ${currency()}${shopOn() && progress.finance.shopRevenue ? ` + ${progress.finance.shopRevenue} shop` : ""}`,
       `📝 Journal: ${progress.journal.entries} entries`,
     ];
 
@@ -415,8 +416,7 @@ async function handleAction(action: Record<string, any>, ctx: AgentContext): Pro
 Tasks: ${progress.tasks.completed} done / ${progress.tasks.created} created
 Work: ${progress.work.totalHours}h (${progress.work.daysWorked} days, avg ${progress.work.avgHoursPerWorkDay}h/day)
 Habits: ${progress.habits.rate}% completion
-Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)
-Income: ${progress.finance.total} DH (dev: ${progress.finance.devIncome}, shop: ${progress.finance.shopRevenue})
+${prayerOn() ? `Quran: ${progress.deen.quranPages} pages (${progress.deen.quranDays} days)\n` : ""}Income: ${progress.finance.total} ${currency()} (work: ${progress.finance.devIncome}${shopOn() ? `, shop: ${progress.finance.shopRevenue}` : ""})
 Journal: ${progress.journal.entries} entries`;
     }
 

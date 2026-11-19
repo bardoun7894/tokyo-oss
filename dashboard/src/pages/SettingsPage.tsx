@@ -10,7 +10,8 @@ import { ThemeToggle } from "../components/layout/ThemeToggle";
 
 const SECTIONS: { id: SettingItem["section"] | "security" | "appearance"; title: string; intro: string }[] = [
   { id: "appearance", title: "Appearance", intro: "Theme for this browser." },
-  { id: "profile", title: "Profile", intro: "Who you are and where you pray." },
+  { id: "profile", title: "Profile", intro: "Who you are, where you live, your language, currency and work. Telegram /setup asks the same questions." },
+  { id: "features", title: "Features", intro: "Turn whole parts of Tokyo on or off. Values saved here override .env." },
   { id: "modules", title: "Pages", intro: "Which pages show in the sidebar and on Home." },
   { id: "ai", title: "AI", intro: "Models and the automatic decisions Tokyo makes." },
   { id: "whatsapp", title: "WhatsApp & shop", intro: "Voice notes, the shop group, contacts." },

@@ -2,19 +2,18 @@ import * as db from "./db";
 import { scoreTasks, type ScoringContext } from "./scoring";
 import { getCurrentState, type UserState } from "./state";
 import { getTodayPrayerTimes, getNextPrayer, getWorkWindows } from "./prayer";
-import { localToday, localNow } from "./utils";
+import { localToday, localNow, tz } from "./utils";
 
-const TZ = process.env.TIMEZONE || "Africa/Casablanca";
 
 function fmtTime(date: Date): string {
-  return date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: TZ });
+  return date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: tz() });
 }
 
 function fmtHHMM(timeStr: string): string {
   const [h, m] = timeStr.split(":").map(Number);
   const d = new Date();
   d.setHours(h, m, 0, 0);
-  return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: TZ });
+  return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: tz() });
 }
 
 function hhmmToMins(timeStr: string): number {
@@ -215,7 +214,7 @@ export async function getTimelineOutput(): Promise<string> {
     year: "numeric",
     month: "long",
     day: "numeric",
-    timeZone: TZ,
+    timeZone: tz(),
   });
 
   interface TimeEntry {

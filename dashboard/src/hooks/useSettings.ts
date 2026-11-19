@@ -1,9 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { api, postApi } from "../api/client";
+import { setCurrency } from "../lib/currency";
 
 export interface SettingItem {
   key: string;
-  section: "profile" | "modules" | "ai" | "whatsapp" | "jobhunt";
+  section: "profile" | "features" | "modules" | "ai" | "whatsapp" | "jobhunt";
   label: string;
   type: "bool" | "number" | "text" | "select";
   help?: string;
@@ -22,7 +23,10 @@ export const SETTINGS_KEY = ["settings"] as const;
 export function useSettings() {
   return useQuery<SettingItem[]>({
     queryKey: SETTINGS_KEY,
-    queryFn: () => api<{ settings: SettingItem[] }>("/api/settings").then((d) => d.settings),
+    queryFn: () => api<{ settings: SettingItem[] }>("/api/settings").then((d) => {
+      setCurrency(d.settings.find((x) => x.key === "CURRENCY")?.value);
+      return d.settings;
+    }),
     staleTime: 60_000,
   });
 }

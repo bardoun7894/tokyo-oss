@@ -1,4 +1,4 @@
-import { OWNER_NAME, OWNER_PROFILE } from "./owner-profile";
+import { ownerName, ownerProfile, languageRule, currency, prayerOn, shopOn } from "./profile";
 import { exec } from 'child_process';
 import { runModelCli } from './model-cli';
 import { promisify } from 'util';
@@ -121,9 +121,12 @@ function getTodayStr(): string {
   return localToday();
 }
 
-const SYSTEM_PROMPT = `You are Tokyo — a personal life & work management assistant for ${OWNER_NAME}.
-${OWNER_PROFILE}
-Keep messages short, actionable, and in the user's language.`;
+/** Read per call so a /setup change applies to the next message. */
+export function systemPrompt(): string {
+  return `You are Tokyo — a personal life & work management assistant for ${ownerName()}.
+${ownerProfile()}
+Keep messages short and actionable. ${languageRule()}`;
+}
 
 export async function buildContext(): Promise<string> {
   const today = getTodayStr();
@@ -136,7 +139,7 @@ export async function buildContext(): Promise<string> {
   const clients = db.getActiveClients() as any[];
 
   let prayerCtx = "";
-  try {
+  if (prayerOn()) try {
     const times = await getTodayPrayerTimes();
     const next = await getNextPrayer();
     const windows = await getWorkWindows();
@@ -155,13 +158,11 @@ ${windows.map((w) => `${w.start}-${w.end} (${Math.floor(w.durationMinutes / 60)}
     .join(", ") || "nothing tracked";
 
   const financialCtx = getFinancialContext();
-  const deenCtx = getDeenContext();
+  const deenCtx = prayerOn() ? getDeenContext() : "";
 
   return `## Current Context (${today})
 
-${prayerCtx}
-
-### Active Tasks (${tasks.length})
+${prayerCtx}${prayerCtx ? "\n\n" : ""}### Active Tasks (${tasks.length})
 ${tasks.length > 0
     ? tasks.map((t) => {
         const subs = db.getSubtasks(t.id) as any[];
@@ -193,10 +194,7 @@ ${schedule.length > 0 ? schedule.map((s) => `- ${s.time}: ${s.title}${s.recurrin
 ### Habits Today
 ${habits.length > 0 ? habits.map((h) => `- ${h.done ? "✅" : "⬜"} ${h.name}`).join("\n") : "No habits tracked."}
 
-### Deen Today
-${deenCtx}
-
-### Work Today
+${deenCtx ? `### Deen Today\n${deenCtx}\n\n` : ""}### Work Today
 Total: ${workStats.totalWorkMinutes} min work, ${workStats.totalBreakMinutes} min breaks
 By type: ${workByType}
 
@@ -211,7 +209,7 @@ ${(() => {
       const total = db.getExpenseTotal(mStart, today);
       const summary = db.getExpenseSummary(mStart, today);
       if (total === 0) return "No expenses logged this month.";
-      return `Total: ${total} MAD\n${summary.map((s: any) => `- ${s.category}: ${s.total} MAD`).join("\n")}`;
+      return `Total: ${total} ${currency()}\n${summary.map((s: any) => `- ${s.category}: ${s.total} ${currency()}`).join("\n")}`;
     } catch { return "No expense data."; }
   })()}
 
@@ -236,7 +234,7 @@ ${(() => {
     try {
       const byCategory = db.getUnrepliedByCategory();
       const catLabels: Record<string, string> = { client: "👤 Client", shop: "🏪 Shop", family: "👨‍👩‍👧 Family", personal: "🏠 Personal", other: "📱 Other" };
-      const catOrder = ["client", "shop", "family", "personal", "other"];
+      const catOrder = ["client", ...(shopOn() ? ["shop"] : []), "family", "personal", "other"];
       const lines: string[] = [];
       let totalUnreplied = 0;
       for (const cat of catOrder) {
@@ -270,7 +268,7 @@ export async function chat(userMessage: string, bot?: Bot, chatId?: number): Pro
   db.saveConversation("user", userMessage);
 
   const assistantMessage = await aiCall(
-    `${SYSTEM_PROMPT}\n\n${getSkillsPromptSection()}\n\n${context}`,
+    `${systemPrompt()}\n\n${getSkillsPromptSection()}\n\n${context}`,
     messages,
     2048
   );
@@ -283,11 +281,11 @@ export async function generateBriefing(type: "morning" | "evening" = "morning"):
   const context = await buildContext();
   const prompt =
     type === "morning"
-      ? "Generate a morning briefing. Include prayer times, today's priorities across dev/shop/learning roles, pending deadlines, habits to do, Quran/adhkar reminder, and goals progress. Check the Goals section for current goal status and mention any that need attention. Check the WhatsApp Messages section — highlight any unreplied client or shop messages that need attention. Start with بسم الله."
-      : "Generate an evening review. Summarize what was accomplished, habits done, work time split (dev vs shop), deen status (prayers/Quran/adhkar), balance score (1-10), and suggestions for tomorrow.";
+      ? `Generate a morning briefing. Include ${prayerOn() ? "prayer times, " : ""}today's priorities for the owner's work, pending deadlines, habits to do, ${prayerOn() ? "a Quran/adhkar reminder, " : ""}and goals progress. Check the Goals section for current goal status and mention any that need attention. Check the WhatsApp Messages section — highlight any unreplied messages that need attention.${prayerOn() ? " Start with بسم الله." : ""}`
+      : `Generate an evening review. Summarize what was accomplished, habits done, work time split by type, ${prayerOn() ? "deen status (prayers/Quran/adhkar), " : ""}balance score (1-10), and suggestions for tomorrow.`;
 
   return await aiCall(
-    `${SYSTEM_PROMPT}\n\n${context}`,
+    `${systemPrompt()}\n\n${context}`,
     [{ role: "user", content: prompt }],
     1500
   );
@@ -297,7 +295,7 @@ export async function generateCoaching(focusedPrompt: string): Promise<string> {
   const context = await buildContext();
 
   return await aiCall(
-    `${SYSTEM_PROMPT}\n\n${context}\n\nYou are sending a proactive coaching message. Be direct, concise (2-3 sentences max), and actionable. No greetings or fluff.`,
+    `${systemPrompt()}\n\n${context}\n\nYou are sending a proactive coaching message. Be direct, concise (2-3 sentences max), and actionable. No greetings or fluff.`,
     [{ role: "user", content: focusedPrompt }],
     500
   );

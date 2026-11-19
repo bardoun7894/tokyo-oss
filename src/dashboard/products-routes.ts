@@ -16,6 +16,7 @@ import { extractTitle, resolveCaption } from "../products/extract";
 import * as realWhatsApp from "../whatsapp";
 import { mediaDir } from "../media-dir";
 import { ensurePricedImage } from "../products/badge";
+import { currency } from "../profile";
 
 const FORWARD_SLEEP_MS = 1200;
 
@@ -339,7 +340,7 @@ function finalPriceFor(price: number, markup: number | undefined): number {
 function captionFor(title: string | null, price: number | null, markup: number | undefined, withPrice: boolean, note: string | undefined): string {
   const name = title || "Product";
   if (!withPrice || price === null) return note ? `${name}\n${note}` : name;
-  const base = `${name}\n${finalPriceFor(price, markup)} DH`;
+  const base = `${name}\n${finalPriceFor(price, markup)} ${currency()}`;
   return note ? `${base}\n${note}` : base;
 }
 
@@ -386,7 +387,7 @@ router.post("/api/products/forward", async (req: Request, res: Response) => {
             mediaDir(),
             path.basename(p.media_file),
             finalPriceFor(p.price, markup),
-            p.currency || "DH"
+            p.currency || currency()
           );
           // null means sharp could not read it — send the original rather than
           // dropping the product out of the batch.

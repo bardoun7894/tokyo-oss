@@ -1,7 +1,8 @@
 import db from "./db";
 import type { PrayerTimes, NextPrayer, TimeSlot } from "./types";
-import { localToday } from "./utils";
+import { localToday, localNow } from "./utils";
 import { setting } from "./settings";
+import { prayerOn } from "./profile";
 
 const PRAYER_BUFFER_MINUTES = 20; // buffer after each prayer time
 
@@ -37,8 +38,8 @@ export function initPrayerTable(): void {
 }
 
 async function fetchFromAladhan(date: string): Promise<PrayerTimes | null> {
-  const city = setting("PRAYER_CITY") || "Riyadh";
-  const country = setting("PRAYER_COUNTRY") || "Saudi Arabia";
+  const city = setting("PRAYER_CITY") || setting("PROFILE_CITY") || "Riyadh";
+  const country = setting("PRAYER_COUNTRY") || setting("PROFILE_COUNTRY") || "Saudi Arabia";
   const method = setting("PRAYER_METHOD") || "4"; // Umm Al-Qura
 
   try {
@@ -119,11 +120,22 @@ function timeToMinutes(timeStr: string): number {
 }
 
 function nowMinutes(): number {
-  const now = new Date();
+  const now = localNow();
   return now.getHours() * 60 + now.getMinutes();
 }
 
+/** With prayer off, nothing is "about to start": callers that wrap up work before a prayer stay quiet. */
+const NO_PRAYER: NextPrayer = { name: "none", time: "00:00", minutesUntil: 24 * 60 };
+
+/** With prayer off, the day splits into plain working blocks instead of the gaps between prayers. */
+const PLAIN_WORK_WINDOWS: TimeSlot[] = [
+  { start: "09:00", end: "13:00", durationMinutes: 240, label: "Morning" },
+  { start: "14:00", end: "18:00", durationMinutes: 240, label: "Afternoon" },
+  { start: "19:00", end: "22:00", durationMinutes: 180, label: "Evening" },
+];
+
 export async function getNextPrayer(): Promise<NextPrayer> {
+  if (!prayerOn()) return NO_PRAYER;
   const times = await getTodayPrayerTimes();
   const now = nowMinutes();
 
@@ -148,6 +160,7 @@ export async function getNextPrayer(): Promise<NextPrayer> {
 }
 
 export async function getWorkWindows(): Promise<TimeSlot[]> {
+  if (!prayerOn()) return PLAIN_WORK_WINDOWS.map((w) => ({ ...w }));
   const times = await getTodayPrayerTimes();
   const slots: TimeSlot[] = [];
 
@@ -179,8 +192,9 @@ export async function getWorkWindows(): Promise<TimeSlot[]> {
   return slots;
 }
 
+/** ms from now until HH:MM today on the user's clock (prayer times are in the user's timezone, not the server's). */
 export function msUntilTime(timeStr: string): number {
-  const now = new Date();
+  const now = localNow();
   const [h, m] = timeStr.split(":").map(Number);
   const target = new Date(now);
   target.setHours(h, m, 0, 0);

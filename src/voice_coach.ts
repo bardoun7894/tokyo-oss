@@ -20,7 +20,7 @@ function buildCoachPrompt(transcription: string, wpm: number | null): string {
   const wpmLine = wpm != null
     ? `Speaking rate: ${Math.round(wpm)} words per minute (typical natural speech is 120–160 WPM; >200 is fast).`
     : `Speaking rate: unknown (duration unavailable).`;
-  return `You are a speech coach for a multilingual user (Arabic MSA + Moroccan darija + English).
+  return `You are a speech coach for a multilingual user (any mix of languages and dialects).
 Judge whether the following transcription forms a coherent utterance ("جملة مفيدة") or is
 broken due to the speaker talking too fast and garbling the STT output.
 

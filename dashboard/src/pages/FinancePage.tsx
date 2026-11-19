@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useOverview } from "../hooks/useOverview";
 import { useTrends } from "../hooks/useTrends";
 import { StatTile, cx } from "@bardouni/ui";
+import { cur } from "../lib/currency";
 
 export default function FinancePage() {
   const navigate = useNavigate();
@@ -40,17 +41,17 @@ export default function FinancePage() {
       <div className="mb-6 flex flex-wrap gap-4">
         <StatTile
           className="min-w-[140px] flex-1 text-blue"
-          label="Dev Income (DH)"
+          label={`Work Income (${cur()})`}
           value={(f.monthDevIncome || 0).toLocaleString()}
         />
         <StatTile
           className="min-w-[140px] flex-1 text-orange"
-          label="Shop Revenue (DH)"
+          label={`Shop Revenue (${cur()})`}
           value={(f.monthShopRevenue || 0).toLocaleString()}
         />
         <StatTile
           className="min-w-[140px] flex-1 text-green"
-          label="Total (DH)"
+          label={`Total (${cur()})`}
           value={(f.monthTotal || 0).toLocaleString()}
         />
       </div>
@@ -93,7 +94,7 @@ export default function FinancePage() {
                   <th className="border-b border-line p-2 text-left text-fg2">Project</th>
                   <th className="border-b border-line p-2 text-right text-fg2">Hours</th>
                   <th className="border-b border-line p-2 text-right text-fg2">Income</th>
-                  <th className="border-b border-line p-2 text-right text-fg2">Rate (DH/h)</th>
+                  <th className="border-b border-line p-2 text-right text-fg2">Rate ({cur()}/h)</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,7 +106,7 @@ export default function FinancePage() {
                       {pr.income.toLocaleString()}
                     </td>
                     <td className="border-b border-line p-2 text-right font-semibold text-accent">
-                      {pr.rate} DH/h
+                      {pr.rate} {cur()}/h
                     </td>
                   </tr>
                 ))}
@@ -169,7 +170,7 @@ export default function FinancePage() {
                 <tr>
                   <th className="border-b border-line p-2 text-left text-fg2">Date</th>
                   <th className="border-b border-line p-2 text-right text-fg2">Items Sold</th>
-                  <th className="border-b border-line p-2 text-right text-fg2">Revenue (DH)</th>
+                  <th className="border-b border-line p-2 text-right text-fg2">Revenue ({cur()})</th>
                 </tr>
               </thead>
               <tbody>

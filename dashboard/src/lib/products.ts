@@ -1,3 +1,4 @@
+import { cur } from "./currency";
 /**
  * Pure, framework-free logic for the Products Catalog page.
  * No React, no fetch — kept separate so it can be unit-tested with a plain
@@ -87,7 +88,7 @@ export const DEFAULT_PAGE_SIZE = 60;
 
 // ── Pure helpers ─────────────────────────────────────────────────────────
 
-/** Percent markup on a price, rounded to the nearest whole DH (prices in this catalog are always whole numbers). */
+/** Percent markup on a price, rounded to the nearest whole unit (prices in this catalog are always whole numbers). */
 export function applyMarkup(price: number, markupPct?: number): number {
   if (!markupPct) return price;
   return Math.round(price * (1 + markupPct / 100));
@@ -95,9 +96,9 @@ export function applyMarkup(price: number, markupPct?: number): number {
 
 /**
  * Mirrors the backend's caption format exactly:
- * `${title}\n${finalPrice} DH` plus `\n${note}` -- only when withPrice is
+ * `${title}\n${finalPrice} <currency>` plus `\n${note}` -- only when withPrice is
  * true AND the item actually has a price. An unpriced item never gets a
- * "null DH" line; it just sends the title (plus note, if any).
+ * "null <currency>" line; it just sends the title (plus note, if any).
  */
 export function buildForwardCaption(
   title: string,
@@ -108,7 +109,7 @@ export function buildForwardCaption(
 ): string {
   const lines = [title];
   if (withPrice && price !== null) {
-    lines.push(`${applyMarkup(price, markupPct)} DH`);
+    lines.push(`${applyMarkup(price, markupPct)} ${cur()}`);
   }
   if (note) lines.push(note);
   return lines.join("\n");
